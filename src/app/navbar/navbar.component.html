@@ -1,9 +1,19 @@
 <nav>
-    <ul>
-        <li>
-            <a>
-                Mullegro
-            </a>
-        </li>
-    </ul>
+    <a [routerLink]="['']" routerLinkActive="active">
+        Mullegro
+    </a>
+    <div class="collapsable">
+        <ul>
+            <li>
+                <a [routerLink]="['login']" routerLinkActive="active">
+                    Login
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['register']" routerLinkActive="active">
+                    Register
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
