@@ -10,20 +10,22 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   isLogin: boolean = false
-  errorMessage: any
+  
   constructor(
     private _api: ApiService, 
     private _auth: AuthService, 
     private _router:Router
   ) { }
+
   ngOnInit() {
     this.isUserLogin(); 
   }
   
   attemptLogin(form: NgForm) {
+    const apiEndpoint = 'users/login';
     console.log('Your form data : ', form.value);
-    this._api.postTypeRequest('users/login', form.value).subscribe((res: any) => {
-     
+    this._api.postRequest(apiEndpoint, form.value).subscribe((res: any) => {
+      console.log(res);
       if (res.status) { 
         this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));  
         this._auth.setDataInLocalStorage('token', res.token);  

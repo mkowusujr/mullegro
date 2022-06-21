@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,22 +12,29 @@ export class ApiService {
   constructor(private _http: HttpClient) {
   }
 
-  getTypeRequest(url: string) {
+  getRequest(url: string): Observable<any> {
     return this._http.get(`${this.baseUrl}${url}`)
     .pipe(map(res => {
       return res;
     }));
   }
 
-  postTypeRequest(url: string, body: {}) {
+  postRequest(url: string, body: {}): Observable<any> {
     return this._http.post(`${this.baseUrl}${url}`, body)
     .pipe(map(res => {
       return res;
     }));
   }
 
-  putTypeRequest(url: string, body: {}) {
+  putRequest(url: string, body: {}): Observable<any> {
     return this._http.put(`${this.baseUrl}${url}`, body)
+    .pipe(map(res => {
+      return res;
+    }));
+  }
+
+  deleteRequest(url: string): Observable<any> {
+    return this._http.delete(`${this.baseUrl}${url}`)
     .pipe(map(res => {
       return res;
     }));
