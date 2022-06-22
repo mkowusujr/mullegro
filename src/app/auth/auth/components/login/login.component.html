@@ -1,8 +1,12 @@
-<div class="Login">
+<div class="Login" *ngIf="isLogin==false">
     <h4>Login</h4>
     <form #loginForm="ngForm" (ngSubmit)="attemptLogin(loginForm)"> 
         <input type="email" name="email" placeholder="Email" ngModel required>
         <input type="password" name="password" placeholder="Password" ngModel required>
         <input type="submit" value="Login">
     </form>
+</div>
+<div *ngIf="isLogin==true">
+    <p>You are signed In</p>
+    <button (click)="logout()">Logout</button>
 </div>
