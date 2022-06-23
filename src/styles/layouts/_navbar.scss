@@ -2,13 +2,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    // background-color: $navColor;
     h1 {
         font-size: x-large;
     }
     .collapsible ul {
         display: flex;
-        width: 40vw;
+        width: 30vw;
         justify-content: space-between;
         li {
             list-style: none;

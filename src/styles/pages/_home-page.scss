@@ -1,0 +1,29 @@
+.home-page {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 1em;
+    grid-row-gap: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.welcome-banner{
+    background-color: $welcome-banner;
+    color: white;
+
+    grid-column: 1 / span 3;
+
+    display: block;
+    padding: 1em;
+    border-radius: 0.25em;
+    // margin-bottom: 1.5em;
+
+    @include DropShadow();
+}
+
+.catagories {
+    // display: flex;
+    // flex-direction: column;
+    
+    // width: 100%;
+}

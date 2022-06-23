@@ -4,12 +4,15 @@
     overflow-x: hidden;
 }
 
-html, body {
+body {
     min-height: 100vh;
 }
 
-body {
+app-root {
+    display: flex;
+    flex-direction: column;
     margin: 1em;
+    min-height: calc(100vh - 2em);
 }
 
 h1, h2, h3 {
