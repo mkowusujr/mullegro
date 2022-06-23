@@ -5,6 +5,10 @@
     grid-column-gap: 1em;
     grid-row-gap: 1.5em;
     padding-bottom: 1.5em;
+    
+    @media screen and (max-width: $mobile-width-smaller) {
+        grid-template-columns: auto;
+    }
 }
 
 .welcome-banner{
@@ -16,14 +20,10 @@
     display: block;
     padding: 1em;
     border-radius: 0.25em;
-    // margin-bottom: 1.5em;
 
     @include DropShadow();
-}
-
-.catagories {
-    // display: flex;
-    // flex-direction: column;
-    
-    // width: 100%;
+    @media screen and (max-width: $mobile-width-smaller) {
+        grid-template-columns: auto;
+        grid-column: 1;
+    }
 }
