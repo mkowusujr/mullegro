@@ -11,6 +11,9 @@ import { ProfileComponent } from './pages/profile-page/profile.component';
 import { AppendJWT } from './core/interceptors/appendJWT.interceptor';
 import { HomeComponent } from './pages/home-page/home.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { OtherUserPageComponent } from './pages/other-user-page/other-user-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
     ProfileComponent,
     HomeComponent,
     FooterComponent,
+    ProductPageComponent,
+    CartPageComponent,
+    OtherUserPageComponent,
   ],
   imports: [
     BrowserModule,
