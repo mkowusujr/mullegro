@@ -3,6 +3,7 @@
 This project was created with
 - The [Angular](https://angular.io/) JS framework
 - [typescript](https://www.typescriptlang.org/) the js superset language that adds type safety to javascript
+- sass to make managing the css across the site more efficent
 - [webpack](https://webpack.js.org/) to bundle the project
 
 This projects relies on a backend api I created which can be found [here](https://github.com/mkowusujr/mullegro-api)
