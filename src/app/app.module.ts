@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth/auth.module';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProfileComponent } from './main/profile/profile.component';
-import { InterceptorService } from './services/interceptor-service.service';
+import { AuthModule } from './pages/auth/auth/auth.module';
+import { NavbarComponent } from './shared/layouts/navbar/navbar.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AppendJWT } from './core/interceptors/appendJWT.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { InterceptorService } from './services/interceptor-service.service';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
+      useClass: AppendJWT,
       multi: true
     }
   ],
