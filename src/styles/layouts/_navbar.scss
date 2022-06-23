@@ -1,8 +1,11 @@
 nav {
     display: flex;
     justify-content: space-between;
-    
-    background-color: $navColor;
+    align-items: baseline;
+    // background-color: $navColor;
+    h1 {
+        font-size: x-large;
+    }
     .collapsible ul {
         display: flex;
         width: 40vw;
