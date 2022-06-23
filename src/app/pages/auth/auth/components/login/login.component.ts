@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  isLogin: boolean = false
+  isLogin: boolean = false;
   
   constructor(
     private _api: ApiService, 
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isUserLogin(); 
+    // this.isUserLogin(); 
+    this.isLogin = this._auth.isLoggedIn();
   }
   
   attemptLogin(form: NgForm) {
@@ -32,11 +33,6 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['']);
       }
     })
-  }
-
-  isUserLogin(){
-    if(this._auth.getUserDetails() != null)
-        this.isLogin = true;
   }
 
   logout(){

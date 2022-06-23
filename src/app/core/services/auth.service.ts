@@ -25,4 +25,11 @@ export class AuthService {
   clearStorage() {
     localStorage.clear();
   }
+
+  isLoggedIn(){
+    if(this.getUserDetails() != null)
+        return true;
+    else
+      return false;
+  }
 }

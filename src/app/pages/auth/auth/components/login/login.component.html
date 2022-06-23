@@ -1,4 +1,4 @@
-<div class="Login" *ngIf="isLogin==false">
+<div class="Login" *ngIf="!isLogin">
     <h4>Login</h4>
     <form #loginForm="ngForm" (ngSubmit)="attemptLogin(loginForm)"> 
         <input type="text" name="email_or_username" placeholder="Email or Username" ngModel required>
@@ -6,7 +6,7 @@
         <input type="submit" value="Login">
     </form>
 </div>
-<div *ngIf="isLogin==true">
+<div *ngIf="isLogin">
     <p>You are signed In</p>
     <button (click)="logout()">Logout</button>
 </div>

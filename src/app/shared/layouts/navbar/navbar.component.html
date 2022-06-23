@@ -14,14 +14,24 @@
                     Search
                 </a>
             </li>
-            <li>
+            <li *ngIf="!name">
                 <a [routerLink]="['login']" routerLinkActive="active">
                     Login
                 </a>
             </li>
-            <li>
+            <li *ngIf="!name">
                 <a [routerLink]="['register']" routerLinkActive="active">
                     Register
+                </a>
+            </li>
+            <li *ngIf="name">
+                <a [routerLink]="['']" routerLinkActive="active">
+                    Cart
+                </a>
+            </li>
+            <li *ngIf="name">
+                <a [routerLink]="['profile']" routerLinkActive="active">
+                    {{name}}
                 </a>
             </li>
         </ul>

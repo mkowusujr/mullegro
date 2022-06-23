@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const apiEndpoint = 'users/user/profile';
+    const apiEndpoint = 'users/user/details';
     this._api.getRequest(apiEndpoint)
     .subscribe((res: any) => this.protectedData = res);
   }
