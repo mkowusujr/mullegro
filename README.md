@@ -2,7 +2,8 @@
 
 This project was created with
 - The [Angular](https://angular.io/) JS framework
-- [typescript](https://www.typescriptlang.org/) the js superset language that adds type safety
+- [typescript](https://www.typescriptlang.org/) the js superset language that adds type safety to javascript
+- [webpack](https://webpack.js.org/) to bundle the project
 
 This projects relies on a backend api I created which can be found [here](https://github.com/mkowusujr/mullegro-api)
 
@@ -15,6 +16,6 @@ Then run ng serve for a dev server. Navigate to http://localhost:4200/. The appl
 
 
 ## Credits
-Thanks to [Rasyue's article](https://rasyue.com/how-to-build-a-login-system-in-angular-express-js-mysql-with-jwt/) I use able to implement authentication with Jsonwebtoken
+Thanks to [Rasyue's article](https://rasyue.com/how-to-build-a-login-system-in-angular-express-js-mysql-with-jwt/) I use able to implement authentication with JSONWebtoken
 
 File Structure was inspired by [Touhid's Article on Medium](https://medium.com/javascript-in-plain-english/how-to-structure-angular-apps-in-2021-a0bdd481ad0d)
