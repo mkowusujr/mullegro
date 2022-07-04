@@ -13,7 +13,9 @@ This projects relies on a backend api I created which can be found [here](https:
 First Clone the Repo and cd into it 
 `git clone https://github.com/mkowusujr/mullegro.git`
 
-Then run ng serve for a dev server. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
+Make sure you have Nodejs and NPM installed on your machince. You can learn mre [here](https://nodejs.org/en/). You will also need to have angular installed, if you don't, run the following command: `npm install -g @angular/cli`.
+
+Then run `ng serve` for a dev server. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
 
 ## Credits
