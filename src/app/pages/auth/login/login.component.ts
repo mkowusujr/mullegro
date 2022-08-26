@@ -8,26 +8,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
 @Component({
   selector: 'app-login',
   template: `
-    <div class="Login">
-      <h4>Login</h4>
-      <form>
-        <input
-          type="text"
-          name="email_or_username"
-          placeholder="Email or Username"
-          ngModel
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          ngModel
-          required
-        />
-        <input type="submit" value="Login" />
-      </form>
-    </div>
+  <p>Login works</p>
   `,
 })
 export class LoginComponent implements OnInit {
