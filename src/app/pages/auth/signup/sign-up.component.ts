@@ -28,7 +28,11 @@ import { SignUpFormService } from './sign-up-form.service';
         <label for="#password2">Confirm Pasword</label>
         <input #password2 type="password" formControlName="password2" />
 
-        <input type="submit" value="Login" />
+        <input
+          type="submit"
+          value="Login"
+          [disabled]="!signUpFormService.valid"
+        />
       </form>
     </div>
   `

@@ -19,8 +19,8 @@ export class LoginFormService extends AbstractFormService<LoginForm> {
 
   buildForm(): FormGroup<any> {
     return this.fb.group({
-      emailOrUsername: ['', Validators.required],
-      password: ['', Validators.required]
+      emailOrUsername: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
