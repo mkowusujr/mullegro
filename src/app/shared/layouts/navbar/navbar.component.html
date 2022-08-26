@@ -1,10 +1,14 @@
 <nav>
-    <a>Mullegro</a>
+    <a [routerLink]="['']" routerLinkActive="active">Mullegro</a>
     <div class="collapsoble">
       <ul>
         <li>
-          <a>
-            Login | Register
+          <a [routerLink]="['login']" routerLinkActive="active">
+            Login
+          </a>
+          |
+          <a [routerLink]="['signup']" routerLinkActive="active">
+            Sign Up
           </a>
         </li>
       </ul>

@@ -7,16 +7,16 @@ import { LoginFormService } from './login-form.service';
   selector: 'app-login',
   providers: [LoginFormService],
   template: `
-  <div>
-    <h2>Login</h2>
-    <form [formGroup]="loginFormService.form" (ngSubmit)="onSubmit()">
-      <label for=#emailOrUsername>Email or Username</label>
-      <input #emailOrUsername type="text" formControlName="emailOrUsername" />
-      <label for=#password>Pasword</label>
-      <input #password type="password" formControlName="password" />
-      <input type="submit" value="Login"/>
-    </form>
-  </div>
+    <div class="login-page">
+      <h2>Welcome Back To Mullegro</h2>
+      <form [formGroup]="loginFormService.form" (ngSubmit)="onSubmit()" novalidate>
+        <label for="#emailOrUsername">Email or Username</label>
+        <input #emailOrUsername type="text" formControlName="emailOrUsername" />
+        <label for="#password">Pasword</label>
+        <input #password type="password" formControlName="password" />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
   `
 })
 export class LoginComponent implements OnInit {

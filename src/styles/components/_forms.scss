@@ -1,0 +1,28 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    @include centerOnX();
+    @include DefaultSpacings();
+    label {
+        font-size: small;
+        font-style: oblique;
+        font-weight: bold;
+    }
+}
+
+input {
+    border: 0.75px solid $borderOutline;
+    border-radius: 0.2em;
+    padding: 8px;
+    margin: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    &[type="text"]:focus,
+    &[type="email"]:focus,
+    &[type="password"]:focus {
+        transition-timing-function: ease-out;
+        transition-duration: 0.05s;
+        outline: 3px solid $card-g;
+    }
+}

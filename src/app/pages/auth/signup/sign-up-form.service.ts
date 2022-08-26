@@ -16,7 +16,7 @@ export class SignUpFormService extends AbstractFormService<User> {
   ) {
     super(fb);
   }
-  
+
   buildForm(): FormGroup<any> {
     return this.fb.group({
       name: ['', Validators.required],

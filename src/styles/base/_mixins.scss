@@ -10,3 +10,8 @@
 @mixin DropShadow() {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+@mixin DefaultSpacings() {
+    margin-top: 1.5em;
+    padding-bottom: 1.5em;
+}

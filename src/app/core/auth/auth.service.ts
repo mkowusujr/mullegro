@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
 
-  saveJwtToken(key: string, value: string) {
+  saveJwtToken(value: string) {
+    const key = 'jwt';
     localStorage.setItem(key, value);
   }
 
