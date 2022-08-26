@@ -16,8 +16,11 @@ export class UserService {
     return this._api.postRequest(loginEndpoint, loginForm);
   }
 
-  // register
-  // login
+  signup(user: object): Observable<any> {
+    const signupEndpoint = `${this.baseUrl}/register`;
+    return this._api.postRequest(signupEndpoint, user);
+  }
+  
   // get all
   // get one
   // remove acct
