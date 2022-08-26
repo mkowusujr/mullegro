@@ -6,19 +6,19 @@ import {
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthJwtService } from './auth-jwt.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private _auth: AuthService, private _router: Router) {}
+  constructor(private _jwt: AuthJwtService, private _router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this._auth.doesJwtExist()) {
+    if (this._jwt.doesJwtExist()) {
       return true;
     } else {
       this._router.navigate(['']);

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { SignUpFormService } from './sign-up-form.service';
 
 @Component({
@@ -39,18 +38,14 @@ import { SignUpFormService } from './sign-up-form.service';
 export class SignUpComponent implements OnInit {
   constructor(
     public signUpFormService: SignUpFormService,
-    private _auth: AuthService,
-    private _router: Router
+    private _authState: AuthStateService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     this.signUpFormService.submit().subscribe(res => {
-      if (!res.status) {
-        this._auth.saveJwtToken(res.token);
-        this._router.navigate(['']);
-      }
+      this._authState.login(res);
     });
   }
 }

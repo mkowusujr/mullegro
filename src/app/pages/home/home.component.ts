@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/auth/auth.service';
+import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
@@ -33,12 +33,15 @@ import { UserService } from 'src/app/core/services/api/user.service';
 })
 export class HomeComponent implements OnInit {
   name: string | undefined;
-  constructor(private _auth: AuthService, private _userService: UserService) {}
+  constructor(
+    private _authState: AuthStateService,
+    private _userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    if (this._auth.doesJwtExist())
+    if (this._authState.isSignedIn())
       this._userService.getLoggedInUserDetails().subscribe(res => {
-        console.log(res)
+        console.log(res);
         this.name = res.name;
       });
   }

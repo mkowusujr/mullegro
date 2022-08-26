@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces/user';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthJwtService {
   constructor() {}
 
   saveJwtToken(value: string) {
