@@ -4,12 +4,10 @@ import { AuthGuard } from '../core/auth/auth.guard';
 
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
-  {path: '', component: HomeComponent}
-];
+const routes: Routes = [{ path: '', component: HomeComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}

@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "pretty": "prettier --config .prettierrc --write \"./src/**/**.{ts,tsx,json}\""
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@angular-devkit/build-angular": "^14.0.2",
     "@angular/cli": "~14.0.2",
     "@angular/compiler-cli": "^14.0.0",
+    "prettier": "^2.7.1",
     "typescript": "~4.7.2"
   }
 }

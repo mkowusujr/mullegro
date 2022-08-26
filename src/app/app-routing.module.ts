@@ -4,7 +4,8 @@ import { PagesModule } from './pages/pages.module';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => PagesModule
+    path: '',
+    loadChildren: () => PagesModule
   }
 ];
 
@@ -12,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
