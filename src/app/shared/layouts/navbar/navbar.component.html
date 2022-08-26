@@ -1,0 +1,30 @@
+<nav>
+    <a [routerLink]="['']" routerLinkActive="active">Mullegro</a>
+    <div>
+      <ul>
+        <ng-template *ngIf="name; then thenBlock; else elseBlock"></ng-template>
+          <ng-template #thenBlock>
+          <li>
+            <a [routerLink]="['']" routerLinkActive="active">
+              {{name}}
+            </a>
+            |
+            <a [routerLink]="['']" routerLinkActive="active">
+              Cart
+            </a>
+          </li>
+        </ng-template>
+        <ng-template #elseBlock>
+          <li>
+          <a [routerLink]="['login']" routerLinkActive="active">
+            Login
+          </a>
+          |
+          <a [routerLink]="['signup']" routerLinkActive="active">
+            Sign Up
+          </a>
+        </li>
+        </ng-template>
+      </ul>
+    </div>
+</nav>

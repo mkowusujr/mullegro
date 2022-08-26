@@ -1,0 +1,14 @@
+.login-page {
+    @include DefaultSpacings();
+    margin-top: 4.5em;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        @include centerOnX();
+        font-size: xx-large  ;
+    }
+}
+
+.sign-up-page {
+    @extend .login-page
+}
