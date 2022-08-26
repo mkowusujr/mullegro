@@ -14,7 +14,7 @@ export class AuthService {
     return localStorage.getItem('jwt');
   }
 
-  removeJwtToken() {
+  clearJwtToken() {
     localStorage.clear();
   }
 
