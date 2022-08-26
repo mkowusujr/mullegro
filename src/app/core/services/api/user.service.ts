@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from '../../interfaces/user';
 
 import { ApiService } from './api.service';
 
@@ -19,6 +20,11 @@ export class UserService {
   signup(user: object): Observable<any> {
     const signupEndpoint = `${this.baseUrl}/register`;
     return this._api.postRequest(signupEndpoint, user);
+  }
+
+  getLoggedInUserDetails(): Observable<User> {
+    const userDetailsEndpoint = `${this.baseUrl}/user/details`;
+    return this._api.getRequest(userDetailsEndpoint);
   }
 
   // get all

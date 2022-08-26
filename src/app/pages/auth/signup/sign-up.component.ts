@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { SignUpFormService } from './sign-up-form.service';
 
 @Component({
-  selector: 'app-sign-up',
   providers: [SignUpFormService],
   template: `
     <div class="sign-up-page">
@@ -48,7 +47,7 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     this.signUpFormService.submit().subscribe(res => {
-      if (res.status) {
+      if (!res.status) {
         this._auth.saveJwtToken(res.token);
         this._router.navigate(['']);
       }

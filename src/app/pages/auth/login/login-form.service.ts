@@ -26,6 +26,5 @@ export class LoginFormService extends AbstractFormService<LoginForm> {
 
   submit(): Observable<any> {
     return this._userService.login(this.getFormValue());
-    // .pipe(tap(() => this.form.reset()))
   }
 }

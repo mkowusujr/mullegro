@@ -30,6 +30,5 @@ export class SignUpFormService extends AbstractFormService<User> {
 
   submit(): Observable<any> {
     return this._userService.signup(this.getFormValue());
-    // .pipe(tap(() => this.form.reset()))
   }
 }

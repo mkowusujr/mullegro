@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { LoginFormService } from './login-form.service';
 
 @Component({
-  selector: 'app-login',
   providers: [LoginFormService],
   template: `
     <div class="login-page">
@@ -37,7 +36,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.loginFormService.submit().subscribe();
+    this.loginFormService.submit().subscribe(res => {
+      console.log(res);
+      if (!res.status) {
+        this._auth.saveJwtToken(res.token);
+        this._router.navigate(['']);
+      }
+    });
   }
 
   logout() {
