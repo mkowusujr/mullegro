@@ -1,27 +1,23 @@
 # Mullegro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+This project was created with
 
-## Development server
+- The [Angular](https://angular.io/) JS framework
+- [typescript](https://www.typescriptlang.org/) the js superset language that adds type safety to javascript
+- sass to make managing the css across the site more efficent
+- [webpack](https://webpack.js.org/) to bundle the project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This projects relies on a backend api I created which can be found [here](https://github.com/mkowusujr/mullegro-api)
 
-## Code scaffolding
+## How to Install and Run
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+First Clone the Repo and cd into it
+`git clone https://github.com/mkowusujr/mullegro.git`
 
-## Build
+Make sure you have Nodejs and NPM installed on your machince. You can learn mre [here](https://nodejs.org/en/). You will also need to have angular installed, if you don't, run the following command: `npm install -g @angular/cli`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Then run `ng serve` for a dev server. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
-## Running unit tests
+## Credits
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+File Structure was inspired by [Touhid's Article on Medium](https://medium.com/javascript-in-plain-english/how-to-structure-angular-apps-in-2021-a0bdd481ad0d)
