@@ -20,7 +20,7 @@ export class UserService {
     const signupEndpoint = `${this.baseUrl}/register`;
     return this._api.postRequest(signupEndpoint, user);
   }
-  
+
   // get all
   // get one
   // remove acct

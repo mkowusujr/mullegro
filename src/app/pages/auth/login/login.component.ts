@@ -1,35 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { UserService } from 'src/app/core/services/api/user.service';
+import { LoginFormService } from './login-form.service';
 
 @Component({
   selector: 'app-login',
+  providers: [LoginFormService],
   template: `
-  <p>Login works</p>
-  `,
+    <form [formGroup]="loginFormService.form" (ngSubmit)="onSubmit()">
+      <label for=#emailOrUsername>Email or Username</label>
+      <input #emailOrUsername type="text" formControlName="emailOrUsername" />
+      <label for=#password>Pasword</label>
+      <input #password type="password" formControlName="password" />
+      <input type="submit"/>
+    </form>
+  `
 })
 export class LoginComponent implements OnInit {
   constructor(
+    public loginFormService: LoginFormService,
     private _auth: AuthService,
-    private _userService: UserService,
     private _router: Router
   ) {}
 
   ngOnInit(): void {}
 
-  attemptLogin(form: NgForm) {
-    console.log('Your form data : ', form.value);
-
-    this._userService.login(form.value).subscribe((res: any) => {
-      console.log(res);
-      if (res.status) {
-        this._auth.saveJwtToken('jwt', res.token);
-        this._router.navigate(['']);
-      }
-    });
+  onSubmit() {
+    this.loginFormService.submit().subscribe();
   }
 
   logout() {
