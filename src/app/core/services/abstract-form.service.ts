@@ -23,5 +23,5 @@ export abstract class AbstractFormService<T> {
     return this.form.valid;
   }
 
-  abstract submit(): Observable<any>;
+  abstract submitForm(): void;
 }
