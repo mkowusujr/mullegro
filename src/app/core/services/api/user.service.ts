@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl = '/users';
+  private baseUrl = '/users';
 
   constructor(private _api: ApiService) {}
 

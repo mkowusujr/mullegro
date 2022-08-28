@@ -13,11 +13,11 @@ export class AuthStateService {
   >(undefined);
   currentUser$: Observable<User | undefined> = this._currentUser.asObservable();
 
-  constructor(private _router: Router){//, private _userService: UserService) {
-    // this._userService
-    //   .getLoggedInUserDetails()
-    //   .pipe(take(1))
-    //   .subscribe(serverResponse => this.login(serverResponse));
+  constructor(private _router: Router, private _userService: UserService) {
+    this._userService
+      .getLoggedInUserDetails()
+      .pipe(take(1))
+      .subscribe(serverResponse => this._currentUser.next(serverResponse));
   }
 
   private saveJwtToken(value: string) {

@@ -12,14 +12,14 @@ import { AuthStateService } from './auth-state.service';
   providedIn: 'root'
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private _authState: AuthStateService) {}
+  constructor() {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let authReq = req;
-    const token = this._authState.getJwtToken();
+    const token = localStorage.getItem('jwt');//this._authState.getJwtToken();
     if (token)
       authReq = req.clone({
         headers: req.headers.set('Authorization', token)
