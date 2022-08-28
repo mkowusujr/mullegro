@@ -18,7 +18,5 @@ import { Post } from 'src/app/core/interfaces/post';
 export class PostListComponent implements OnInit {
   @Input() posts!: Post[] | null;
 
-  ngOnInit(): void {
-    console.log('all posts ' + this.posts);
-  }
+  ngOnInit(): void {}
 }

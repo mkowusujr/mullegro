@@ -13,7 +13,6 @@ import { Post } from 'src/app/core/interfaces/post';
   <a [routerLink]="[postRoute]" routerLinkActive="active">
     <p>post-list-card works!</p> 
   </a>
-  
   `
 })
 export class PostListCardComponent implements OnInit {
@@ -21,7 +20,6 @@ export class PostListCardComponent implements OnInit {
   postRoute = '';
 
   ngOnInit(): void {
-    console.log('one post ' + this.post);
     this.postRoute = `/post/${this.post.id}`;
   }
 }
