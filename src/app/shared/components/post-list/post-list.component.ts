@@ -12,5 +12,5 @@ import { Post } from 'src/app/core/interfaces/post';
 })
 export class PostListComponent {
   @Input() posts!: Post[] | null;
-  @Input() header!: string;
+  @Input() header?: string;
 }
