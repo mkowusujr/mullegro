@@ -8,6 +8,10 @@ import { ThreeColumnDisplayComponent } from '../shared/layouts/three-column-disp
 
 @NgModule({
   imports: [CommonModule, PagesRoutingModule],
-  declarations: [HomeComponent, UserProfileComponent, ThreeColumnDisplayComponent]
+  declarations: [
+    HomeComponent,
+    UserProfileComponent,
+    ThreeColumnDisplayComponent
+  ]
 })
 export class PagesModule {}

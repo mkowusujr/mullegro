@@ -13,11 +13,11 @@ import { User } from 'src/app/core/interfaces/user';
         <div col3>test 3</div>
       </three-column-display>
     </div>
-  `,
+  `
 })
 export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
-  
+
   constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {

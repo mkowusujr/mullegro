@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   template: `
     <div class="tri-col-display">
       <ng-content select="[col1]"></ng-content>
-        <div class="vertical-divider"></div>
+      <div class="vertical-divider"></div>
       <ng-content select="[col2]"></ng-content>
-        <div class="vertical-divider"div></div>
+      <div class="vertical-divider" div></div>
       <ng-content select="[col3]"></ng-content>
     </div>
   `
