@@ -6,7 +6,6 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthStateService } from './auth-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private getJwtToken(): string | null {
     return localStorage.getItem('jwt');
   }
-  
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
