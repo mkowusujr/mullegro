@@ -7,8 +7,9 @@ import { User } from '../interfaces/user';
   providedIn: 'root'
 })
 export class AuthStateService {
-  private _currentUser: BehaviorSubject<User | undefined> =
-    new BehaviorSubject<User | undefined>(undefined);
+  private _currentUser: BehaviorSubject<User | undefined> = new BehaviorSubject<
+    User | undefined
+  >(undefined);
   currentUser$: Observable<User | undefined> = this._currentUser.asObservable();
 
   constructor(private _router: Router) {}

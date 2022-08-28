@@ -34,11 +34,9 @@ import { User } from 'src/app/core/interfaces/user';
 })
 export class HomeComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
-  constructor(
-    private _authState: AuthStateService
-  ) {}
+  constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
-    this.currentUser$.pipe(take(1)).subscribe(res =>  console.log(res))
+    this.currentUser$.pipe(take(1)).subscribe(res => console.log(res));
   }
 }

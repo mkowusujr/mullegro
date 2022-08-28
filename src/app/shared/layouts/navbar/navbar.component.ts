@@ -10,9 +10,7 @@ import { User } from 'src/app/core/interfaces/user';
 export class NavbarComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
 
-  constructor(
-    private _authState: AuthStateService
-  ) {}
+  constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
