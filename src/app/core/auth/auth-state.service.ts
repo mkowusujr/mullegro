@@ -7,9 +7,9 @@ import { User } from '../interfaces/user';
   providedIn: 'root'
 })
 export class AuthStateService {
-  private _currentUser: BehaviorSubject<User | null> =
-    new BehaviorSubject<User | null>(null);
-  currentUser$: Observable<User | null> = this._currentUser.asObservable();
+  private _currentUser: BehaviorSubject<User | undefined> =
+    new BehaviorSubject<User | undefined>(undefined);
+  currentUser$: Observable<User | undefined> = this._currentUser.asObservable();
 
   constructor(private _router: Router) {}
 
@@ -41,7 +41,7 @@ export class AuthStateService {
 
   loggout() {
     this.clearJwtToken();
-    this._currentUser.next(null);
+    this._currentUser.next(undefined);
     this._router.navigate(['']);
   }
 
