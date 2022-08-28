@@ -9,13 +9,19 @@ import { Post } from 'src/app/core/interfaces/post';
 
 @Component({
   selector: 'post-list-card',
-  template: ` <p>post-list-card works!</p> `
+  template: ` 
+  <a [routerLink]="[postRoute]" routerLinkActive="active">
+    <p>post-list-card works!</p> 
+  </a>
+  
+  `
 })
 export class PostListCardComponent implements OnInit {
   @Input() post!: Post;
-  // postRoute = `/post/${this.post.id}`;
+  postRoute = '';
 
   ngOnInit(): void {
     console.log('one post ' + this.post);
+    this.postRoute = `/post/${this.post.id}`;
   }
 }
