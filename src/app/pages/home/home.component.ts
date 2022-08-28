@@ -37,6 +37,6 @@ export class HomeComponent implements OnInit {
   constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
-    this.currentUser$.pipe(take(1)).subscribe(res => console.log(res));
+    this.currentUser$ = this._authState.currentUser$;
   }
 }

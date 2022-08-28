@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 import { User } from '../interfaces/user';
+import { UserService } from '../services/api/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,12 @@ export class AuthStateService {
   >(undefined);
   currentUser$: Observable<User | undefined> = this._currentUser.asObservable();
 
-  constructor(private _router: Router) {}
+  constructor(private _router: Router){//, private _userService: UserService) {
+    // this._userService
+    //   .getLoggedInUserDetails()
+    //   .pipe(take(1))
+    //   .subscribe(serverResponse => this.login(serverResponse));
+  }
 
   private saveJwtToken(value: string) {
     const key = 'jwt';
