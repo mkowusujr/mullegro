@@ -3,6 +3,7 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { LoginFormService } from './login-form.service';
 
 @Component({
+  selector: 'login',
   providers: [LoginFormService],
   template: `
     <div class="login-page">

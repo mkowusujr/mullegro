@@ -4,7 +4,7 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   template: `
     <div class="home-page">
       <div class="welcome-banner">

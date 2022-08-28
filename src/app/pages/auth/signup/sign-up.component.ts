@@ -3,6 +3,7 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { SignUpFormService } from './sign-up-form.service';
 
 @Component({
+  selector: 'signup',
   providers: [SignUpFormService],
   template: `
     <div class="sign-up-page">
