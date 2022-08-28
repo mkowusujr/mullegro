@@ -26,8 +26,23 @@ export class UserService {
     return this._api.getRequest(userDetailsEndpoint);
   }
 
-  // get all
-  // get one
-  // remove acct
-  // search
+  getAllUsers(): Observable<User[]> {
+    const getAllUsersEndpoint = `${this.baseUrl}/user`;
+    return this._api.getRequest(getAllUsersEndpoint);
+  }
+
+  getUser(username: string): Observable<User[]> {
+    const getUserEndpoint = `${this.baseUrl}/user/${username}`;
+    return this._api.getRequest(getUserEndpoint);
+  }
+
+  deleteAccount(username: string): Observable<User[]> {
+    const deleteAccountEndpoint = `${this.baseUrl}/user/${username}`;
+    return this._api.deleteRequest(deleteAccountEndpoint);
+  }
+
+  getAllFilteredUsers(filter: string): Observable<User[]> {
+    const getAllFilteredUsersEndpoint = `${this.baseUrl}/user/search?query=${filter}`;
+    return this._api.getRequest(getAllFilteredUsersEndpoint);
+  }
 }
