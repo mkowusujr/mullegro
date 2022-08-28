@@ -21,16 +21,19 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
-  // posts$!: Post[];
 
-  constructor(private _authState: AuthStateService,
-   private _postService: PostService,
-   private route: ActivatedRoute) {}
+  constructor(
+    private _authState: AuthStateService,
+    private _postService: PostService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
-    let username = ''
-    this.route.params.pipe(take(1)).subscribe(params => username = params['username'])
+    let username = '';
+    this.route.params
+      .pipe(take(1))
+      .subscribe(params => (username = params['username']));
     this.posts$ = this._postService.getAllPostsForUser(username);
   }
 }

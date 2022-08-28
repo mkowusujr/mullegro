@@ -9,15 +9,15 @@ import { ApiService } from './api.service';
 export class PostService {
   private baseUrl = '/posts';
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService) {}
 
   getAllPostsForCurrentUser(): Observable<Post[]> {
-    const getAllPostsForCurrentUserEndpoint = `${this.baseUrl}/user/posts`
+    const getAllPostsForCurrentUserEndpoint = `${this.baseUrl}/user/posts`;
     return this._api.getRequest(getAllPostsForCurrentUserEndpoint);
   }
 
   createPost(newPost: Post): Observable<Post> {
-    const createPostEndpoint = `${this.baseUrl}/user/posts`
+    const createPostEndpoint = `${this.baseUrl}/user/posts`;
     return this._api.postRequest(createPostEndpoint, newPost);
   }
 
@@ -27,12 +27,12 @@ export class PostService {
   }
 
   getAllPosts(): Observable<Post[]> {
-    const getAllPostsEndpoint = `${this.baseUrl}`
+    const getAllPostsEndpoint = `${this.baseUrl}`;
     return this._api.getRequest(getAllPostsEndpoint);
   }
 
   getAllPostsForUser(username: string): Observable<Post[]> {
-    const getAllPostsForUserEndpoint = `${this.baseUrl}/users/user/${username}/posts`
+    const getAllPostsForUserEndpoint = `${this.baseUrl}/users/user/${username}/posts`;
     return this._api.getRequest(getAllPostsForUserEndpoint);
   }
 

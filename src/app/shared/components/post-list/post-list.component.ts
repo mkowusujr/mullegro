@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 import { Post } from 'src/app/core/interfaces/post';
 
 @Component({
@@ -13,6 +19,6 @@ export class PostListComponent implements OnInit {
   @Input() posts!: Post[] | null;
 
   ngOnInit(): void {
-    console.log('all posts ' + this.posts)
+    console.log('all posts ' + this.posts);
   }
 }
