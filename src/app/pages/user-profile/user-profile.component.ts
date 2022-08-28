@@ -13,7 +13,11 @@ import { PostService } from 'src/app/core/services/api/post.service';
       <three-column-display>
         <div col1>test 1</div>
         <div col2>test 2</div>
-        <post-list col3 [posts]="posts$ | async"></post-list>
+        <post-list
+          col3
+          [posts]="posts$ | async"
+          [header]="col3Header"
+        ></post-list>
       </three-column-display>
     </div>
   `
@@ -21,7 +25,7 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
-
+  col3Header!: string;
   constructor(
     private _authState: AuthStateService,
     private _postService: PostService,
@@ -35,5 +39,6 @@ export class UserProfileComponent implements OnInit {
       .pipe(take(1))
       .subscribe(params => (username = params['username']));
     this.posts$ = this._postService.getAllPostsForUser(username);
+    this.col3Header = `${username}'s Posts`;
   }
 }
