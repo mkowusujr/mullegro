@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +22,5 @@ export abstract class AbstractFormService<T> {
     return this.form.valid;
   }
 
-  abstract submit(): Observable<any>;
+  abstract submitForm(): void;
 }

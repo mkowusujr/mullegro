@@ -5,21 +5,24 @@ import {
   HttpInterceptor,
   HttpRequest
 } from '@angular/common/http';
-import { AuthJwtService } from './auth-jwt.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private _jwt: AuthJwtService) {}
+  constructor() {}
+
+  private getJwtToken(): string | null {
+    return localStorage.getItem('jwt');
+  }
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let authReq = req;
-    const token = this._jwt.getJwtToken();
+    const token = this.getJwtToken();
     if (token)
       authReq = req.clone({
         headers: req.headers.set('Authorization', token)

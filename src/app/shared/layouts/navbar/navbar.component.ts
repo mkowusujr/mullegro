@@ -1,24 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { UserService } from 'src/app/core/services/api/user.service';
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
-  name: string | undefined;
+  currentUser$!: Observable<User | undefined>;
 
-  constructor(
-    private _authState: AuthStateService,
-    private _userService: UserService
-  ) {}
+  constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
-    if (this._authState.isSignedIn())
-      this._userService.getLoggedInUserDetails().subscribe(res => {
-        console.log(res);
-        this.name = res.name;
-      });
+    this.currentUser$ = this._authState.currentUser$;
   }
 }

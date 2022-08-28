@@ -44,8 +44,6 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.signUpFormService.submit().subscribe(res => {
-      this._authState.login(res);
-    });
+    this.signUpFormService.submitForm();
   }
 }

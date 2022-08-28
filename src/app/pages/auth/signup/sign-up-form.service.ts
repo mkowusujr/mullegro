@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { take } from 'rxjs';
 
 import { AbstractFormService } from 'src/app/core/services/abstract-form.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 import { User } from 'src/app/core/interfaces/user';
+import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ import { User } from 'src/app/core/interfaces/user';
 export class SignUpFormService extends AbstractFormService<User> {
   constructor(
     protected override fb: FormBuilder,
-    private _userService: UserService
+    private _userService: UserService,
+    private _authState: AuthStateService
   ) {
     super(fb);
   }
@@ -28,7 +30,10 @@ export class SignUpFormService extends AbstractFormService<User> {
     });
   }
 
-  submit(): Observable<any> {
-    return this._userService.signup(this.getFormValue());
+  submitForm() {
+    this._userService
+      .signup(this.getFormValue())
+      .pipe(take(1))
+      .subscribe(serverResponse => this._authState.login(serverResponse));
   }
 }

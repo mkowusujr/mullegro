@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, take } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { UserService } from 'src/app/core/services/api/user.service';
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-home',
   template: `
     <div class="home-page">
       <div class="welcome-banner">
-        <h2>Welcome to Mullegro {{ name }}</h2>
+        <h2>Welcome to Mullegro {{ (currentUser$ | async)?.name }}</h2>
         <p>
           A community where music lovers can buy and sale their used instruments
         </p>
@@ -32,17 +33,10 @@ import { UserService } from 'src/app/core/services/api/user.service';
   styles: []
 })
 export class HomeComponent implements OnInit {
-  name: string | undefined;
-  constructor(
-    private _authState: AuthStateService,
-    private _userService: UserService
-  ) {}
+  currentUser$!: Observable<User | undefined>;
+  constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
-    if (this._authState.isSignedIn())
-      this._userService.getLoggedInUserDetails().subscribe(res => {
-        console.log(res);
-        this.name = res.name;
-      });
+    this.currentUser$ = this._authState.currentUser$;
   }
 }
