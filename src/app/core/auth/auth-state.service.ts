@@ -18,7 +18,7 @@ export class AuthStateService {
     localStorage.setItem(key, value);
   }
 
-  private getJwtToken(): string | null {
+  public getJwtToken(): string | null {
     return localStorage.getItem('jwt');
   }
 
@@ -30,7 +30,7 @@ export class AuthStateService {
     return this.getJwtToken() != null;
   }
 
-  login(serverResponse: any) {
+  public login(serverResponse: any) {
     console.log(serverResponse);
     if (!serverResponse.status) {
       this.saveJwtToken(serverResponse.token);
@@ -39,13 +39,13 @@ export class AuthStateService {
     }
   }
 
-  loggout() {
+  public loggout() {
     this.clearJwtToken();
     this._currentUser.next(undefined);
     this._router.navigate(['']);
   }
 
-  isSignedIn(): boolean {
+  public isSignedIn(): boolean {
     return this.doesJwtExist();
   }
 }
