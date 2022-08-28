@@ -6,6 +6,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => PagesModule
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: ''
   }
 ];
 
