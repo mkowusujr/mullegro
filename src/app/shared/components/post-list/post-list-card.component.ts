@@ -1,17 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Post } from 'src/app/core/interfaces/post';
 
 @Component({
   selector: 'post-list-card',
   template: `
-  <a [routerLink]="[(postRoute)]" routerLinkActive="active">
+ 
     <p>
       post-list-card works!
     </p>
-  </a>
   `
 })
-export class PostListCardComponent {
+export class PostListCardComponent implements OnInit {
+
   @Input() post!: Post;
-  postRoute = `/post/${this.post.id}`;
+  // postRoute = `/post/${this.post.id}`;
+
+  ngOnInit(): void {
+    console.log('one post ' + this.post)
+  }
 }

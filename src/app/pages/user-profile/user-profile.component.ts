@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, take } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { Post } from 'src/app/core/interfaces/post';
 import { User } from 'src/app/core/interfaces/user';
@@ -20,12 +21,16 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
+  // posts$!: Post[];
 
   constructor(private _authState: AuthStateService,
-   private _postService: PostService) {}
+   private _postService: PostService,
+   private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
-    this.posts$ = this._postService.getAllPostsForCurrentUser();
+    let username = ''
+    this.route.params.pipe(take(1)).subscribe(params => username = params['username'])
+    this.posts$ = this._postService.getAllPostsForUser(username);
   }
 }
