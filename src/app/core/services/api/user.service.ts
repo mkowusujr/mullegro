@@ -31,12 +31,12 @@ export class UserService {
     return this._api.getRequest(getAllUsersEndpoint);
   }
 
-  getUser(username: string): Observable<User[]> {
+  getUser(username: string): Observable<User> {
     const getUserEndpoint = `${this.baseUrl}/user/${username}`;
     return this._api.getRequest(getUserEndpoint);
   }
 
-  deleteAccount(username: string): Observable<User[]> {
+  deleteAccount(username: string): Observable<any> {
     const deleteAccountEndpoint = `${this.baseUrl}/user/${username}`;
     return this._api.deleteRequest(deleteAccountEndpoint);
   }
