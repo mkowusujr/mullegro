@@ -1,5 +1,11 @@
 <nav>
-    <a [routerLink]="['']" routerLinkActive="active">Mullegro</a>
+  <a 
+    [routerLink]="['']" 
+    routerLinkActive="active"
+    class="title"
+  >
+    Mullegro
+  </a>
     <div>
       <ul>
         <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>

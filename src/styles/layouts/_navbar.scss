@@ -3,7 +3,7 @@ nav {
     justify-content: space-between;
     align-items: baseline;
     color: $welcome-banner;
-    h1 {
+    .title {
         font-size: x-large;
     }
     @media screen and (max-width: $mobile-width){
