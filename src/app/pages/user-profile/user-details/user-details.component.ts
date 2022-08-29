@@ -1,19 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/core/interfaces/user';
-import { UserService } from 'src/app/core/services/api/user.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'user-details',
-  template: ` <p>user-details works!</p> `,
-  styles: []
+  template: `
+    <h1>Bio</h1>
+    <p>
+      <ng-content></ng-content>
+    </p>
+  `
 })
-export class UserDetailsComponent implements OnInit {
-  @Input() username!: string;
-  user$!: Observable<User>;
-  constructor(private _userService: UserService) {}
-
-  ngOnInit(): void {
-    this.user$ = this._userService.getUser(this.username);
-  }
-}
+export class UserDetailsComponent {}

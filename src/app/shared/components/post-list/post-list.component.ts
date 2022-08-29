@@ -5,8 +5,11 @@ import { Post } from 'src/app/core/interfaces/post';
   selector: 'post-list',
   template: `
     <h1>{{ header }}</h1>
-    <div *ngFor="let post of posts">
-      <post-list-card [post]="post"></post-list-card>
+
+    <div class="post-list-items">
+      <ng-container *ngFor="let post of posts">
+        <post-list-card [post]="post"></post-list-card>
+      </ng-container>
     </div>
   `
 })

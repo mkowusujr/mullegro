@@ -1,3 +1,11 @@
 user-profile {
     @include DefaultSpacings();
 }
+
+user-details {
+    width: 25vw;
+
+    p {
+        @include DefaultSpacings();
+    }
+}

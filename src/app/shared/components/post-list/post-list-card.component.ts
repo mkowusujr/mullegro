@@ -15,11 +15,10 @@ import { Post } from 'src/app/core/interfaces/post';
       routerLinkActive="active"
       class="post-list-card"
     >
-      <p>Post Image</p>
-      <div>
+      <p class="post-image">Post Image</p>
+      <div class="post-details">
         <ul>
           <li>{{ post.title }}</li>
-          <li>{{ post.type }}</li>
           <li>{{ post.condition }}</li>
           <li>{{ post.price | currency }}</li>
         </ul>

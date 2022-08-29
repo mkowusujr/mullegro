@@ -1,6 +1,25 @@
+.post-list-items {
+    @include DefaultSpacings();
+}
+
 .post-list-card {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 25vw;
+
+    background-color: $card-g;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 0.25em;
+
+    text-decoration: none;
+    color: black;
+
+    @include DropShadow();
+    &:hover {
+        background-color: $card-g-hover;
+    }
+    
+    .post-image {
+        margin-right: 30px;
+    }
 }

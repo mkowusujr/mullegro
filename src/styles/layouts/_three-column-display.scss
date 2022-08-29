@@ -1,4 +1,4 @@
-.tri-col-display {
+three-column-display {
     display: flex;
     flex-direction: row;
     justify-content:space-around;
@@ -6,6 +6,6 @@
 
 .vertical-divider {
     width: 3px;
-    margin: 6px 0;
+    // margin: 6px 0;
     background: $borderOutline;
 }

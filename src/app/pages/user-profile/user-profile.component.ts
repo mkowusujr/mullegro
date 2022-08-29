@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
-import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { Post } from 'src/app/core/interfaces/post';
 import { User } from 'src/app/core/interfaces/user';
 import { PostService } from 'src/app/core/services/api/post.service';
+import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
   selector: 'user-profile',
   template: `
     <three-column-display>
       <div col1>test 1</div>
-      <user-details col2 [username]="username"></user-details>
+
+      <user-details col2>
+        {{ (currentUser$ | async)?.bio }}
+      </user-details>
+
       <post-list
         col3
         [posts]="posts$ | async"
-        [header]="col3Header"
+        [header]="header"
       ></post-list>
     </three-column-display>
   `
@@ -23,21 +27,44 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
-  col3Header!: string;
-  username!: string;
+  header!: string;
   constructor(
-    private _authState: AuthStateService,
+    private _userService: UserService,
     private _postService: PostService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.currentUser$ = this._authState.currentUser$;
-    this.username = '';
+  getUsernameFromParams(): string {
+    let username = '';
     this.route.params
       .pipe(take(1))
-      .subscribe(params => (this.username = params['username']));
-    this.posts$ = this._postService.getAllPostsForUser(this.username);
-    this.col3Header = `${this.username}'s Posts`;
+      .subscribe(params => (username = params['username']));
+    return username;
+  }
+
+  getUsersPosts() {
+    this.posts$ = this._postService.getAllPostsForUser(
+      this.getUsernameFromParams()
+    );
+  }
+
+  setCurrentUserAndPosts(currentUser: User) {
+    this.currentUser$ = new Observable(observer => {
+      observer.next(currentUser);
+      observer.complete();
+    });
+    this.getUsersPosts();
+    this.header = `Posts by ${currentUser.username}`;
+  }
+
+  ngOnInit(): void {
+    this._userService
+      .getUser(this.getUsernameFromParams())
+      .pipe(take(1))
+      .subscribe({
+        next: currentUser => this.setCurrentUserAndPosts(currentUser),
+        error: _ => this._router.navigate([''])
+      });
   }
 }
