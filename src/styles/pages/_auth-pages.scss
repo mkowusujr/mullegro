@@ -1,4 +1,4 @@
-.login-page {
+login {
     @include DefaultSpacings();
     margin-top: 4.5em;
     display: flex;
@@ -9,6 +9,6 @@
     }
 }
 
-.sign-up-page {
-    @extend .login-page
+sign {
+    @extend login
 }
