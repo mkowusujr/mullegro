@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserProfileComponent } from './user-profile.component';
 
-const routes: Routes = [
-  { path: '', component: UserProfileComponent }
-];
+const routes: Routes = [{ path: '', component: UserProfileComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

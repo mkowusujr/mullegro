@@ -23,7 +23,10 @@ import { User } from 'src/app/core/interfaces/user';
       <p>View recently added instruments</p>
     </a>
 
-    <a class="card-g hover-card">
+    <a 
+      class="card-g hover-card" 
+      [routerLink]="['/users']"
+      routerLinkActive="active">
       <h2>Users</h2>
       <p>View the members of the mullegro community</p>
     </a>

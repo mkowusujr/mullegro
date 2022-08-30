@@ -18,9 +18,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
         [bio]="(currentUser$ | async)?.bio"
       ></user-profile-summary>
 
-      <user-profile-details col2>
-        User Stats...
-      </user-profile-details>
+      <user-profile-details col2> User Stats... </user-profile-details>
 
       <post-list col3 [posts]="posts$ | async" [header]="header"></post-list>
     </three-column-display>

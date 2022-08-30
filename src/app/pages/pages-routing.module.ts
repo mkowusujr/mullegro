@@ -8,7 +8,7 @@ import { UserPagesModule } from './users/user-pages.module';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: '', loadChildren: () => AuthPagesModule },
-  { path: '',  loadChildren: () => UserPagesModule}
+  { path: '', loadChildren: () => UserPagesModule }
 ];
 
 @NgModule({
