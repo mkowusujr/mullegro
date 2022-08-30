@@ -2,10 +2,22 @@ user-profile {
     @include DefaultSpacings();
 }
 
-user-details {
+user-profile-details {
     width: 25vw;
 
     p {
+        @include DefaultSpacings();
+    }
+}
+
+user-profile-avatar {
+    img {
+        width: 15em;
+        height: 15em;
+        border-radius: 0.5rem;
+        @include DropShadow();
+    }
+    .info {
         @include DefaultSpacings();
     }
 }

@@ -10,17 +10,18 @@ import { UserService } from 'src/app/core/services/api/user.service';
   selector: 'user-profile',
   template: `
     <three-column-display>
-      <div col1>test 1</div>
+      <user-profile-avatar
+        col1
+        [avatarImg]="(currentUser$ | async)?.profile_picture"
+        [userUsername]="(currentUser$ | async)?.username"
+        [userName]="(currentUser$ | async)?.name"
+      ></user-profile-avatar>
 
-      <user-details col2>
+      <user-profile-details col2>
         {{ (currentUser$ | async)?.bio }}
-      </user-details>
+      </user-profile-details>
 
-      <post-list
-        col3
-        [posts]="posts$ | async"
-        [header]="header"
-      ></post-list>
+      <post-list col3 [posts]="posts$ | async" [header]="header"></post-list>
     </three-column-display>
   `
 })
@@ -28,6 +29,7 @@ export class UserProfileComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
   header!: string;
+
   constructor(
     private _userService: UserService,
     private _postService: PostService,

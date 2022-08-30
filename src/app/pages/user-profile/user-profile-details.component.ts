@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'user-details',
+  selector: 'user-profile-details',
   template: `
     <h1>Bio</h1>
     <p>
@@ -9,4 +9,4 @@ import { Component } from '@angular/core';
     </p>
   `
 })
-export class UserDetailsComponent {}
+export class UserProfileDetailsComponent {}
