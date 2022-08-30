@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { AuthPagesModule } from './auth/auth-pages.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserPagesModule } from './users/user-pages.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: '', loadChildren: () => AuthPagesModule },
-  { path: 'user/:username', component: UserProfileComponent }
+  { path: '',  loadChildren: () => UserPagesModule}
 ];
 
 @NgModule({
