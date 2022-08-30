@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { UserPagesRoutingModule } from './user-pages-routing.module';
 import { UserProfileModule } from './user-profile/user-profile.module';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListModule } from './user-list/user-list.module';
 
 @NgModule({
-  declarations: [UserListComponent],
-  imports: [CommonModule, UserPagesRoutingModule, UserProfileModule]
+  declarations: [],
+  imports: [
+    CommonModule,
+    UserPagesRoutingModule,
+    UserProfileModule,
+    UserListModule
+  ]
 })
 export class UserPagesModule {}

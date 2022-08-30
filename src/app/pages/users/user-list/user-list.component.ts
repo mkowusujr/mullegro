@@ -5,17 +5,18 @@ import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
   selector: 'user-list',
-  template: ` 
-    <p>user-list works!</p> 
-    <ng-container *ngFor="let user of (users$ | async)">
-      <div>
-        {{user?.name}}
-      </div>
+  template: `
+    <ng-container *ngFor="let user of users$ | async">
+      <user-list-card
+        [avatarImg]="user?.profile_picture"
+        [userUsername]="user?.username"
+        [userName]="user?.name"
+      ></user-list-card>
     </ng-container>
   `
 })
 export class UserListComponent implements OnInit {
-  users$!: Observable<User[]>
+  users$!: Observable<User[]>;
 
   constructor(private _userService: UserService) {}
 

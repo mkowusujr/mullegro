@@ -3,12 +3,6 @@ user-profile {
 }
 
 user-profile-summary {
-    img {
-        width: 15em;
-        height: 15em;
-        border-radius: 0.5rem;
-        @include DropShadow();
-    }
     .info {
         @include DefaultSpacings();
         width: 25vw;
@@ -28,4 +22,35 @@ user-profile-details {
 
 user-list {
     @include DefaultSpacings();
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+user-list-card {
+    display:block;
+    padding: 1em;
+    background-color: $card-g;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 2em;
+    border-radius: 0.25em;
+    @include DropShadow();
+    @include DropShadowHover();
+}
+
+.user-list-card {
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        background-color: $card-g-hover;
+    }
+    img {
+        margin-bottom: 1em;
+    }
 }

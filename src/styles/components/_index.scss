@@ -1,3 +1,10 @@
 @import 'card';
 @import 'forms';
 @import 'posts';
+
+img {
+    width: 15em;
+    height: 15em;
+    border-radius: 0.5rem;
+    @include DropShadow();
+}
