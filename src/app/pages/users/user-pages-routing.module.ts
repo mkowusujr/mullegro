@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
-import { UserProfileModule } from './user-profile/user-profile.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: 'user/:username', loadChildren: () => UserProfileModule },
+  { path: 'user/:username', component: UserProfileComponent },
   { path: 'users', component: UserListComponent }
 ];
 
