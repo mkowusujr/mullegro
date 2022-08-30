@@ -38,6 +38,9 @@ user-list-card {
     border-radius: 0.25em;
     @include DropShadow();
     @include DropShadowHover();
+    &:hover {
+        background-color: $card-g-hover;
+    }
 }
 
 .user-list-card {
@@ -47,9 +50,6 @@ user-list-card {
     text-decoration: none;
     color: black;
 
-    &:hover {
-        background-color: $card-g-hover;
-    }
     img {
         margin-bottom: 1em;
     }

@@ -1,3 +1,11 @@
+app-navbar {
+    background-color: rgb(159, 199, 108);
+    display: block;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    @include DefaultSpacings();
+}
+
 nav {
     display: flex;
     justify-content: space-between;
