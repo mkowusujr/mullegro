@@ -12,4 +12,6 @@ footer {
     width: 100%;
     display: block;
     padding: 1em;
+    margin: 1em;
+    @include DropShadow();
 }

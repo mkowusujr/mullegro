@@ -27,7 +27,7 @@ export class UserService {
   }
 
   getAllUsers(): Observable<User[]> {
-    const getAllUsersEndpoint = `${this.baseUrl}/user`;
+    const getAllUsersEndpoint = `${this.baseUrl}`;
     return this._api.getRequest(getAllUsersEndpoint);
   }
 
