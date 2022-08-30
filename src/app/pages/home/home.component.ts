@@ -13,17 +13,17 @@ import { User } from 'src/app/core/interfaces/user';
       </p>
     </div>
 
-    <a class="card-r">
+    <a class="card-r hover-card">
       <h2>Catagories</h2>
       <p>View the types of instruments currently being sold</p>
     </a>
 
-    <a class="card-y">
+    <a class="card-y hover-card">
       <h2>New!</h2>
       <p>View recently added instruments</p>
     </a>
 
-    <a class="card-g">
+    <a class="card-g hover-card">
       <h2>Users</h2>
       <p>View the members of the mullegro community</p>
     </a>
