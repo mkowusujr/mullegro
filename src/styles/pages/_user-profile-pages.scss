@@ -2,15 +2,7 @@ user-profile {
     @include DefaultSpacings();
 }
 
-user-profile-details {
-    width: 25vw;
-
-    p {
-        @include DefaultSpacings();
-    }
-}
-
-user-profile-avatar {
+user-profile-summary {
     img {
         width: 15em;
         height: 15em;
@@ -18,6 +10,18 @@ user-profile-avatar {
         @include DropShadow();
     }
     .info {
+        @include DefaultSpacings();
+        width: 25vw;
+        .bio {
+            margin-top: 1em;
+        }
+    }
+}
+
+user-profile-details {
+    width: 25vw;
+
+    p {
         @include DefaultSpacings();
     }
 }

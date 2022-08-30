@@ -10,15 +10,16 @@ import { UserService } from 'src/app/core/services/api/user.service';
   selector: 'user-profile',
   template: `
     <three-column-display>
-      <user-profile-avatar
+      <user-profile-summary
         col1
         [avatarImg]="(currentUser$ | async)?.profile_picture"
         [userUsername]="(currentUser$ | async)?.username"
         [userName]="(currentUser$ | async)?.name"
-      ></user-profile-avatar>
+        [bio]="(currentUser$ | async)?.bio"
+      ></user-profile-summary>
 
       <user-profile-details col2>
-        {{ (currentUser$ | async)?.bio }}
+        User Stats...
       </user-profile-details>
 
       <post-list col3 [posts]="posts$ | async" [header]="header"></post-list>
