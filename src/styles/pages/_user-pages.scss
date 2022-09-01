@@ -22,18 +22,27 @@ user-profile-details {
 
 user-list {
     @include DefaultSpacings();
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-between;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    @media only screen and (max-width: 1475px) {
+        grid-template-columns: auto auto auto auto;
+    }
+    @media only screen and (max-width: 1200px) {
+        grid-template-columns: auto auto auto;
+    }
+    @media only screen and (max-width: 915px) {
+        grid-template-columns: auto auto;
+    }
 }
 
 user-list-card {
+    width: fit-content;
     display:block;
     padding: 1em;
     background-color: $card-g;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 2em;
     border-radius: 0.25em;
     @include DropShadow();
