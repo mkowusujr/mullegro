@@ -36,6 +36,11 @@ export class UserService {
     return this._api.getRequest(getUserEndpoint);
   }
 
+  getUserById(id: number): Observable<User> {
+    const getUserEndpoint = `${this.baseUrl}/user/byId/${id}`;
+    return this._api.getRequest(getUserEndpoint);
+  }
+
   deleteAccount(username: string): Observable<any> {
     const deleteAccountEndpoint = `${this.baseUrl}/user/${username}`;
     return this._api.deleteRequest(deleteAccountEndpoint);
