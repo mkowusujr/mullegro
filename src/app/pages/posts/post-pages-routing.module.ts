@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostPageComponent } from './post-page.component';
+import { PostPageModule } from './post-page/post-page.module';
+import { PostPageComponent } from './post-page/post-page.component';
 
 const routes: Routes = [{ path: 'post/:id', component: PostPageComponent }];
 

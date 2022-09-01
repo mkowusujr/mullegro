@@ -7,4 +7,5 @@ export interface Post {
   address: string;
   type: string;
   status: string;
+  userId: number;
 }
