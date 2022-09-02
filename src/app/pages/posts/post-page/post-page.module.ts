@@ -6,9 +6,10 @@ import { LayoutsModule } from 'src/app/shared/layouts/layouts.module';
 
 import { PostPageComponent } from './post-page.component';
 import { PostDetailsComponent } from './post-details.component';
+import { AddToCartComponent } from './add-to-cart.component';
 
 @NgModule({
-  declarations: [PostPageComponent, PostDetailsComponent],
+  declarations: [PostPageComponent, PostDetailsComponent, AddToCartComponent],
   imports: [CommonModule, PostListModule, LayoutsModule],
   exports: [PostPageComponent]
 })
