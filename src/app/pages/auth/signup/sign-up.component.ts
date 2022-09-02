@@ -28,7 +28,7 @@ import { SignUpFormService } from './sign-up-form.service';
 
       <input
         type="submit"
-        value="Login"
+        value="Sign Up"
         [disabled]="!signUpFormService.valid"
       />
     </form>
