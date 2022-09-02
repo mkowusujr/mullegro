@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Post } from '../../interfaces/post';
 import { ApiService } from './api.service';
 
@@ -10,23 +11,23 @@ export class CartService {
 
   constructor(private _api: ApiService) { }
 
-  getCartItems() {
+  getCartItems(): Observable<Post[]> {
     let getCartItemsEndpoint = `${this.baseUrl}`;
-    this._api.getRequest(getCartItemsEndpoint);
+    return this._api.getRequest(getCartItemsEndpoint);
   }
 
-  addToCart(post: Post) {
+  addToCart(post: Post | null) {
     let addToCartEndpoint = `${this.baseUrl}`;
-    this._api.postRequest(addToCartEndpoint, post);
+    return this._api.postRequest(addToCartEndpoint, post);
   }
 
   removeFromCart(postId: number) {
     let removeFromCartEndpoint = `${this.baseUrl}/${postId}`;
-    this._api.deleteRequest(removeFromCartEndpoint);
+    return this._api.deleteRequest(removeFromCartEndpoint);
   }
 
   clearCart() {
     let clearCartEndpoint = `${this.baseUrl}`;
-    this._api.deleteRequest(clearCartEndpoint);
+    return this._api.deleteRequest(clearCartEndpoint);
   }
 }
