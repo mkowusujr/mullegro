@@ -11,7 +11,7 @@
         <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>
           <ng-template #thenBlock>
           <li>
-            <a [routerLink]="['']" routerLinkActive="active">
+            <a [routerLink]="['/user/'+(currentUser$ | async)?.username]" routerLinkActive="active">
               {{(currentUser$ | async)?.name}}
             </a>
             |
