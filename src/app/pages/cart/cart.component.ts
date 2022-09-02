@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
 import { CartService } from 'src/app/core/services/api/cart.service';
 
@@ -10,8 +10,10 @@ import { CartService } from 'src/app/core/services/api/cart.service';
       <div>
         {{post.title}}
         {{post.price}}
+        <button (click)="removeFromCart(post.id)">Remove from Cart</button>
       </div>
     </ng-container>
+    <button (click)="clearCart()">Clear Cart</button>
   `,
   styles: [
   ]
@@ -22,6 +24,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartItems$ = this._cartService.getCartItems()
+  }
+
+  removeFromCart(postId: number) {
+    this._cartService.removeFromCart(postId).pipe(take(1)).subscribe();
+  }
+
+  clearCart() {
+    this._cartService.clearCart().pipe(take(1)).subscribe();
   }
 
 }
