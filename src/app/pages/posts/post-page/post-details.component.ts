@@ -9,6 +9,7 @@ import { Post } from 'src/app/core/interfaces/post';
     <p>{{ post?.type }}</p>
     <p>{{ post?.price | currency }}</p>
     <p>{{ post?.description }}</p>
+    <post-add-to-cart [post]="post"></post-add-to-cart>
   `,
   styles: []
 })
