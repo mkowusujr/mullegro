@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
 
@@ -14,5 +14,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
+  }
+
+  signOut() {
+    this._authState.loggout();
   }
 }
