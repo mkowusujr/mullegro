@@ -18,6 +18,7 @@ home {
     display: block;
     padding: 1em;
     border-radius: 0.25em;
+    height: 25vh;
 
     @include DropShadow();
     @media screen and (max-width: $mobile-width-smaller) {

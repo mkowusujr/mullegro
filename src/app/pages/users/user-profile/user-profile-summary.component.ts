@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
       <h2>{{ userUsername }}</h2>
       <p>{{ userName }}</p>
       <div class="bio">
-        <h2>Bio</h2>
+        <h3>Bio</h3>
         <p>{{ bio }}</p>
       </div>
     </div>

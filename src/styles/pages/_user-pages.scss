@@ -39,8 +39,10 @@ user-list {
 user-list-card {
     width: fit-content;
     display:block;
-    padding: 1em;
     background-color: $card-g;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2em;
@@ -61,5 +63,7 @@ user-list-card {
 
     img {
         margin-bottom: 1em;
+        width: 15em;
+        height: 15em;
     }
 }

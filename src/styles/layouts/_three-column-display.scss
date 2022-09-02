@@ -1,11 +1,10 @@
 three-column-display {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content:space-evenly;
 }
 
 .vertical-divider {
     width: 3px;
-    // margin: 6px 0;
     background: $borderOutline;
 }

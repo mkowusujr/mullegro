@@ -6,24 +6,23 @@ import { CartService } from 'src/app/core/services/api/cart.service';
 @Component({
   selector: 'cart',
   template: `
-    <ng-container *ngFor="let post of (cartItems$ | async)">
+    <ng-container *ngFor="let post of cartItems$ | async">
       <div>
-        {{post.title}}
-        {{post.price}}
+        {{ post.title }}
+        {{ post.price }}
         <button (click)="removeFromCart(post.id)">Remove from Cart</button>
       </div>
     </ng-container>
     <button (click)="clearCart()">Clear Cart</button>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class CartComponent implements OnInit {
   cartItems$!: Observable<Post[]>;
-  constructor(private _cartService: CartService) { }
+  constructor(private _cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartItems$ = this._cartService.getCartItems()
+    this.cartItems$ = this._cartService.getCartItems();
   }
 
   removeFromCart(postId: number) {
@@ -33,5 +32,4 @@ export class CartComponent implements OnInit {
   clearCart() {
     this._cartService.clearCart().pipe(take(1)).subscribe();
   }
-
 }

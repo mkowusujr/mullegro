@@ -1,52 +1,61 @@
 app-navbar {
-    background-color: rgb(159, 199, 108);
+    background-color: $navbar;
     display: block;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    @include DefaultSpacings();
+    padding: 1em;
+    @include DropShadow();
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    color: $welcome-banner;
+    align-items:center;
+
     .title {
-        font-size: x-large;
+        font-size: xx-large;
     }
+
+    a {
+        font-size: large;
+        color: white;
+        text-decoration: none;
+        &:visited {
+            color: white;
+        }
+    }
+    
     @media screen and (max-width: $mobile-width){
         justify-content:flex-start;
     }
 }
 
-.collapsible ul {
-    display: flex;
-    width: 30vw;
-    justify-content: space-between;
-    li {
-        list-style: none;
-        display: inline-block;
-    }
-    @media screen and (max-width: $mobile-width){
-        display: none;
-    }
-}
+// .collapsible ul {
+//     display: flex;
+//     width: 30vw;
+//     justify-content: space-between;
+//     li {
+//         list-style: none;
+//         display: inline-block;
+//     }
+//     @media screen and (max-width: $mobile-width){
+//         display: none;
+//     }
+// }
 
-.toggle-button {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    margin-right: 1em;
-    @include centerOnY();
-    .bar {
-        height: 3px;
-        width: 100%;
-        background-color: $welcome-banner;
-        border-radius: 10px;
-    }
-    @media screen and (max-width: $mobile-width) {
-        display: flex;
-    }
-}
+// .toggle-button {
+//     display: none;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     width: 30px;
+//     height: 21px;
+//     margin-right: 1em;
+//     @include centerOnY();
+//     .bar {
+//         height: 3px;
+//         width: 100%;
+//         background-color: $welcome-banner;
+//         border-radius: 10px;
+//     }
+//     @media screen and (max-width: $mobile-width) {
+//         display: flex;
+//     }
+// }

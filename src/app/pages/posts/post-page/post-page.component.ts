@@ -10,15 +10,19 @@ import { UserService } from 'src/app/core/services/api/user.service';
   template: `
     <three-column-display>
       <div col1>
-        <h2>Post Picture</h2>
+        <img [src]="(post$ | async)?.display_picture" />
       </div>
-      <post-details col2 [post]="post | async"></post-details>
-      <post-list col3 [posts]="(posts | async)" [header]="'Other Posts'"></post-list>
+      <post-details col2 [post]="post$ | async"></post-details>
+      <post-list
+        col3
+        [posts]="posts | async"
+        [header]="'Other Posts'"
+      ></post-list>
     </three-column-display>
   `
 })
 export class PostPageComponent implements OnInit {
-  post!: Observable<Post>;
+  post$!: Observable<Post>;
   posts!: Observable<Post[]>;
   header!: string;
 
@@ -34,20 +38,23 @@ export class PostPageComponent implements OnInit {
     return +id;
   }
 
-  getPostOwnerInfo(){
-    this.post.pipe(take(1)).subscribe({
-      next: post => this._userService.getUserById(post.userId)
-        .pipe(take(1)).subscribe({
-          next: user => {
-            this.header = `Other posts by ${user.username}`;
-            this.posts = this._postService.getAllPostsForUser(user.username);
-          }
-        })
-    })
+  getPostOwnerInfo() {
+    this.post$.pipe(take(1)).subscribe({
+      next: post =>
+        this._userService
+          .getUserById(post.userId)
+          .pipe(take(1))
+          .subscribe({
+            next: user => {
+              this.header = `Other posts by ${user.username}`;
+              this.posts = this._postService.getAllPostsForUser(user.username);
+            }
+          })
+    });
   }
 
   ngOnInit(): void {
-    this.post = this._postService.getPost(this.getIdFromParams());
+    this.post$ = this._postService.getPost(this.getIdFromParams());
     this.getPostOwnerInfo();
   }
 }

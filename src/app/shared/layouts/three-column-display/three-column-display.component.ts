@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'three-column-display',
   template: `
     <ng-content select="[col1]"></ng-content>
-    <div class="vertical-divider"></div>
     <ng-content select="[col2]"></ng-content>
     <div class="vertical-divider"></div>
     <ng-content select="[col3]"></ng-content>

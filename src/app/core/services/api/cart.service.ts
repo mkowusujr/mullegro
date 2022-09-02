@@ -9,7 +9,7 @@ import { ApiService } from './api.service';
 export class CartService {
   private baseUrl = '/cart';
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService) {}
 
   getCartItems(): Observable<Post[]> {
     let getCartItemsEndpoint = `${this.baseUrl}`;

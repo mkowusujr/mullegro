@@ -5,8 +5,6 @@ form {
     @include centerOnX();
     @include DefaultSpacings();
     label {
-        font-size: small;
-        font-style: oblique;
         font-weight: bold;
     }
 }

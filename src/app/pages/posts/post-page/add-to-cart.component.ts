@@ -5,18 +5,15 @@ import { take } from 'rxjs';
 
 @Component({
   selector: 'post-add-to-cart',
-  template: `
-    <button (click)="addToCart()">Add to Cart</button>
-  `,
-  styles: [
-  ]
+  template: ` <button (click)="addToCart()">Add to Cart</button> `,
+  styles: []
 })
 export class AddToCartComponent {
   @Input() post!: Post | null;
 
-  constructor(private _cartService: CartService) { }
+  constructor(private _cartService: CartService) {}
 
-  addToCart(){
+  addToCart() {
     this._cartService.addToCart(this.post).pipe(take(1)).subscribe();
   }
 }

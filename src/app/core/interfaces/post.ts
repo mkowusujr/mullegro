@@ -8,4 +8,5 @@ export interface Post {
   type: string;
   status: string;
   userId: number;
+  display_picture?: string;
 }

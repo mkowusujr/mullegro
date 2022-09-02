@@ -7,8 +7,16 @@ login {
         @include centerOnX();
         font-size: xx-large  ;
     }
+    form {
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    label {
+        font-size: large;
+    }
 }
 
-sign {
+signup {
     @extend login
 }

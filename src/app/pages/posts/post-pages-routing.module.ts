@@ -8,7 +8,7 @@ import { PostListPageComponent } from './post-list-page/post-list-page.component
 
 const routes: Routes = [
   { path: 'post/:id', component: PostPageComponent },
-  { path: 'posts', component: PostListPageComponent}
+  { path: 'posts', component: PostListPageComponent }
 ];
 
 @NgModule({
