@@ -22,7 +22,7 @@ export class CartService {
   }
 
   removeFromCart(postId: number) {
-    let removeFromCartEndpoint = `${this.baseUrl}/${postId}`;
+    let removeFromCartEndpoint = `${this.baseUrl}/post/${postId}`;
     return this._api.deleteRequest(removeFromCartEndpoint);
   }
 
