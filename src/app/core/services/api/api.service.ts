@@ -19,7 +19,7 @@ export class ApiService {
     );
   }
 
-  postRequest(url: string, payload: {}): Observable<any> {
+  postRequest(url: string, payload: {} | null): Observable<any> {
     return this._http.post(`${this.baseUrl}${url}`, payload).pipe(
       map(res => {
         return res;
