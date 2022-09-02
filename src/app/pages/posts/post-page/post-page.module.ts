@@ -9,6 +9,7 @@ import { PostDetailsComponent } from './post-details.component';
 
 @NgModule({
   declarations: [PostPageComponent, PostDetailsComponent],
-  imports: [CommonModule, PostListModule, LayoutsModule]
+  imports: [CommonModule, PostListModule, LayoutsModule],
+  exports: [PostPageComponent]
 })
 export class PostPageModule {}

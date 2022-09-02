@@ -9,6 +9,9 @@ import { UserService } from 'src/app/core/services/api/user.service';
   selector: 'post',
   template: `
     <three-column-display>
+      <div col1>
+        <h2>Post Picture</h2>
+      </div>
       <post-details col2 [post]="post | async"></post-details>
       <post-list col3 [posts]="(posts | async)" [header]="'Other Posts'"></post-list>
     </three-column-display>
