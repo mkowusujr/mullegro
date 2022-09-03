@@ -22,7 +22,6 @@ user-profile-details {
 
 user-list {
     @include DefaultSpacings();
-    width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     @media only screen and (max-width: 1475px) {
@@ -62,8 +61,8 @@ user-list-card {
     color: black;
 
     img {
-        margin-bottom: 1em;
-        width: 15em;
-        height: 15em;
+        margin-bottom: 0.5em;
+        width: 11em;
+        height: 11em;
     }
 }
