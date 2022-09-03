@@ -7,10 +7,12 @@ import { CartService } from 'src/app/core/services/api/cart.service';
   selector: 'cart',
   template: `
     <ng-container *ngFor="let post of cartItems$ | async">
-      <div>
-        {{ post.title }}
-        {{ post.price }}
-        <button (click)="removeFromCart(post.id)">Remove from Cart</button>
+      <div class="cart-items">
+        <tr>
+          <td>{{ post.title }}</td>
+          <td>{{ post.price | currency }}</td>
+          <td><button (click)="removeFromCart(post.id)">Remove from Cart</button></td>
+        </tr>
       </div>
     </ng-container>
     <button (click)="clearCart()">Clear Cart</button>
