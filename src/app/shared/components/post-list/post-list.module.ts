@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [PostListComponent, PostListCardComponent],
   imports: [CommonModule, RouterModule],
-  exports: [PostListComponent]
+  exports: [PostListComponent, PostListCardComponent]
 })
 export class PostListModule {}

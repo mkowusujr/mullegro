@@ -18,9 +18,13 @@ import { User } from 'src/app/core/interfaces/user';
       <p>View the types of instruments currently being sold</p>
     </a>
 
-    <a class="card-y hover-card">
-      <h2>New!</h2>
-      <p>View recently added instruments</p>
+    <a 
+      class="card-y hover-card"
+      [routerLink]="['/posts']"
+      routerLinkActive="active"
+    >
+      <h2>Shop For Instruments!</h2>
+      <p>View all the instruments other users have posted for sale</p>
     </a>
 
     <a
