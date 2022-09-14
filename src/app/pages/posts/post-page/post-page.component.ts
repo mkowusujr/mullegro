@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
@@ -21,7 +21,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
     </three-column-display>
   `
 })
-export class PostPageComponent implements OnInit {
+export class PostPageComponent {
   post$!: Observable<Post>;
   posts!: Observable<Post[]>;
   header!: string;
@@ -30,12 +30,11 @@ export class PostPageComponent implements OnInit {
     private route: ActivatedRoute,
     private _postService: PostService,
     private _userService: UserService
-  ) {}
-
-  getIdFromParams(): number {
-    let id = '';
-    this.route.params.pipe(take(1)).subscribe(params => (id = params['id']));
-    return +id;
+  ) {
+    route.params.subscribe(params => {
+      this.post$ = this._postService.getPost(+params['id']);
+      this.getPostOwnerInfo();
+    });
   }
 
   getPostOwnerInfo() {
@@ -51,10 +50,5 @@ export class PostPageComponent implements OnInit {
             }
           })
     });
-  }
-
-  ngOnInit(): void {
-    this.post$ = this._postService.getPost(this.getIdFromParams());
-    this.getPostOwnerInfo();
   }
 }
