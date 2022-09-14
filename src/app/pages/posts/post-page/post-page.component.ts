@@ -17,13 +17,13 @@ import { UserService } from 'src/app/core/services/api/user.service';
         [post]="post$ | async"
         [username]="username"
       ></post-details>
-      <post-list col3 [posts]="posts | async" [header]="header"></post-list>
+      <post-list col3 [posts]="posts" [header]="header"></post-list>
     </three-column-display>
   `
 })
 export class PostPageComponent {
   post$!: Observable<Post>;
-  posts!: Observable<Post[]>;
+  posts!: Post[];
   header!: string;
   username!: string;
 
@@ -48,7 +48,8 @@ export class PostPageComponent {
             next: user => {
               this.header = `Other posts by ${user.username}`;
               this.username = user.username;
-              this.posts = this._postService.getAllPostsForUser(user.username);
+              this._postService.getAllPostsForUser(user.username)
+                .pipe(take(1)).subscribe(posts => this.posts = posts.filter(p => p.id != post.id));
             }
           })
     });
