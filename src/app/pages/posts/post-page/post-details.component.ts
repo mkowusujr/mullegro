@@ -24,13 +24,24 @@ import { Post } from 'src/app/core/interfaces/post';
       <p #description>{{ post?.description }}</p>
     </div>
 
+    <div>
+      <label for="#owner">Posted By</label>
+      <a 
+        #owner
+        [routerLink]="['/user/' + username]"
+        routerLinkActive="active"
+      >
+        {{ username }}
+      </a>
+    </div>
+
     <post-add-to-cart [post]="post"></post-add-to-cart>
   `,
   styles: []
 })
 export class PostDetailsComponent implements OnInit {
   @Input() post!: Post | null;
-
+  @Input() username!: string | null;
   constructor() {}
 
   ngOnInit(): void {}

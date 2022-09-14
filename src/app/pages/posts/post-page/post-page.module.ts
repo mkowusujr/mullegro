@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { PostListModule } from 'src/app/shared/components/post-list/post-list.module';
 import { LayoutsModule } from 'src/app/shared/layouts/layouts.module';
@@ -10,7 +11,7 @@ import { AddToCartComponent } from './add-to-cart.component';
 
 @NgModule({
   declarations: [PostPageComponent, PostDetailsComponent, AddToCartComponent],
-  imports: [CommonModule, PostListModule, LayoutsModule],
+  imports: [CommonModule, PostListModule, LayoutsModule, RouterModule],
   exports: [PostPageComponent]
 })
 export class PostPageModule {}

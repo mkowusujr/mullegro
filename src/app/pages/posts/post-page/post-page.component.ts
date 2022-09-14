@@ -12,11 +12,15 @@ import { UserService } from 'src/app/core/services/api/user.service';
       <div col1>
         <img [src]="(post$ | async)?.display_picture" />
       </div>
-      <post-details col2 [post]="post$ | async"></post-details>
+      <post-details 
+        col2 
+        [post]="post$ | async"
+        [username]="username"
+        ></post-details>
       <post-list
         col3
         [posts]="posts | async"
-        [header]="'Other Posts'"
+        [header]="header"
       ></post-list>
     </three-column-display>
   `
@@ -25,6 +29,7 @@ export class PostPageComponent {
   post$!: Observable<Post>;
   posts!: Observable<Post[]>;
   header!: string;
+  username!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,6 +51,7 @@ export class PostPageComponent {
           .subscribe({
             next: user => {
               this.header = `Other posts by ${user.username}`;
+              this.username = user.username;
               this.posts = this._postService.getAllPostsForUser(user.username);
             }
           })
