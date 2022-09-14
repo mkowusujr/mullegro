@@ -48,8 +48,12 @@ export class PostPageComponent {
             next: user => {
               this.header = `Other posts by ${user.username}`;
               this.username = user.username;
-              this._postService.getAllPostsForUser(user.username)
-                .pipe(take(1)).subscribe(posts => this.posts = posts.filter(p => p.id != post.id));
+              this._postService
+                .getAllPostsForUser(user.username)
+                .pipe(take(1))
+                .subscribe(
+                  posts => (this.posts = posts.filter(p => p.id != post.id))
+                );
             }
           })
     });
