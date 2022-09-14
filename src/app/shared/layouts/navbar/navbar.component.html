@@ -6,7 +6,8 @@
   >
     Mullegro
   </a>
-    <div>
+  <div>
+      <input type="text">
       <ul>
         <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>
           <ng-template #thenBlock>
