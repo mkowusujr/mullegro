@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
+import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
 import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
   selector: 'user-list',
   template: `
-    <ng-container *ngFor="let user of users$ | async">
+    <ng-container *ngFor="let user of users">
       <user-list-card
         [avatarImg]="user?.profile_picture"
         [userUsername]="user?.username"
@@ -16,11 +17,25 @@ import { UserService } from 'src/app/core/services/api/user.service';
   `
 })
 export class UserListComponent implements OnInit {
-  users$!: Observable<User[]>;
+  users!: User[];
+  currentUser$!: Observable<User | undefined>;
 
-  constructor(private _userService: UserService) {}
+  constructor(
+    private _userService: UserService,
+    private _authState: AuthStateService
+  ) {}
 
   ngOnInit(): void {
-    this.users$ = this._userService.getAllUsers();
+    this.currentUser$ = this._authState.currentUser$;
+    this._userService
+      .getAllUsers()
+      .pipe(take(1))
+      .subscribe(users => {
+        let usrname: string | undefined;
+        this.currentUser$.pipe(take(1)).subscribe(usr => {
+          usrname = usr?.username;
+        });
+        this.users = users.filter(u => u.username != usrname);
+      });
   }
 }
