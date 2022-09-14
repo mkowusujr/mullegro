@@ -6,9 +6,12 @@ post {
 }
 
 post-details {
-    // @include DefaultSpacings();
     width: 25vw;
     div {
         margin-bottom: 1em;
     }
+}
+
+post-list-page {
+    @include DefaultSpacings();
 }

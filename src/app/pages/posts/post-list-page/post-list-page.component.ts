@@ -4,7 +4,7 @@ import { Post } from 'src/app/core/interfaces/post';
 import { PostService } from 'src/app/core/services/api/post.service';
 
 @Component({
-  selector: 'app-post-list-page',
+  selector: 'post-list-page',
   template: `
     <ng-container *ngFor="let post of posts$ | async">
       <post-list-card [post]="post"></post-list-card>
