@@ -26,11 +26,7 @@ import { Post } from 'src/app/core/interfaces/post';
 
     <div>
       <label for="#owner">Posted By</label>
-      <a 
-        #owner
-        [routerLink]="['/user/' + username]"
-        routerLinkActive="active"
-      >
+      <a #owner [routerLink]="['/user/' + username]" routerLinkActive="active">
         {{ username }}
       </a>
     </div>

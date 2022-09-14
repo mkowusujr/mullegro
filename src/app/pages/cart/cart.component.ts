@@ -11,7 +11,9 @@ import { CartService } from 'src/app/core/services/api/cart.service';
         <tr>
           <td>{{ post.title }}</td>
           <td>{{ post.price | currency }}</td>
-          <td><button (click)="removeFromCart(post.id)">Remove from Cart</button></td>
+          <td>
+            <button (click)="removeFromCart(post.id)">Remove from Cart</button>
+          </td>
         </tr>
       </div>
     </ng-container>

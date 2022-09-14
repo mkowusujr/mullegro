@@ -18,7 +18,7 @@ import { User } from 'src/app/core/interfaces/user';
       <p>View the types of instruments currently being sold</p>
     </a>
 
-    <a 
+    <a
       class="card-y hover-card"
       [routerLink]="['/posts']"
       routerLinkActive="active"

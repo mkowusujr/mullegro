@@ -5,9 +5,9 @@ import { PostService } from 'src/app/core/services/api/post.service';
 
 @Component({
   selector: 'app-post-list-page',
-  template: ` 
-    <ng-container *ngFor="let post of (posts$ | async)">
-        <post-list-card [post]="post"></post-list-card>
+  template: `
+    <ng-container *ngFor="let post of posts$ | async">
+      <post-list-card [post]="post"></post-list-card>
     </ng-container>
   `,
   styles: []
@@ -18,6 +18,6 @@ export class PostListPageComponent implements OnInit {
   constructor(private _postService: PostService) {}
 
   ngOnInit(): void {
-    this.posts$ = this._postService.getAllPosts()
+    this.posts$ = this._postService.getAllPosts();
   }
 }

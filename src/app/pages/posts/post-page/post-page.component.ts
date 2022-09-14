@@ -12,16 +12,12 @@ import { UserService } from 'src/app/core/services/api/user.service';
       <div col1>
         <img [src]="(post$ | async)?.display_picture" />
       </div>
-      <post-details 
-        col2 
+      <post-details
+        col2
         [post]="post$ | async"
         [username]="username"
-        ></post-details>
-      <post-list
-        col3
-        [posts]="posts | async"
-        [header]="header"
-      ></post-list>
+      ></post-details>
+      <post-list col3 [posts]="posts | async" [header]="header"></post-list>
     </three-column-display>
   `
 })
