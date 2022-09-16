@@ -5,7 +5,7 @@ export interface Post {
   description: string;
   condition: string;
   address: string;
-  type: string;
+  category: string;
   status: string;
   userId: number;
   display_picture?: string;
