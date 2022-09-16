@@ -36,6 +36,11 @@ export class PostService {
     return this._api.getRequest(getAllPostsForUserEndpoint);
   }
 
+  getPostsOfCategory(category: string): Observable<Post[]> {
+    const getPostsOfCategoryEndpoint = `${this.baseUrl}/filter?category=${category}`;
+    return this._api.getRequest(getPostsOfCategoryEndpoint);
+  }
+
   getPost(postId: number): Observable<Post> {
     const getPostEndpoint = `${this.baseUrl}/post/${postId}`;
     return this._api.getRequest(getPostEndpoint);
