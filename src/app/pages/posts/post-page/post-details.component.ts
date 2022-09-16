@@ -16,7 +16,7 @@ import { Post } from 'src/app/core/interfaces/post';
 
     <div>
       <label for="#type">Type</label>
-      <p #type>{{ post?.type }}</p>
+      <p #type>{{ post?.category }}</p>
     </div>
 
     <div>

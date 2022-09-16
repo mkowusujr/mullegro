@@ -13,7 +13,11 @@ import { User } from 'src/app/core/interfaces/user';
       </p>
     </div>
 
-    <a class="card-r hover-card">
+    <a 
+      class="card-r hover-card"
+      [routerLink]="['/category']"
+      routerLinkActive="active"  
+    >
       <h2>Catagories</h2>
       <p>View the types of instruments currently being sold</p>
     </a>
