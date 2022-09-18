@@ -50,4 +50,33 @@ export class PostService {
     const updatePostStatusEndpoint = `${this.baseUrl}/post/${postId}`;
     return this._api.putRequest(updatePostStatusEndpoint, newStatus);
   }
+
+  getFilteredPosts(
+    queryCategory: string | null,
+    queryCondition: string | null
+  ): Observable<Post[]> {
+    let getFilteredPostsEndpoint;
+    if (queryCategory) {
+      getFilteredPostsEndpoint = `${this.baseUrl}/filter/category?=${queryCategory}`;
+    } else {
+      getFilteredPostsEndpoint = `${this.baseUrl}/filter/condition?=${queryCondition}`;
+    }
+
+    return this._api.getRequest(getFilteredPostsEndpoint);
+  }
+
+  getFilterCategoryNames(): Observable<Post[]> {
+    const getFilterCategoryNamesEndpoint = `${this.baseUrl}/filter/category/names`;
+    return this._api.getRequest(getFilterCategoryNamesEndpoint);
+  }
+
+  getFilterConditionNames(): Observable<Post[]> {
+    const getFilterConditionNamesEndpoint = `${this.baseUrl}/filter/condition/names`;
+    return this._api.getRequest(getFilterConditionNamesEndpoint);
+  }
+
+  findPostWithSearchQuery(searchQuery: string): Observable<Post[]> {
+    const findPostWithSearchQueryEndpoint = `${this.baseUrl}/search?query=${searchQuery}`;
+    return this._api.getRequest(findPostWithSearchQueryEndpoint);
+  }
 }
