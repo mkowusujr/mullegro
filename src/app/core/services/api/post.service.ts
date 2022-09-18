@@ -65,12 +65,12 @@ export class PostService {
     return this._api.getRequest(getFilteredPostsEndpoint);
   }
 
-  getFilterCategoryNames(): Observable<Post[]> {
+  getFilterCategoryNames(): Observable<string[]> {
     const getFilterCategoryNamesEndpoint = `${this.baseUrl}/filter/category/names`;
     return this._api.getRequest(getFilterCategoryNamesEndpoint);
   }
 
-  getFilterConditionNames(): Observable<Post[]> {
+  getFilterConditionNames(): Observable<string[]> {
     const getFilterConditionNamesEndpoint = `${this.baseUrl}/filter/condition/names`;
     return this._api.getRequest(getFilterConditionNamesEndpoint);
   }
