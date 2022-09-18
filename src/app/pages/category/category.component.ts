@@ -6,9 +6,11 @@ import { PostService } from 'src/app/core/services/api/post.service';
   selector: 'category',
   template: `
     <h1>Category Page</h1>
-    <ng-container *ngFor="let category of (categoryList$ | async)">
-      <p>{{category}}</p>
-    </ng-container>
+    <div class="category-grid">
+      <ng-container *ngFor="let category of (categoryList$ | async)">
+        <p class="card-y hover-card">{{category}}</p>
+      </ng-container>
+    </div>
   `
 })
 export class CategoryComponent implements OnInit {
