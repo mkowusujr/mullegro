@@ -11,7 +11,7 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
         <p>id: {{ transaction.id }}</p>
         <p>dateString: {{ transaction.dateString }}</p>
         <p>itemCount: {{ transaction.itemCount }}</p>
-        <p>totalAmount: {{ transaction.totalAmount }}</p>
+        <p>totalAmount: {{ transaction.totalAmount | currency }}</p>
       </div>
     </ng-container>
   `,

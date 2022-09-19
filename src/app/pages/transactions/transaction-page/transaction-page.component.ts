@@ -8,8 +8,8 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   selector: 'transaction-page',
   template: `
     <p>{{ (transaction$ | async)?.dateString }}</p>
-    <p>{{ (transaction$ | async)?.totalAmount }}</p>
     <p>{{ (transaction$ | async)?.itemCount }}</p>
+    <p>{{ (transaction$ | async)?.totalAmount | currency}}</p>
     <ng-container *ngFor="let post of (transaction$ | async)?.posts">
       <p>{{ post.title }}</p>
     </ng-container>
