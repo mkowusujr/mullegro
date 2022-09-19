@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
 import { PostService } from 'src/app/core/services/api/post.service';
@@ -15,7 +16,12 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class PostListPageComponent implements OnInit {
   posts$!: Observable<Post[]>;
 
-  constructor(private _postService: PostService) {}
+  constructor(
+    private _postService: PostService,
+    private route: ActivatedRoute
+  ) {
+    // route.queryParams.subscribe()
+  }
 
   ngOnInit(): void {
     this.posts$ = this._postService.getAllPosts();
