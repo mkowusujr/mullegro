@@ -1,12 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TransactionService } from 'src/app/core/services/api/transaction.service';
+import { Transaction } from 'src/app/core/interfaces/transaction';
 
 @Component({
   selector: 'app-transactions-list-page',
-  template: ` <p>transactions-list-page works!</p> `,
+  template: `
+    <ng-container *ngFor="let transaction of transactions$ | async">
+      <div>
+        <p>{{ transaction.dateString }}</p>
+        <p>{{ transaction.itemCount }}</p>
+        <p>{{ transaction.totalAmount }}</p>
+      </div>
+    </ng-container>
+  `,
   styles: []
 })
 export class TransactionsListPageComponent implements OnInit {
-  constructor() {}
+  transactions$!: Observable<Transaction[]>;
+  constructor(private _transactionService: TransactionService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.transactions$ = this._transactionService.getAllTransactions();
+  }
 }

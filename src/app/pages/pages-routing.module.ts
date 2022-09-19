@@ -6,6 +6,7 @@ import { UserPagesModule } from './users/user-pages.module';
 import { PostPagesModule } from './posts/post-pages.module';
 import { CartModule } from './cart/cart.module';
 import { CategoryModule } from './category/category.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: '', loadChildren: () => UserPagesModule },
   { path: '', loadChildren: () => PostPagesModule },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
-  { path: 'category', component: CategoryComponent }
+  { path: 'category', component: CategoryComponent },
+  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
