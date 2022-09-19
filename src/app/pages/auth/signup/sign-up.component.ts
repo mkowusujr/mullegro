@@ -32,6 +32,8 @@ import { SignUpFormService } from './sign-up-form.service';
         [disabled]="!signUpFormService.valid"
       />
     </form>
+    <p>Already have a Mullegro Account?</p>
+    <a [routerLink]="['/login']" routerLinkActive="active">Login Here</a>
   `
 })
 export class SignUpComponent implements OnInit {

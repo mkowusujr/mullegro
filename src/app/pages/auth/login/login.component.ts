@@ -18,6 +18,8 @@ import { LoginFormService } from './login-form.service';
       <input #password type="password" formControlName="password" />
       <input type="submit" value="Login" [disabled]="!loginFormService.valid" />
     </form>
+    <p>Don't have a Mullegro Account?</p>
+    <a [routerLink]="['/signup']" routerLinkActive="active">Sign Up Here</a>
   `
 })
 export class LoginComponent implements OnInit {
