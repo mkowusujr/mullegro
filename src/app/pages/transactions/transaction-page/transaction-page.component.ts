@@ -5,7 +5,7 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 
 @Component({
-  selector: 'app-transaction-page',
+  selector: 'transaction-page',
   template: `
     <p>{{ (transaction$ | async)?.dateString }}</p>
     <p>{{ (transaction$ | async)?.totalAmount }}</p>

@@ -4,9 +4,9 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
 import { Transaction } from 'src/app/core/interfaces/transaction';
 
 @Component({
-  selector: 'app-transactions-list-page',
+  selector: 'transactions-list-page',
   template: `
-    <ng-container *ngFor="let transaction of transactions$ | async">
+    <ng-container *ngFor="let transaction of (transactions$ | async)">
       <div>
         <p>{{ transaction.dateString }}</p>
         <p>{{ transaction.itemCount }}</p>
