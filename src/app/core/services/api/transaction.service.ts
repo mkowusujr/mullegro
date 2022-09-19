@@ -18,7 +18,7 @@ export class TransactionService {
   }
 
   getTransaction(transactionId: number): Observable<Transaction> {
-    let getTransactionEndpoint = `${this.baseUrl}/transactions/${transactionId}`;
+    let getTransactionEndpoint = `${this.baseUrl}/transaction/${transactionId}`;
     return this._apiService.getRequest(getTransactionEndpoint);
   }
 
