@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from '../../interfaces/post';
 import { ApiService } from './api.service';
+
+import { Cart } from '../../interfaces/cart';
+import { Post } from '../../interfaces/post';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class CartService {
 
   constructor(private _api: ApiService) {}
 
-  getCartItems(): Observable<Post[]> {
+  getCart(): Observable<Cart> {
     let getCartItemsEndpoint = `${this.baseUrl}`;
     return this._api.getRequest(getCartItemsEndpoint);
   }
