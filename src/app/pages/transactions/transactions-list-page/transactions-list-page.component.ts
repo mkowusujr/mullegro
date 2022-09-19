@@ -6,11 +6,12 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
 @Component({
   selector: 'transactions-list-page',
   template: `
-    <ng-container *ngFor="let transaction of (transactions$ | async)">
+    <ng-container *ngFor="let transaction of transactions$ | async">
       <div>
-        <p>{{ transaction.dateString }}</p>
-        <p>{{ transaction.itemCount }}</p>
-        <p>{{ transaction.totalAmount }}</p>
+        <p>id: {{ transaction.id }}</p>
+        <p>dateString: {{ transaction.dateString }}</p>
+        <p>itemCount: {{ transaction.itemCount }}</p>
+        <p>totalAmount: {{ transaction.totalAmount }}</p>
       </div>
     </ng-container>
   `,
