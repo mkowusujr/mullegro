@@ -57,9 +57,9 @@ export class PostService {
   ): Observable<Post[]> {
     let getFilteredPostsEndpoint;
     if (queryCategory) {
-      getFilteredPostsEndpoint = `${this.baseUrl}/filter/category?=${queryCategory}`;
+      getFilteredPostsEndpoint = `${this.baseUrl}/filter?category=${queryCategory}`;
     } else {
-      getFilteredPostsEndpoint = `${this.baseUrl}/filter/condition?=${queryCondition}`;
+      getFilteredPostsEndpoint = `${this.baseUrl}/filter?condition=${queryCondition}`;
     }
 
     return this._api.getRequest(getFilteredPostsEndpoint);

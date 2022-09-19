@@ -18,7 +18,7 @@ import { User } from 'src/app/core/interfaces/user';
       [routerLink]="['/category']"
       routerLinkActive="active"
     >
-      <h2>Catagories</h2>
+      <h2>Categories</h2>
       <p>View the types of instruments currently being sold</p>
     </a>
 
