@@ -1,0 +1,30 @@
+transactions-list-page {
+    @include DefaultSpacings();
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.transaction-item {
+    @include DropShadow();
+    @include DropShadowHover();
+    display: block;
+    background-color: $welcome-banner;
+    padding: 1em;
+    height: 12em;
+    width: 25em;
+    margin: 2em;
+
+    p {
+        line-height: 2;
+    }
+    &:hover {
+        background-color: $wel-ban-hover;
+    }
+}
+
+.transact-post-title {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    text-indent: 1.5em;
+}

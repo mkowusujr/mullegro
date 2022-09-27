@@ -5,5 +5,5 @@ export interface Transaction {
     dateString: string,
     totalAmount: number,
     itemCount: number
-    posts?: Post[]
+    posts: Post[]
 }
