@@ -7,12 +7,23 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
 @Component({
   selector: 'transaction-page',
   template: `
-    <p>{{ (transaction$ | async)?.dateString }}</p>
-    <p>{{ (transaction$ | async)?.itemCount }}</p>
-    <p>{{ (transaction$ | async)?.totalAmount | currency }}</p>
-    <ng-container *ngFor="let post of (transaction$ | async)?.posts">
-      <p>{{ post.title }}</p>
-    </ng-container>
+    <h1>Transaction on {{ (transaction$ | async)?.dateString }}</h1>
+    <p>Item Count: {{ (transaction$ | async)?.itemCount }}</p>
+    <p>Total Amount{{ (transaction$ | async)?.totalAmount | currency }}</p>
+    <h2>Transaction Items:</h2>
+    <div class="transact-post-items-list">
+      <div class="transact-post-item" *ngFor="let post of (transaction$ | async)?.posts">
+        <img [src]="post.display_picture" />
+        <div>
+          <p><b>{{ post.title }}</b></p>
+          <p>{{ post.category }}</p>
+          <p>{{ post.price | currency}}</p>
+          <p>{{ post.condition }}</p>
+          <!-- <p>{{ post.condition }}</p> -->
+        </div>
+        
+      </div>
+    </div>
   `,
   styles: []
 })

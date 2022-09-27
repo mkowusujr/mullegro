@@ -28,3 +28,31 @@ transactions-list-page {
     font-style: italic;
     text-indent: 1.5em;
 }
+
+transaction-page {
+    @include DefaultSpacings();
+
+    h2 {
+        margin-top: 1em;
+    }
+}
+
+.transact-post-items-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.transact-post-item {
+    @extend .transaction-item;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.25em;
+
+    img {
+        height: 10em;
+        width: 10em;
+        min-width: 10em;
+        margin-right: 2em;
+    }
+}
