@@ -9,11 +9,15 @@ import { TransactionsListPageComponent } from './transactions-list-page/transact
 
 const routes: Routes = [
   { path: 'transactions', component: TransactionsListPageComponent },
-  {path: 'transactions/transaction/:id', component: TransactionPageComponent}
+  { path: 'transactions/transaction/:id', component: TransactionPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), TransactionsListPageModule, TransactionPageModule],
+  imports: [
+    RouterModule.forChild(routes),
+    TransactionsListPageModule,
+    TransactionPageModule
+  ],
   exports: [RouterModule]
 })
 export class TransactionsRoutingModule {}

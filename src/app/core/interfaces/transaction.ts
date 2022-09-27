@@ -1,9 +1,9 @@
-import { Post } from "./post"
+import { Post } from './post';
 
 export interface Transaction {
-    id: number,
-    dateString: string,
-    totalAmount: number,
-    itemCount: number
-    posts: Post[]
+  id: number;
+  dateString: string;
+  totalAmount: number;
+  itemCount: number;
+  posts: Post[];
 }

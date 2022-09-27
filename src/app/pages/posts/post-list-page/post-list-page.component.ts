@@ -13,7 +13,7 @@ import { PostService } from 'src/app/core/services/api/post.service';
       </ng-container>
     </ng-container>
     <ng-template #notFound>
-      <h1>No {{filter}} Posts Found At The Moment</h1>
+      <h1>No {{ filter }} Posts Found At The Moment</h1>
     </ng-template>
   `,
   styles: []

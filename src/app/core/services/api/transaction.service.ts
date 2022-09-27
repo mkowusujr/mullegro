@@ -9,12 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class TransactionService {
   private baseUrl = '/transactions';
-  constructor(private _apiService: ApiService) { }
-  
+  constructor(private _apiService: ApiService) {}
 
   getAllTransactions(): Observable<Transaction[]> {
     let getAllTransactionsEndpoint = `${this.baseUrl}`;
-    return this._apiService.getRequest(getAllTransactionsEndpoint)
+    return this._apiService.getRequest(getAllTransactionsEndpoint);
   }
 
   getTransaction(transactionId: number): Observable<Transaction> {
@@ -23,7 +22,7 @@ export class TransactionService {
   }
 
   addTransaction(payload: object) {
-    let addTransactionEndpoint = `${this.baseUrl}`
-    return this._apiService.postRequest(addTransactionEndpoint, payload)
+    let addTransactionEndpoint = `${this.baseUrl}`;
+    return this._apiService.postRequest(addTransactionEndpoint, payload);
   }
 }

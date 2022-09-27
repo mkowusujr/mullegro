@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TransactionsListPageComponent } from './transactions-list-page.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [TransactionsListPageComponent],
-  imports: [
-    CommonModule, RouterModule
-  ]
+  imports: [CommonModule, RouterModule]
 })
-export class TransactionsListPageModule { }
+export class TransactionsListPageModule {}

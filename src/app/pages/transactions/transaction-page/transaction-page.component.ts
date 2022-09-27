@@ -9,7 +9,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   template: `
     <p>{{ (transaction$ | async)?.dateString }}</p>
     <p>{{ (transaction$ | async)?.itemCount }}</p>
-    <p>{{ (transaction$ | async)?.totalAmount | currency}}</p>
+    <p>{{ (transaction$ | async)?.totalAmount | currency }}</p>
     <ng-container *ngFor="let post of (transaction$ | async)?.posts">
       <p>{{ post.title }}</p>
     </ng-container>
@@ -18,8 +18,11 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
 })
 export class TransactionPageComponent implements OnInit {
   transaction$!: Observable<Transaction>;
-  
-  constructor(private route: ActivatedRoute, private _transactionService: TransactionService) {
+
+  constructor(
+    private route: ActivatedRoute,
+    private _transactionService: TransactionService
+  ) {
     route.params.subscribe(params => {
       this.transaction$ = this._transactionService.getTransaction(
         +params['id']

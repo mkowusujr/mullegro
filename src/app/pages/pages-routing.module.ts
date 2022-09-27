@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: '', loadChildren: () => PostPagesModule },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'category', component: CategoryComponent },
-  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard]}
+  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
