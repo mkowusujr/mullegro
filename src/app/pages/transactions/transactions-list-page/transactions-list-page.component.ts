@@ -8,7 +8,11 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
   template: `
     <ng-container *ngFor="let transaction of transactions$ | async">
       
-      <div class="card-g transaction-item">
+      <div 
+        class="card-g transaction-item"
+        [routerLink]="['/transactions/transaction/' + transaction.id]"
+        routerLinkActive="active"
+        >
         <p><b>Transaction on {{ transaction.dateString }}</b></p>
         <div>
           <p>Total Item Count: {{ transaction.itemCount }}</p>
