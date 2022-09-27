@@ -1,3 +1,45 @@
 cart {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 0.25em;
+
     @include DefaultSpacings();
+    @include DropShadow();
+
+    width: 60%;
+}
+
+cart table {
+    th, td {
+        padding: 1em;
+        text-align: left;
+    }
+
+    th {
+        background-color: $welcome-banner;
+        color: white;
+    }
+
+    tr:nth-child(even) {background-color: $table-2nd-color;}
+    .cart-items:hover {background-color: $wel-ban-hover;}
+}
+
+
+cart .cart-info {
+    display: flex;
+    flex-direction: column;
+    background-color: $card-y;
+    align-items: flex-end;
+    p, button {
+        margin-top: 0.5em;
+        margin-right: 1em;
+        margin-bottom: 0.5em;
+    }
+}
+
+cart .cart-count {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
