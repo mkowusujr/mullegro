@@ -4,7 +4,6 @@ export interface Post {
   price: number;
   description: string;
   condition: string;
-  address?: string;
   category: string;
   status?: string;
   userId?: number;

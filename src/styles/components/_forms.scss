@@ -9,6 +9,7 @@ form {
     }
 }
 
+select,
 input {
     border: 0.75px solid $borderOutline;
     border-radius: 0.2em;
@@ -16,9 +17,7 @@ input {
     margin: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
-    &[type="text"]:focus,
-    &[type="email"]:focus,
-    &[type="password"]:focus {
+    &:focus {
         transition-timing-function: ease-out;
         transition-duration: 0.05s;
         outline: 3px solid $card-g;

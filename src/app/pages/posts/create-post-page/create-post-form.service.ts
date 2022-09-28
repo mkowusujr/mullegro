@@ -22,8 +22,8 @@ export class CreatePostFormService extends AbstractFormService<CreatePostForm> {
       title: ['', [Validators.required]],
       price: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      condition: ['', [Validators.required]],
-      category: ['', [Validators.required]]
+      condition: [null , [Validators.required]],
+      category: [null , [Validators.required]]
     });
   }
 
