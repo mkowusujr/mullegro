@@ -7,21 +7,25 @@
     Mullegro
   </a>
   <div>
-      <input type="text">
-      <ul>
-        <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>
-          <ng-template #thenBlock>
-          <li>
-            <a [routerLink]="['/cart']" routerLinkActive="active">
-              Cart
-            </a>
-            |
-            <a [routerLink]="['/user/'+(currentUser$ | async)?.username]" routerLinkActive="active">
-              {{(currentUser$ | async)?.name}}
-            </a>
-            |
-            <a (click)="signOut()"> Sign Out</a>
-          </li>
+    <ul>
+      <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>
+      <ng-template #thenBlock>
+        <li>
+              <input type="text">
+              <a [routerLink]="['/posts/create-post']" routerLinkActive="active">
+                Create Post
+              </a>
+              |
+              <a [routerLink]="['/cart']" routerLinkActive="active">
+                Cart
+              </a>
+              |
+              <a [routerLink]="['/user/'+(currentUser$ | async)?.username]" routerLinkActive="active">
+                {{(currentUser$ | async)?.name}}
+              </a>
+              |
+              <a (click)="signOut()"> Sign Out</a>
+            </li>
           </ng-template>
 
           <ng-template #elseBlock>
