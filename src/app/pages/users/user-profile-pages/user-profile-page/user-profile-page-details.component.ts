@@ -9,4 +9,4 @@ import { Component } from '@angular/core';
     </p>
   `
 })
-export class UserProfileDetailsComponent {}
+export class UserProfilePageDetailsComponent {}

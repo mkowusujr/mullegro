@@ -14,7 +14,7 @@ import { Component, Input, OnInit } from '@angular/core';
     </div>
   `
 })
-export class UserProfileSummaryComponent implements OnInit {
+export class UserProfilePageSummaryComponent implements OnInit {
   @Input() avatarImg!: string | undefined;
   @Input() userUsername!: string | undefined;
   @Input() userName!: string | undefined;

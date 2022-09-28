@@ -24,7 +24,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
     </three-column-display>
   `
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfilePageComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   posts$!: Observable<Post[]>;
   header!: string;
