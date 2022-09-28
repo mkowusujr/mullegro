@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthStateService } from 'src/app/core/auth/auth-state.service';
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-user-profile-edit-page',
@@ -11,10 +14,11 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class UserProfileEditPageComponent implements OnInit {
+  currentUser$!: Observable<User| undefined> ;
 
-  constructor() { }
+  constructor(private _authStateService: AuthStateService) { }
 
   ngOnInit(): void {
+    this.currentUser$ = this._authStateService.currentUser$;
   }
-
 }
