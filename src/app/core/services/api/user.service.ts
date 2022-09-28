@@ -21,9 +21,17 @@ export class UserService {
     return this._api.postRequest(signupEndpoint, user);
   }
 
-  getLoggedInUserDetails(): Observable<User> {
+  getCurrentUserDetails(): Observable<User> {
     const userDetailsEndpoint = `${this.baseUrl}/user/details`;
     return this._api.getRequest(userDetailsEndpoint);
+  }
+
+  updateCurrentUserDetails(updatedCurrentUserDetails: User): Observable<User> {
+    const updateCurrentUserDetailsEndpoint = `${this.baseUrl}/user`;
+    return this._api.putRequest(
+      updateCurrentUserDetailsEndpoint,
+      updatedCurrentUserDetails
+    );
   }
 
   getAllUsers(): Observable<User[]> {
