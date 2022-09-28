@@ -15,7 +15,7 @@ export class AuthStateService {
 
   constructor(private _router: Router, private _userService: UserService) {
     this._userService
-      .getLoggedInUserDetails()
+      .getCurrentUserDetails()
       .pipe(take(1))
       .subscribe(serverResponse => this._currentUser.next(serverResponse));
   }
