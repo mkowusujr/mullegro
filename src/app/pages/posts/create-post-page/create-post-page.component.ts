@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { PostService } from 'src/app/core/services/api/post.service';
 import { CreatePostFormService } from './create-post-form.service';
 
-
 @Component({
   selector: 'create-post-page',
   providers: [CreatePostFormService],
   template: `
+    <h1>Create a New Post</h1>
     <form [formGroup]="createPostFormService.form" (ngSubmit)="onSubmit()">
       <label for="#title">Title</label>
       <input #title type="text" formControlName="title" />
@@ -17,7 +17,14 @@ import { CreatePostFormService } from './create-post-form.service';
       <input #price type="number" formControlName="price" />
 
       <label for="#description">Description</label>
-      <input #description type="text" formControlName="description" />
+      <textarea 
+      #description 
+      type="text" 
+      formControlName="description" 
+      spellcheck="true"
+      wrap="hard"
+      >
+      </textarea>
 
       <label for="#category">Category</label>
       <select formControlName="category" #category>
@@ -63,5 +70,6 @@ export class CreatePostPageComponent implements OnInit {
 
   onSubmit() {
     this.createPostFormService.submitForm();
+    this._router.navigate(['']);
   }
 }
