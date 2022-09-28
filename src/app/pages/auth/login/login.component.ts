@@ -10,7 +10,6 @@ import { LoginFormService } from './login-form.service';
     <form
       [formGroup]="loginFormService.form"
       (ngSubmit)="onSubmit()"
-      novalidate
     >
       <label for="#emailOrUsername">Email or Username</label>
       <input #emailOrUsername type="text" formControlName="emailOrUsername" />

@@ -5,14 +5,17 @@ import { PostListPageModule } from './post-list-page/post-list-page.module';
 
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostListPageComponent } from './post-list-page/post-list-page.component';
+import { CreatePostPageModule } from './create-post-page/create-post-page.module';
+import { CreatePostPageComponent } from './create-post-page/create-post-page.component';
 
 const routes: Routes = [
+  { path: 'posts/create-post', component: CreatePostPageComponent },
   { path: 'post/:id', component: PostPageComponent },
   { path: 'posts', component: PostListPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), PostPageModule, PostListPageModule],
+  imports: [RouterModule.forChild(routes), PostPageModule, PostListPageModule, CreatePostPageModule],
   exports: [RouterModule]
 })
 export class PostPagesRoutingModule {}

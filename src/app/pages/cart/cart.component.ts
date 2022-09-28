@@ -24,7 +24,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
         </td>
           <td>{{ post.price | currency }}</td>
           <td>
-            <a (click)="removeFromCart(post.id)">Remove From Cart</a>
+            <a (click)="removeFromCart(post.id ?? -1)">Remove From Cart</a>
           </td>
         </tr>
       </ng-container>

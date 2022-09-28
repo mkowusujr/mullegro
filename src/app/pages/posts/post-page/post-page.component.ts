@@ -42,7 +42,7 @@ export class PostPageComponent {
     this.post$.pipe(take(1)).subscribe({
       next: post =>
         this._userService
-          .getUserById(post.userId)
+          .getUserById(post.userId ?? -1)
           .pipe(take(1))
           .subscribe({
             next: user => {
