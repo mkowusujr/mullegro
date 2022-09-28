@@ -21,12 +21,12 @@ export class SignUpFormService extends AbstractFormService<User> {
 
   buildForm(): FormGroup<any> {
     return this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      address: ['', Validators.required],
-      password: ['', Validators.required],
-      password2: ['', Validators.required]
+      name: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      password2: ['', [Validators.required]]
     });
   }
 
