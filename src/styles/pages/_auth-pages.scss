@@ -20,3 +20,8 @@ login {
 signup {
     @extend login
 }
+
+.auth-footer {
+    @extend form;
+    margin-top: 0;
+}
