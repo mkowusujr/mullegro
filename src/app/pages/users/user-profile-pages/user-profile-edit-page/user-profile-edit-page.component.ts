@@ -8,6 +8,7 @@ import { User } from 'src/app/core/interfaces/user';
   template: `
     <p>user-profile-edit-page works!</p>
     <edit-bio-form></edit-bio-form>
+    <edit-address-form></edit-address-form>
   `,
   styles: []
 })
