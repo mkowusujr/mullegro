@@ -21,8 +21,7 @@ import { EditBioFormService } from './edit-bio-form.service';
         [disabled]="_editBioFormService.form.pristine"
       />
     </form>
-  `,
-  styles: []
+  `
 })
 export class EditBioFormComponent implements OnInit {
   constructor(public _editBioFormService: EditBioFormService) {}
