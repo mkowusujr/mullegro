@@ -11,8 +11,8 @@ import { CreatePostForm } from './create-post-form';
 })
 export class CreatePostFormService extends AbstractFormService<CreatePostForm> {
   constructor(
-      protected override fb: FormBuilder,
-      private _postService: PostService
+    protected override fb: FormBuilder,
+    private _postService: PostService
   ) {
     super(fb);
   }
@@ -22,14 +22,12 @@ export class CreatePostFormService extends AbstractFormService<CreatePostForm> {
       title: ['', [Validators.required]],
       price: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      condition: [null , [Validators.required]],
-      category: [null , [Validators.required]]
+      condition: [null, [Validators.required]],
+      category: [null, [Validators.required]]
     });
   }
 
-    submitForm() {
-      this._postService.createPost(this.getFormValue())
-      .pipe(take(1))
-      .subscribe();
+  submitForm() {
+    this._postService.createPost(this.getFormValue()).pipe(take(1)).subscribe();
   }
 }

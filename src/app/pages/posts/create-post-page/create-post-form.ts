@@ -3,5 +3,5 @@ export interface CreatePostForm {
   price: number;
   description: string;
   condition: string;
-  category: string
+  category: string;
 }

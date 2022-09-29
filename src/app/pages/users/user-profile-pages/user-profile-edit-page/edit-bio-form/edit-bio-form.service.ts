@@ -11,27 +11,26 @@ import { bioForm } from '../edit-forms';
   providedIn: 'root'
 })
 export class EditBioFormService extends AbstractFormService<bioForm> {
- 
   currentUser!: User | undefined;
 
   constructor(
     protected override fb: FormBuilder,
     private _authState: AuthStateService,
     private _userService: UserService
-    ) {
-      super(fb);
-      _authState.currentUser$.subscribe(currentUser => {
-        this.form =  this.fb.group({
-          bio: [currentUser?.bio]
-        })
-        this.currentUser = currentUser;
-      })
+  ) {
+    super(fb);
+    _authState.currentUser$.subscribe(currentUser => {
+      this.currentUser = currentUser;
+      this.form = this.fb.group({
+        bio: [currentUser?.bio]
+      });
+    });
   }
 
   buildForm(): FormGroup<any> {
     return this.fb.group({
       bio: ['']
-    })
+    });
   }
 
   get bio(): string | null {
@@ -39,9 +38,12 @@ export class EditBioFormService extends AbstractFormService<bioForm> {
   }
 
   submitForm(): void {
-    if(this.currentUser) {
+    if (this.currentUser) {
       this.currentUser.bio = this.bio ?? '';
-      this._userService.updateCurrentUserDetails(this.currentUser).pipe(take(1)).subscribe();
+      this._userService
+        .updateCurrentUserDetails(this.currentUser)
+        .pipe(take(1))
+        .subscribe();
       this._authState.refreshDetails();
     }
   }

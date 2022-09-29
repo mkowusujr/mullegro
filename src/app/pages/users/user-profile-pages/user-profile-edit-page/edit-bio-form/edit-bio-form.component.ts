@@ -7,26 +7,27 @@ import { EditBioFormService } from './edit-bio-form.service';
   template: `
     <form [formGroup]="_editBioFormService.form" (ngSubmit)="onSubmit()">
       <label for="#bio">Bio</label>
-      <textarea 
-        #bio 
-        type="text" 
-        formControlName="bio" 
+      <textarea
+        #bio
+        type="text"
+        formControlName="bio"
         spellcheck="true"
         wrap="hard"
       >
       </textarea>
-      <input type="submit" value="Update Bio" [disabled]="_editBioFormService.form.pristine" />
+      <input
+        type="submit"
+        value="Update Bio"
+        [disabled]="_editBioFormService.form.pristine"
+      />
     </form>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class EditBioFormComponent implements OnInit {
+  constructor(public _editBioFormService: EditBioFormService) {}
 
-  constructor(public _editBioFormService: EditBioFormService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this._editBioFormService.submitForm();

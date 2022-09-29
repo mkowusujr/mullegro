@@ -1,17 +1,17 @@
 export interface bioForm {
-    bio: string
+  bio: string;
 }
 
 export interface addressForm {
-    address: string
+  address: string;
 }
 
 export interface emailForm {
-    oldEmail: string,
-    newEmail: string
+  oldEmail: string;
+  newEmail: string;
 }
 
 export interface passwordForm {
-    oldPassword: string,
-    newPassword: string
+  oldPassword: string;
+  newPassword: string;
 }

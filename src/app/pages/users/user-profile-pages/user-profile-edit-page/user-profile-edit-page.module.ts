@@ -7,8 +7,6 @@ import { EditEmailFormComponent } from './edit-email-form/edit-email.component';
 import { EditPasswordFormComponent } from './edit-password-form/edit-password-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     UserProfileEditPageComponent,
@@ -17,8 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditEmailFormComponent,
     EditPasswordFormComponent
   ],
-  imports: [
-    CommonModule, FormsModule, ReactiveFormsModule
-  ]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule]
 })
-export class UserProfileEditPageModule { }
+export class UserProfileEditPageModule {}

@@ -12,16 +12,20 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
     <p>Total Amount{{ (transaction$ | async)?.totalAmount | currency }}</p>
     <h2>Transaction Items:</h2>
     <div class="transact-post-items-list">
-      <div class="transact-post-item" *ngFor="let post of (transaction$ | async)?.posts">
+      <div
+        class="transact-post-item"
+        *ngFor="let post of (transaction$ | async)?.posts"
+      >
         <img [src]="post.display_picture" />
         <div>
-          <p><b>{{ post.title }}</b></p>
+          <p>
+            <b>{{ post.title }}</b>
+          </p>
           <p>{{ post.category }}</p>
-          <p>{{ post.price | currency}}</p>
+          <p>{{ post.price | currency }}</p>
           <p>{{ post.condition }}</p>
           <!-- <p>{{ post.condition }}</p> -->
         </div>
-        
       </div>
     </div>
   `,

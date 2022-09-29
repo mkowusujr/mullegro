@@ -16,12 +16,9 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
       </tr>
       <ng-container *ngFor="let post of (cart$ | async)?.posts">
         <tr class="cart-items">
-          <td
-          [routerLink]="['/post/' + post.id]"
-          routerLinkActive="active"
-          >
-          {{ post.title }}
-        </td>
+          <td [routerLink]="['/post/' + post.id]" routerLinkActive="active">
+            {{ post.title }}
+          </td>
           <td>{{ post.price | currency }}</td>
           <td>
             <a (click)="removeFromCart(post.id ?? -1)">Remove From Cart</a>
@@ -63,10 +60,11 @@ export class CartComponent implements OnInit {
   }
 
   checkoutCart() {
-    this._transactionService.addTransaction({}).pipe(take(1)).subscribe(
-      {
+    this._transactionService
+      .addTransaction({})
+      .pipe(take(1))
+      .subscribe({
         next: () => this._router.navigate(['/transactions'])
-      }
-    );
+      });
   }
 }

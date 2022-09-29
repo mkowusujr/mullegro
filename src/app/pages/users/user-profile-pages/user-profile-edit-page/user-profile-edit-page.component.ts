@@ -6,18 +6,15 @@ import { User } from 'src/app/core/interfaces/user';
 @Component({
   selector: 'user-profile-edit-page',
   template: `
-    <p>
-      user-profile-edit-page works!
-    </p>
+    <p>user-profile-edit-page works!</p>
     <edit-bio-form></edit-bio-form>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class UserProfileEditPageComponent implements OnInit {
-  currentUser$!: Observable<User| undefined> ;
+  currentUser$!: Observable<User | undefined>;
 
-  constructor(private _authStateService: AuthStateService) { }
+  constructor(private _authStateService: AuthStateService) {}
 
   ngOnInit(): void {
     this.currentUser$ = this._authStateService.currentUser$;

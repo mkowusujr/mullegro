@@ -15,7 +15,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), PostPageModule, PostListPageModule, CreatePostPageModule],
+  imports: [
+    RouterModule.forChild(routes),
+    PostPageModule,
+    PostListPageModule,
+    CreatePostPageModule
+  ],
   exports: [RouterModule]
 })
 export class PostPagesRoutingModule {}

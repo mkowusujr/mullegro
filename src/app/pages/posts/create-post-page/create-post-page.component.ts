@@ -17,21 +17,26 @@ import { CreatePostFormService } from './create-post-form.service';
       <input #price type="number" formControlName="price" />
 
       <label for="#description">Description</label>
-      <textarea 
-      #description 
-      type="text" 
-      formControlName="description" 
-      spellcheck="true"
-      wrap="hard"
+      <textarea
+        #description
+        type="text"
+        formControlName="description"
+        spellcheck="true"
+        wrap="hard"
       >
       </textarea>
 
       <label for="#category">Category</label>
-      <input type="text" list="categories" formControlName="category" #category />
+      <input
+        type="text"
+        list="categories"
+        formControlName="category"
+        #category
+      />
       <datalist id="categories">
         <option [ngValue]="null" disabled>Select a Category</option>
-        <option 
-          *ngFor="let category of (categoryOptionsList$ | async)"
+        <option
+          *ngFor="let category of categoryOptionsList$ | async"
           [ngValue]="category"
         >
           {{ category }}
@@ -41,15 +46,19 @@ import { CreatePostFormService } from './create-post-form.service';
       <label for="#condition">Condition</label>
       <select formControlName="condition" #condition>
         <option [ngValue]="null" disabled>Select a Condition</option>
-        <option 
-          *ngFor="let condition of (conditionOptionsList$ | async)"
+        <option
+          *ngFor="let condition of conditionOptionsList$ | async"
           [ngValue]="condition"
         >
           {{ condition }}
         </option>
       </select>
 
-      <input type="submit" value="Create Post" [disabled]="!createPostFormService.valid" />
+      <input
+        type="submit"
+        value="Create Post"
+        [disabled]="!createPostFormService.valid"
+      />
     </form>
   `,
   styles: []
