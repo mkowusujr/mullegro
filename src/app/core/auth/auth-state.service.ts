@@ -55,4 +55,11 @@ export class AuthStateService {
   public isSignedIn(): boolean {
     return this.doesJwtExist();
   }
+
+  public refreshDetails() {
+    this._userService
+      .getCurrentUserDetails()
+      .pipe(take(1))
+      .subscribe(serverResponse => this._currentUser.next(serverResponse));
+  }
 }

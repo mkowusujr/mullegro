@@ -4,11 +4,12 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
 
 @Component({
-  selector: 'app-user-profile-edit-page',
+  selector: 'user-profile-edit-page',
   template: `
     <p>
       user-profile-edit-page works!
     </p>
+    <edit-bio-form></edit-bio-form>
   `,
   styles: [
   ]
