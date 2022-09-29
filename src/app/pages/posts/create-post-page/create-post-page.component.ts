@@ -27,7 +27,8 @@ import { CreatePostFormService } from './create-post-form.service';
       </textarea>
 
       <label for="#category">Category</label>
-      <select formControlName="category" #category>
+      <input type="text" list="categories" formControlName="category" #category />
+      <datalist id="categories">
         <option [ngValue]="null" disabled>Select a Category</option>
         <option 
           *ngFor="let category of (categoryOptionsList$ | async)"
@@ -35,7 +36,7 @@ import { CreatePostFormService } from './create-post-form.service';
         >
           {{ category }}
         </option>
-      </select>
+      </datalist>
 
       <label for="#condition">Condition</label>
       <select formControlName="condition" #condition>
