@@ -12,7 +12,6 @@ export interface emailForm {
 }
 
 export interface passwordForm {
-  oldPassword: string;
-  newPassword: string;
-  confirmNewPassword: string;
+  password: string;
+  confirmPassword: string;
 }

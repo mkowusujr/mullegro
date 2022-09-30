@@ -7,9 +7,6 @@ import { EditPasswordFormService } from './edit-password-form.service';
   template: `
     <h3>Update Password</h3>
     <form [formGroup]="_editPasswordFormService.form" (ngSubmit)="onSubmit()">
-      <label for="#currentPassword">Confirm your current password</label>
-      <input type="password" formControlName="currentPassword" #currentPassword />
-
       <label for="#password">Enter new password</label>
       <input type="password" formControlName="password" #password />
 

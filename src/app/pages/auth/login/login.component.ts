@@ -24,8 +24,7 @@ import { LoginFormService } from './login-form.service';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    public loginFormService: LoginFormService,
-    private _authState: AuthStateService
+    public loginFormService: LoginFormService
   ) {}
 
   ngOnInit(): void {}
@@ -33,6 +32,4 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loginFormService.submitForm();
   }
-
-  logout = () => this._authState.loggout();
 }

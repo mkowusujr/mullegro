@@ -26,13 +26,6 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
       this.form = this.fb.group({
-        currentPassword: [
-          '',
-          [
-            Validators.required,
-            PasswordValidation.currentPasswordMatches(currentUser)
-          ]
-        ],
         password: [
           null,
           [
@@ -56,7 +49,6 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
 
   buildForm(): FormGroup<any> {
     return this.fb.group({
-      currentPassword: ['', [Validators.required]],
       password: [
         '',
         [
@@ -77,13 +69,13 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
     });
   }
 
-  get confirmNewPassword() {
-    return this.form.value.confirmNewPassword;
+  get confirmPassword() {
+    return this.form.value.confirmPassword;
   }
 
   submitForm(): void {
     if (this.currentUser) {
-      this.currentUser.password = this.confirmNewPassword;
+      this.currentUser.password = this.confirmPassword;
       this._userService
         .updateCurrentUserDetails(this.currentUser)
         .pipe(take(1))
