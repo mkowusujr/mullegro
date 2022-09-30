@@ -6,9 +6,11 @@ import { User } from 'src/app/core/interfaces/user';
 @Component({
   selector: 'user-profile-edit-page',
   template: `
-    <p>user-profile-edit-page works!</p>
+    <h1>Update Account Details</h1>
     <edit-bio-form></edit-bio-form>
     <edit-address-form></edit-address-form>
+    <edit-email-form></edit-email-form>
+    <edit-password-form></edit-password-form>
   `,
   styles: []
 })
