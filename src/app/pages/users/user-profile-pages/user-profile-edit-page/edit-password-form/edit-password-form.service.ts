@@ -37,7 +37,12 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
         ],
         confirmPassword: [
           null,
-          [Validators.required, PasswordValidation.newPasswordMatches()]
+          [
+            Validators.required,
+            Validators.minLength(8),
+            PasswordValidation.passwordStrength(),
+            PasswordValidation.newPasswordMatches()
+          ]
         ]
       });
     });
