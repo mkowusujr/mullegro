@@ -66,3 +66,7 @@ user-list-card {
         height: 11em;
     }
 }
+
+user-profile-edit-page {
+    @include DefaultSpacings();
+}
