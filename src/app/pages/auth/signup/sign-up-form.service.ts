@@ -4,8 +4,11 @@ import { take } from 'rxjs';
 
 import { AbstractFormService } from 'src/app/core/services/abstract-form.service';
 import { UserService } from 'src/app/core/services/api/user.service';
-import { User } from 'src/app/core/interfaces/user';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
+
+import { User } from 'src/app/core/interfaces/user';
+
+import { PasswordValidation } from 'src/app/core/validators/password-validation';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +28,8 @@ export class SignUpFormService extends AbstractFormService<User> {
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       address: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      password2: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(8), PasswordValidation.passwordStrength()]],
+      confirmPassword: ['', [Validators.required, PasswordValidation.newPasswordMatches()]]
     });
   }
 
