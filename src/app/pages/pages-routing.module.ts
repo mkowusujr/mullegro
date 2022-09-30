@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 
 import { AuthGuard } from '../core/auth/auth.guard';
+import { SearchPageModule } from './search/search-page.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: '', loadChildren: () => PostPagesModule },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'category', component: CategoryComponent },
-  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] }
+  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] },
+  {path: '', loadChildren: () => SearchPageModule }
 ];
 
 @NgModule({

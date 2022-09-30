@@ -54,8 +54,8 @@ export class UserService {
     return this._api.deleteRequest(deleteAccountEndpoint);
   }
 
-  getAllFilteredUsers(filter: string): Observable<User[]> {
-    const getAllFilteredUsersEndpoint = `${this.baseUrl}/user/search?query=${filter}`;
-    return this._api.getRequest(getAllFilteredUsersEndpoint);
+  findUsersWithSearchQuery(filter: string): Observable<User[]> {
+    const findUsersWithSearchQueryEndpoint = `${this.baseUrl}/user/search?query=${filter}`;
+    return this._api.getRequest(findUsersWithSearchQueryEndpoint);
   }
 }
