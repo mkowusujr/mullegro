@@ -11,6 +11,9 @@ import { Component, Input, OnInit } from '@angular/core';
         <h3>Bio</h3>
         <p>{{ bio }}</p>
       </div>
+      <a [routerLink]="['/user/settings']" routerLinkActive="active">
+        Edit Account Settings
+      </a>
     </div>
   `
 })

@@ -7,6 +7,7 @@ import { PostListModule } from 'src/app/shared/components/post-list/post-list.mo
 import { UserProfilePageComponent } from './user-profile-page.component';
 import { UserProfilePageDetailsComponent } from './user-profile-page-details.component';
 import { UserProfilePageSummaryComponent } from './user-profile-page-summary.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { UserProfilePageSummaryComponent } from './user-profile-page-summary.com
     UserProfilePageDetailsComponent,
     UserProfilePageSummaryComponent
   ],
-  imports: [CommonModule, PostListModule, LayoutsModule]
+  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule]
 })
 export class UserProfilePageModule {}

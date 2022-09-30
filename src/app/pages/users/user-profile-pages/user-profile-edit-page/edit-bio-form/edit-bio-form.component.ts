@@ -5,6 +5,7 @@ import { EditBioFormService } from './edit-bio-form.service';
   selector: 'edit-bio-form',
   providers: [EditBioFormService],
   template: `
+    <h3>Update Bio</h3>
     <form [formGroup]="_editBioFormService.form" (ngSubmit)="onSubmit()">
       <label for="#bio">Bio</label>
       <textarea

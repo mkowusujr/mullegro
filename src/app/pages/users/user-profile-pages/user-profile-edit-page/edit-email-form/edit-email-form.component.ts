@@ -5,6 +5,7 @@ import { EditEmailFormService } from './edit-email-form.service';
   selector: 'edit-email-form',
   providers: [EditEmailFormService],
   template: `
+    <h3>Update Email Address</h3>
     <form [formGroup]="_editEmailFormService.form" (ngSubmit)="onSubmit()">
       <label for="#currentEmail">Confirm your current email address</label>
       <input type="text" formControlName="currentEmail" #currentEmail />
