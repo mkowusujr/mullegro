@@ -28,8 +28,23 @@ export class SignUpFormService extends AbstractFormService<User> {
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       address: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8), PasswordValidation.passwordStrength()]],
-      confirmPassword: ['', [Validators.required, PasswordValidation.newPasswordMatches()]]
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          PasswordValidation.passwordStrength()
+        ]
+      ],
+      confirmPassword: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          PasswordValidation.passwordStrength(),
+          PasswordValidation.newPasswordMatches()
+        ]
+      ]
     });
   }
 

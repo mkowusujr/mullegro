@@ -10,16 +10,16 @@ import { EditPasswordFormService } from './edit-password-form.service';
       <label for="#currentPassword">Confirm your current password</label>
       <input type="password" formControlName="currentPassword" #currentPassword />
 
-      <label for="#newPassword">Enter new password</label>
-      <input type="password" formControlName="newPassword" #newPassword />
+      <label for="#password">Enter new password</label>
+      <input type="password" formControlName="password" #password />
 
-      <label for="#confirmNewPassword">Enter new password</label>
-      <input type="password" formControlName="confirmNewPassword" #confirmNewPassword />
+      <label for="#confirmPassword">Enter new password</label>
+      <input type="password" formControlName="confirmPassword" #confirmPassword />
 
       <input
         type="submit"
         value="Update Password"
-        [disabled]="_editPasswordFormService.form.pristine"
+        [disabled]="!_editPasswordFormService.valid"
       />
     </form>
   `

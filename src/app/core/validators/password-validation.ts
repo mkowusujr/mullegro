@@ -27,7 +27,7 @@ export class PasswordValidation {
         return (control: AbstractControl): ValidationErrors | null => {
             const password = control.parent?.value.password;
             const retypedPassword = control.value;
-            const doPasswordsMatch = password !== '' && password === retypedPassword;
+            const doPasswordsMatch = password !== "" && password === retypedPassword;
     
             return doPasswordsMatch? null: {doPasswordsMatch:doPasswordsMatch};
         }
