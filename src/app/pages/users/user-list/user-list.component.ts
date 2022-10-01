@@ -5,20 +5,25 @@ import { User } from 'src/app/core/interfaces/user';
 import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
-  selector: 'user-list',
+  selector: 'user-list-page',
   template: `
-    <ng-container *ngFor="let user of users">
-      <user-list-card
-        [avatarImg]="user?.profile_picture"
-        [userUsername]="user?.username"
-        [userName]="user?.name"
-      ></user-list-card>
-    </ng-container>
+    <input type="text" placeholder="Search for Users" (keyup)="onKey($event)" />
+    <div class="user-list">
+      <ng-container *ngFor="let user of users">
+        <user-list-card
+          [avatarImg]="user?.profile_picture"
+          [userUsername]="user?.username"
+          [userName]="user?.name"
+        ></user-list-card>
+      </ng-container>
+    </div>
+    
   `
 })
 export class UserListComponent implements OnInit {
   users!: User[];
   currentUser$!: Observable<User | undefined>;
+  searchQuery = '';
 
   constructor(
     private _userService: UserService,
@@ -27,6 +32,10 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
+    this.initalFetchUsers();
+  }
+
+  initalFetchUsers() {
     this._userService
       .getAllUsers()
       .pipe(take(1))
@@ -37,5 +46,13 @@ export class UserListComponent implements OnInit {
         });
         this.users = users.filter(u => u.username != username);
       });
+  }
+
+  onKey(event: any) {
+    this.searchQuery = event.target.value;
+    this._userService
+      .findUsersWithSearchQuery(this.searchQuery)
+      .pipe(take(1))
+      .subscribe(users => (this.users = users));
   }
 }

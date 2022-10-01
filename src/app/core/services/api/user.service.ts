@@ -55,7 +55,7 @@ export class UserService {
   }
 
   findUsersWithSearchQuery(filter: string): Observable<User[]> {
-    const findUsersWithSearchQueryEndpoint = `${this.baseUrl}/user/search?query=${filter}`;
+    const findUsersWithSearchQueryEndpoint = `${this.baseUrl}/search?query=${filter}`;
     return this._api.getRequest(findUsersWithSearchQueryEndpoint);
   }
 }
