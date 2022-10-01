@@ -31,11 +31,11 @@ export class UserListComponent implements OnInit {
       .getAllUsers()
       .pipe(take(1))
       .subscribe(users => {
-        let usrname: string | undefined;
+        let username: string | undefined;
         this.currentUser$.pipe(take(1)).subscribe(usr => {
-          usrname = usr?.username;
+          username = usr?.username;
         });
-        this.users = users.filter(u => u.username != usrname);
+        this.users = users.filter(u => u.username != username);
       });
   }
 }
