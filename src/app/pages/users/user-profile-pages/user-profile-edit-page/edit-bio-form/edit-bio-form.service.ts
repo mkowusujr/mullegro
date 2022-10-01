@@ -28,9 +28,7 @@ export class EditBioFormService extends AbstractFormService<bioForm> {
   }
 
   buildForm(): FormGroup<any> {
-    return this.fb.group({
-      bio: ['']
-    });
+    return this.fb.group({});
   }
 
   get bio(): string | null {

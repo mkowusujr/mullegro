@@ -48,25 +48,7 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
   }
 
   buildForm(): FormGroup<any> {
-    return this.fb.group({
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          PasswordValidation.passwordStrength()
-        ]
-      ],
-      confirmPassword: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          PasswordValidation.passwordStrength(),
-          PasswordValidation.newPasswordMatches()
-        ]
-      ]
-    });
+    return this.fb.group({});
   }
 
   get confirmPassword() {

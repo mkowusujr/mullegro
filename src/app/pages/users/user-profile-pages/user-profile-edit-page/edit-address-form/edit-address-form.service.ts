@@ -28,9 +28,7 @@ export class EditAddressFormService extends AbstractFormService<addressForm> {
   }
 
   buildForm(): FormGroup<any> {
-    return this.fb.group({
-        address: ['']
-    });
+    return this.fb.group({});
   }
 
   get address(): string | null {

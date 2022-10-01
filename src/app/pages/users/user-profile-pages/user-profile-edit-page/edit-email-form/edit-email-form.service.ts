@@ -29,13 +29,11 @@ export class EditEmailFormService extends AbstractFormService<emailForm> {
   }
 
   buildForm(): FormGroup<any> {
-    return this.fb.group({
-      bio: ['']
-    });
+    return this.fb.group({});
   }
 
   get newEmail() {
-    return this.form.value.email;
+    return this.form.value.newEmail;
   }
 
   submitForm(): void {
