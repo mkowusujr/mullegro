@@ -15,4 +15,7 @@ post-details {
 create-post-page,
 post-list-page {
     @include DefaultSpacings();
+    input {
+        margin-bottom: 2em;
+    }
 }
