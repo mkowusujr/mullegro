@@ -5,8 +5,7 @@ import { take } from 'rxjs';
 import { AbstractFormService } from 'src/app/core/services/abstract-form.service';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { UserService } from 'src/app/core/services/api/user.service';
-
-import { PasswordValidation } from 'src/app/core/validators/password-validation';
+import { PasswordValidationService } from 'src/app/core/services/password-validation.service';
 
 import { User } from 'src/app/core/interfaces/user';
 import { passwordForm } from '../edit-forms';
@@ -20,18 +19,28 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
   constructor(
     protected override fb: FormBuilder,
     private _authState: AuthStateService,
-    private _userService: UserService
+    private _userService: UserService,
+    private PasswordValidation: PasswordValidationService
   ) {
     super(fb);
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
-      this.form = this.fb.group({
+      this.rebuildForm()
+    });
+  }
+
+  buildForm(): FormGroup<any> {
+    return this.fb.group({});
+  }
+
+  rebuildForm() {
+    this.form = this.fb.group({
         password: [
           null,
           [
             Validators.required,
             Validators.minLength(8),
-            PasswordValidation.passwordStrength()
+            this.PasswordValidation.passwordStrength()
           ]
         ],
         confirmPassword: [
@@ -39,16 +48,11 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
           [
             Validators.required,
             Validators.minLength(8),
-            PasswordValidation.passwordStrength(),
-            PasswordValidation.newPasswordMatches()
+            this.PasswordValidation.passwordStrength(),
+            this.PasswordValidation.newPasswordMatches()
           ]
         ]
       });
-    });
-  }
-
-  buildForm(): FormGroup<any> {
-    return this.fb.group({});
   }
 
   get confirmPassword() {

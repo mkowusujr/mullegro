@@ -21,14 +21,18 @@ export class EditAddressFormService extends AbstractFormService<addressForm> {
     super(fb);
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
-      this.form = this.fb.group({
-        address: [currentUser?.address, [Validators.required]]
-      });
+      this.rebuildForm();
     });
   }
 
   buildForm(): FormGroup<any> {
     return this.fb.group({});
+  }
+
+  rebuildForm() {
+    this.form = this.fb.group({
+        address: [this.currentUser?.address, [Validators.required]]
+      });
   }
 
   get address(): string | null {

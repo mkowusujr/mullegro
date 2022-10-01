@@ -21,15 +21,19 @@ export class EditEmailFormService extends AbstractFormService<emailForm> {
     super(fb);
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
-      this.form = this.fb.group({
-        currentEmail: [],
-        newEmail: []
-      });
+      this.rebuildForm();
     });
   }
 
   buildForm(): FormGroup<any> {
     return this.fb.group({});
+  }
+
+  rebuildForm() {
+    this.form = this.fb.group({
+        currentEmail: [],
+        newEmail: []
+      });
   }
 
   get newEmail() {

@@ -21,14 +21,18 @@ export class EditBioFormService extends AbstractFormService<bioForm> {
     super(fb);
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
-      this.form = this.fb.group({
-        bio: [currentUser?.bio]
-      });
+      this.rebuildForm();
     });
   }
 
   buildForm(): FormGroup<any> {
     return this.fb.group({});
+  }
+
+  rebuildForm() {
+    this.form = this.fb.group({
+        bio: [this.currentUser?.bio]
+      });
   }
 
   get bio(): string | null {
