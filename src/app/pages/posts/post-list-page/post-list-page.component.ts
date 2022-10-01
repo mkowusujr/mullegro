@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
 import { PostService } from 'src/app/core/services/api/post.service';
+import { FilterPostService } from './filter-post.service';
 
 @Component({
   selector: 'post-list-page',
@@ -21,43 +22,56 @@ import { PostService } from 'src/app/core/services/api/post.service';
 export class PostListPageComponent implements OnInit {
   posts$!: Observable<Post[]>;
   filter!: string | undefined;
-  searchQuery = '';
 
   constructor(
     private _postService: PostService,
-    private route: ActivatedRoute
-  ) {}
-
-  initalFetchPosts() {
-    this.route.queryParams.pipe(take(1)).subscribe(params => {
-      if (params['category']) {
-        this.posts$ = this._postService.getFilteredPosts(
-          params['category'],
-          null
-        );
-        this.filter = params['category'];
-      } else if (params['condition']) {
-        this.posts$ = this._postService.getFilteredPosts(
-          null,
-          params['condition']
-        );
-        this.filter = params['condition'];
-      } else {
-        this.posts$ = this._postService.getAllPosts();
-      }
-    });
+    private route: ActivatedRoute,
+    private _filterPostsService: FilterPostService
+  ) {
+    this._filterPostsService.setSearchQuery('');
   }
 
   ngOnInit(): void {
-    this.initalFetchPosts();
+    this.posts$ = this._filterPostsService.filteredPosts$;
+    this.applyFiltersFromUrlParams();
+  }
+
+  applyFiltersFromUrlParams() {
+    this.route.queryParams.pipe(take(1)).subscribe(params => {
+      this.applyCategoryFilterFromUrlParams(params['category']);
+      this.applyConditionFilterFromUrlParams(params['condition']);
+    });
+  }
+
+  applyCategoryFilterFromUrlParams(categoryParam: any) {
+    if (categoryParam) {
+      let categories =
+      categoryParam instanceof Object
+          ? categoryParam
+          : [categoryParam];
+      this._filterPostsService.setCategoryFilters(categories);
+      this.filter = categories;
+    }
+    else {
+      this._filterPostsService.resetCategoryFilters();
+    }
+  }
+
+  applyConditionFilterFromUrlParams(conditionParam: any) {
+    if (conditionParam) {
+      let conditions =
+      conditionParam instanceof Object
+          ?conditionParam
+          : [conditionParam];
+      this._filterPostsService.setConditionFilters(conditions);
+      this.filter = conditions;
+    }
+    else {
+      this._filterPostsService.resetConditionFilters();
+    }
   }
 
   onKey(event: any) {
-    this.searchQuery = event.target.value;
-    if (this.searchQuery === '') {
-      this.posts$ = this._postService.getAllPosts();
-    } else {
-      this.posts$ = this._postService.findPostWithSearchQuery(this.searchQuery);
-    }
+    this._filterPostsService.setSearchQuery(event.target.value);
   }
 }
