@@ -28,8 +28,8 @@ export class FilterPostService {
     this.setFilteredPosts();
   }
 
-  setConditionFilters(categories: string[]) {
-    this.categoryFilters = categories;
+  setConditionFilters(conditions: string[]) {
+    this.conditionFilters = conditions;
     this.setFilteredPosts();
   }
 
@@ -49,8 +49,8 @@ export class FilterPostService {
   }
 
   setFilteredPosts() {
-    console.log(this.categoryFilters);
-    console.log(this.conditionFilters);
+    console.log('cat: ' + this.categoryFilters);
+    console.log('cond: ' + this.conditionFilters);
     this._postService
       .findPostWithSearchQuery(this.searchQuery)
       .pipe(take(1))
