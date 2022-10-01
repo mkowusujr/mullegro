@@ -49,8 +49,6 @@ export class FilterPostService {
   }
 
   setFilteredPosts() {
-    console.log('cat: ' + this.categoryFilters);
-    console.log('cond: ' + this.conditionFilters);
     this._postService
       .findPostWithSearchQuery(this.searchQuery)
       .pipe(take(1))
