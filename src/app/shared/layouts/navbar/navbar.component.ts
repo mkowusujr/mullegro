@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
 
@@ -10,8 +10,10 @@ import { User } from 'src/app/core/interfaces/user';
 export class NavbarComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   showUserUtilsMenu = false;
-  constructor(private _authState: AuthStateService) {}
 
+  constructor(private _authState: AuthStateService) {
+  }
+  
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
   }
@@ -22,5 +24,9 @@ export class NavbarComponent implements OnInit {
 
   toggleUserUtilsMenu() {
     this.showUserUtilsMenu = !this.showUserUtilsMenu;
+  }
+
+  onClickedOutside(e: Event) {
+    this.showUserUtilsMenu = false;
   }
 }

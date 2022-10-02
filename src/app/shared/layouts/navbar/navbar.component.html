@@ -18,7 +18,11 @@
       ></ng-container>
 
       <ng-template #thenBlock>
-        <li (click)="toggleUserUtilsMenu()" class="user-img">
+        <li 
+          class="user-img"
+          (click)="toggleUserUtilsMenu()" 
+          (clickOutside)="onClickedOutside($event)"
+        >
           <img [src]="(currentUser$ | async)?.profile_picture" />
         </li>
       </ng-template>
@@ -34,4 +38,4 @@
     </ul>
   </div>
 </nav>
-<nav-user-utils-menu [style.display]="showUserUtilsMenu? 'block':'none'"></nav-user-utils-menu>
+<nav-user-utils-menu [showUserUtilsMenu]="showUserUtilsMenu"></nav-user-utils-menu>

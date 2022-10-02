@@ -41,50 +41,52 @@ nav {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            height: 3em;
+            // height: 3em;
             overflow-y: hidden;
         }
     }
     .user-img {
-        position:relative;
-        top: 0.75em;
+        // position:relative;
+        // top: 0.75em;
     }
     img {
         border-radius: 1em;
-        height: 2.2em;
-        width: 2.2em;
+        height: 1.8em;
+        width: 1.8em;
     }
 }
 
 nav-user-utils-menu {
-    @include DropShadow();
-    position: fixed;
-    right: 1em;
-    top: 6em;
-
-    display: block;
-    background-color: $wel-ban-hover;
-    margin-left: 1em;
-    margin-right: 1em;
-    border-radius: 0.25em;
+    ul {
+        @include DropShadow();
+        position: fixed;
+        right: 1em;
+        top: 6em;
     
-    width: 18em;
-    line-height: 2.5;
-    li {
-        width: 100%;
-        padding-bottom: 0.5em;
-        padding-top: 0.5em;
-        &:hover {
-            background-color: $nav-user-util-menu;
-        }
-    }
-    a {
+        display: block;
+        background-color: $wel-ban-hover;
         margin-left: 1em;
-        font-size: medium;
-        color: white;
-        text-decoration: none;
-        &:visited {
+        margin-right: 1em;
+        border-radius: 0.25em;
+        
+        width: 18em;
+        line-height: 2.5;
+        li {
+            width: 100%;
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+            &:hover {
+                background-color: $nav-user-util-menu;
+            }
+        }
+        a {
+            margin-left: 1em;
+            font-size: medium;
             color: white;
+            text-decoration: none;
+            &:visited {
+                color: white;
+            }
         }
     }
 }
