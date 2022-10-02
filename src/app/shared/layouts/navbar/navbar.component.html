@@ -38,4 +38,7 @@
     </ul>
   </div>
 </nav>
-<nav-user-utils-menu [showUserUtilsMenu]="showUserUtilsMenu"></nav-user-utils-menu>
+<nav-user-utils-menu 
+  [showUserUtilsMenu]="showUserUtilsMenu"
+  (showUserUtilsMenuChange)="updateShowUserUtilsMenu($event)"
+></nav-user-utils-menu>

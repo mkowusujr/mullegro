@@ -26,6 +26,10 @@ export class NavbarComponent implements OnInit {
     this.showUserUtilsMenu = !this.showUserUtilsMenu;
   }
 
+  updateShowUserUtilsMenu(showUserUtilsMenu: boolean){
+    this.showUserUtilsMenu = showUserUtilsMenu;
+  }
+
   onClickedOutside(e: Event) {
     this.showUserUtilsMenu = false;
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
@@ -30,6 +30,7 @@ import { User } from 'src/app/core/interfaces/user';
 export class NavUserUtilsMenuComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   @Input() showUserUtilsMenu = false;
+  @Output() showUserUtilsMenuChange = new EventEmitter<boolean>;
 
   constructor(private _authState: AuthStateService) {}
 
@@ -39,6 +40,7 @@ export class NavUserUtilsMenuComponent implements OnInit {
 
   signOut() {
     this.showUserUtilsMenu = false;
+    this.showUserUtilsMenuChange.emit(this.showUserUtilsMenu);
     this._authState.loggout();
   }
 }
