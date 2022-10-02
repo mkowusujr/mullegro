@@ -1,44 +1,37 @@
 <nav>
-  <a 
-    [routerLink]="['']" 
-    routerLinkActive="active"
-    class="title"
-  >
-    Mullegro
-  </a>
-  <div>
+  <div class="main-block">
+    <a [routerLink]="['']" routerLinkActive="active" class="title">
+      Mullegro
+    </a>
+    <a [routerLink]="['/posts']" routerLinkActive="active" class="nav-link"
+      >Posts</a
+    >
+    <a [routerLink]="['/users']" routerLinkActive="active" class="nav-link"
+      >Users</a
+    >
+  </div>
+  <input class="search-bar" type="text" />
+  <div class="user-utils">
     <ul>
-      <ng-template *ngIf="(currentUser$ | async); then thenBlock; else elseBlock"></ng-template>
-      <ng-template #thenBlock>
-        <li>
-              <input type="text">
-              <a [routerLink]="['/posts/create-post']" routerLinkActive="active">
-                Create Post
-              </a>
-              |
-              <a [routerLink]="['/cart']" routerLinkActive="active">
-                Cart
-              </a>
-              |
-              <a [routerLink]="['/user/'+(currentUser$ | async)?.username]" routerLinkActive="active">
-                {{(currentUser$ | async)?.name}}
-              </a>
-              |
-              <a (click)="signOut()"> Sign Out</a>
-            </li>
-          </ng-template>
+      <ng-container
+        *ngIf="currentUser$ | async; then thenBlock; else elseBlock"
+      ></ng-container>
 
-          <ng-template #elseBlock>
-            <li>
-            <a [routerLink]="['login']" routerLinkActive="active">
-              Login
-            </a>
-            |
-            <a [routerLink]="['signup']" routerLinkActive="active">
-              Sign Up
-            </a>
-          </li>
-          </ng-template>
-      </ul>
-    </div>
+      <ng-template #thenBlock>
+        <li (click)="toggleUserUtilsMenu()" class="user-img">
+          <img [src]="(currentUser$ | async)?.profile_picture" />
+        </li>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <li>
+          <a [routerLink]="['login']" routerLinkActive="active">Login</a>
+        </li>
+        <li>
+          <a [routerLink]="['signup']" routerLinkActive="active">Sign Up</a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
 </nav>
+<nav-user-utils-menu [style.display]="showUserUtilsMenu? 'block':'none'"></nav-user-utils-menu>

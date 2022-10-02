@@ -9,7 +9,7 @@ import { User } from 'src/app/core/interfaces/user';
 })
 export class NavbarComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
-
+  showUserUtilsMenu = false;
   constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {
@@ -18,5 +18,9 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     this._authState.loggout();
+  }
+
+  toggleUserUtilsMenu() {
+    this.showUserUtilsMenu = !this.showUserUtilsMenu;
   }
 }

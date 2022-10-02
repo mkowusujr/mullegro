@@ -8,11 +8,8 @@ app-navbar {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items:center;
-
-    .title {
-        font-size: x-large;
-    }
+    align-items: baseline;
+    // vertical-align: middle;
 
     a {
         font-size: medium;
@@ -22,40 +19,72 @@ nav {
             color: white;
         }
     }
-    
-    @media screen and (max-width: $mobile-width){
-        justify-content:flex-start;
+
+    .main-block {
+        flex-grow: 8;
+        .title {
+            font-size: x-large;
+        }
+        .nav-link {
+            margin-left: 2em;
+        }
+    }
+
+    .search-bar {
+        width: 20em;
+        margin-right: 2em;
+    }
+
+    .user-utils{
+        flex-grow: 0.4;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 3em;
+            overflow-y: hidden;
+        }
+    }
+    .user-img {
+        position:relative;
+        top: 0.75em;
+    }
+    img {
+        border-radius: 1em;
+        height: 2.2em;
+        width: 2.2em;
     }
 }
 
-// .collapsible ul {
-//     display: flex;
-//     width: 30vw;
-//     justify-content: space-between;
-//     li {
-//         list-style: none;
-//         display: inline-block;
-//     }
-//     @media screen and (max-width: $mobile-width){
-//         display: none;
-//     }
-// }
+nav-user-utils-menu {
+    @include DropShadow();
+    position: fixed;
+    right: 1em;
+    top: 6em;
 
-// .toggle-button {
-//     display: none;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     width: 30px;
-//     height: 21px;
-//     margin-right: 1em;
-//     @include centerOnY();
-//     .bar {
-//         height: 3px;
-//         width: 100%;
-//         background-color: $welcome-banner;
-//         border-radius: 10px;
-//     }
-//     @media screen and (max-width: $mobile-width) {
-//         display: flex;
-//     }
-// }
+    display: block;
+    background-color: $wel-ban-hover;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 0.25em;
+    
+    width: 18em;
+    line-height: 2.5;
+    li {
+        width: 100%;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+        &:hover {
+            background-color: $nav-user-util-menu;
+        }
+    }
+    a {
+        margin-left: 1em;
+        font-size: medium;
+        color: white;
+        text-decoration: none;
+        &:visited {
+            color: white;
+        }
+    }
+}

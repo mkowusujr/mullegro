@@ -9,7 +9,6 @@ import { PostPagesModule } from './posts/post-pages.module';
 import { CartModule } from './cart/cart.module';
 import { CategoryModule } from './category/category.module';
 import { TransactionsModule } from './transactions/transactions.module';
-import { SearchPageModule } from './search/search-page.module';
 import { HomePageModule } from './home/home-page.module';
 
 const routes: Routes = [
@@ -19,8 +18,7 @@ const routes: Routes = [
   { path: '', loadChildren: () => PostPagesModule },
   { path: '', loadChildren: () => CartModule, canActivate: [AuthGuard] },
   { path: '', loadChildren: () => CategoryModule },
-  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] },
-  { path: '', loadChildren: () => SearchPageModule }
+  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
