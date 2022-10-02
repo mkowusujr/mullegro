@@ -11,13 +11,9 @@ import { User } from 'src/app/core/interfaces/user';
 export class NavbarComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   showUserUtilsMenu = false;
-  searchInput = '';
 
-  constructor(
-    private _authState: AuthStateService,
-    private _router: Router) {
-  }
-  
+  constructor(private _authState: AuthStateService, private _router: Router) {}
+
   ngOnInit(): void {
     this.currentUser$ = this._authState.currentUser$;
   }
@@ -27,16 +23,16 @@ export class NavbarComponent implements OnInit {
   }
 
   searchForPosts(searchInput: string) {
-    let searchQuery = searchInput;
-    this.searchInput = '';
-    this._router.navigate(['/posts'], { queryParams: {searchQuery: searchQuery}})
+    this._router.navigate(['/posts'], {
+      queryParams: { searchQuery: searchInput }
+    });
   }
 
   toggleUserUtilsMenu() {
     this.showUserUtilsMenu = !this.showUserUtilsMenu;
   }
 
-  updateShowUserUtilsMenu(showUserUtilsMenu: boolean){
+  updateShowUserUtilsMenu(showUserUtilsMenu: boolean) {
     this.showUserUtilsMenu = showUserUtilsMenu;
   }
 

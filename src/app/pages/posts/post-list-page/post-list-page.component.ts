@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Observable, take } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
-import { PostService } from 'src/app/core/services/api/post.service';
 import { FilterPostService } from './filter-post.service';
 
 @Component({
   selector: 'post-list-page',
   template: `
-    <input type="text" placeholder="Search for Posts" (keyup)="onKey($event)" />
+    <input type="text" placeholder="Search through filtered Posts" (keyup)="onKey($event)" />
     <ng-container *ngIf="(posts$ | async)?.length != 0; else notFound">
       <ng-container *ngFor="let post of posts$ | async">
         <post-list-card [post]="post"></post-list-card>
@@ -24,7 +23,6 @@ export class PostListPageComponent implements OnInit {
   filter!: string | undefined;
 
   constructor(
-    private _postService: PostService,
     private route: ActivatedRoute,
     private _filterPostsService: FilterPostService
   ) {
@@ -37,9 +35,9 @@ export class PostListPageComponent implements OnInit {
 
   applyFiltersFromUrlParams() {
     this.route.queryParams.subscribe(params => {
+      this.applySearchQueryFromUrlParams(params['searchQuery'])
       this.applyCategoryFilterFromUrlParams(params['category']);
       this.applyConditionFilterFromUrlParams(params['condition']);
-      this.applySearchQueryFromUrlParams(params['searchQuery'])
     });
   }
 
