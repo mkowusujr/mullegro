@@ -10,7 +10,15 @@
       >Users</a
     >
   </div>
-  <input class="search-bar" type="text" />
+  
+  <input
+    class="search-bar"
+    type="text"
+    placeholder="Search for posts"
+    (keyup.enter)="searchForPosts(searchInput.value)"
+    #searchInput
+  />
+
   <div class="user-utils">
     <ul>
       <ng-container
@@ -18,9 +26,9 @@
       ></ng-container>
 
       <ng-template #thenBlock>
-        <li 
+        <li
           class="user-img"
-          (click)="toggleUserUtilsMenu()" 
+          (click)="toggleUserUtilsMenu()"
           (clickOutside)="onClickedOutside($event)"
         >
           <img [src]="(currentUser$ | async)?.profile_picture" />
@@ -38,7 +46,7 @@
     </ul>
   </div>
 </nav>
-<nav-user-utils-menu 
-  [showUserUtilsMenu]="showUserUtilsMenu"
-  (showUserUtilsMenuChange)="updateShowUserUtilsMenu($event)"
+<nav-user-utils-menu
+  [(showUserUtilsMenu)]="showUserUtilsMenu"
+  
 ></nav-user-utils-menu>

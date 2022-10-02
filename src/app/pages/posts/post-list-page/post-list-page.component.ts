@@ -28,18 +28,18 @@ export class PostListPageComponent implements OnInit {
     private route: ActivatedRoute,
     private _filterPostsService: FilterPostService
   ) {
-    this._filterPostsService.setSearchQuery('');
+    this.applyFiltersFromUrlParams();
   }
 
   ngOnInit(): void {
     this.posts$ = this._filterPostsService.filteredPosts$;
-    this.applyFiltersFromUrlParams();
   }
 
   applyFiltersFromUrlParams() {
-    this.route.queryParams.pipe(take(1)).subscribe(params => {
+    this.route.queryParams.subscribe(params => {
       this.applyCategoryFilterFromUrlParams(params['category']);
       this.applyConditionFilterFromUrlParams(params['condition']);
+      this.applySearchQueryFromUrlParams(params['searchQuery'])
     });
   }
 
@@ -68,6 +68,15 @@ export class PostListPageComponent implements OnInit {
     }
     else {
       this._filterPostsService.resetConditionFilters();
+    }
+  }
+
+  applySearchQueryFromUrlParams(searchQueryParam: any) {
+    if (searchQueryParam) {
+      this._filterPostsService.setSearchQuery(searchQueryParam);
+    }
+    else {
+      this._filterPostsService.setSearchQuery('');
     }
   }
 

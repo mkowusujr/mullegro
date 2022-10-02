@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { User } from 'src/app/core/interfaces/user';
@@ -10,8 +11,11 @@ import { User } from 'src/app/core/interfaces/user';
 export class NavbarComponent implements OnInit {
   currentUser$!: Observable<User | undefined>;
   showUserUtilsMenu = false;
+  searchInput = '';
 
-  constructor(private _authState: AuthStateService) {
+  constructor(
+    private _authState: AuthStateService,
+    private _router: Router) {
   }
   
   ngOnInit(): void {
@@ -20,6 +24,12 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     this._authState.loggout();
+  }
+
+  searchForPosts(searchInput: string) {
+    let searchQuery = searchInput;
+    this.searchInput = '';
+    this._router.navigate(['/posts'], { queryParams: {searchQuery: searchQuery}})
   }
 
   toggleUserUtilsMenu() {
