@@ -41,7 +41,7 @@ nav {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            height: 2.3em;
+            height: 2.4em;
             overflow-y: hidden;
         }
     }
@@ -53,6 +53,7 @@ nav {
         border-radius: 1em;
         height: 1.8em;
         width: 1.8em;
+        @include DropShadow()
     }
 }
 
