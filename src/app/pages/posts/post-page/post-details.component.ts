@@ -31,6 +31,11 @@ import { Post } from 'src/app/core/interfaces/post';
       </a>
     </div>
 
+    <div>
+      <label for="#createdDate">Posted On</label>
+      <p #createdDate>{{ post?.createdAt | date }}</p>
+    </div>
+
     <post-add-to-cart [post]="post"></post-add-to-cart>
   `,
   styles: []

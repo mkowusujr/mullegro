@@ -6,4 +6,5 @@ export interface User {
   password?: string;
   bio?: string;
   profile_picture: string;
+  createdAt?: Date;
 }

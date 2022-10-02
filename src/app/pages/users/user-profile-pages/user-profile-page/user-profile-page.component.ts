@@ -16,6 +16,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
         [avatarImg]="(currentUser$ | async)?.profile_picture"
         [userUsername]="(currentUser$ | async)?.username"
         [userName]="(currentUser$ | async)?.name"
+        [joinedDate]="(currentUser$ | async)?.createdAt"
         [bio]="(currentUser$ | async)?.bio"
         [isCurrentUser]="
           (loggedInUser$ | async)?.username === (currentUser$ | async)?.username

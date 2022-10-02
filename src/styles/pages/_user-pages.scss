@@ -3,6 +3,7 @@ user-profile {
 }
 
 user-profile-summary {
+    line-height: 2;
     .info {
         @include DefaultSpacings();
         width: 25vw;
