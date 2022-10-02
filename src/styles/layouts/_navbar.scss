@@ -41,13 +41,13 @@ nav {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            // height: 3em;
+            height: 2.3em;
             overflow-y: hidden;
         }
     }
     .user-img {
-        // position:relative;
-        // top: 0.75em;
+        position:relative;
+        top: 0.5em;
     }
     img {
         border-radius: 1em;
@@ -57,36 +57,34 @@ nav {
 }
 
 nav-user-utils-menu {
-    ul {
-        @include DropShadow();
-        position: fixed;
-        right: 1em;
-        top: 6em;
+    @include DropShadow();
+    position: fixed;
+    right: 1em;
+    top: 6em;
+
+    display: block;
+    background-color: $wel-ban-hover;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 0.25em;
     
-        display: block;
-        background-color: $wel-ban-hover;
-        margin-left: 1em;
-        margin-right: 1em;
-        border-radius: 0.25em;
-        
-        width: 18em;
-        line-height: 2.5;
-        li {
-            width: 100%;
-            padding-bottom: 0.5em;
-            padding-top: 0.5em;
-            &:hover {
-                background-color: $nav-user-util-menu;
-            }
+    width: 18em;
+    line-height: 2.5;
+    li {
+        width: 100%;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+        &:hover {
+            background-color: $nav-user-util-menu;
         }
-        a {
-            margin-left: 1em;
-            font-size: medium;
+    }
+    a {
+        margin-left: 1em;
+        font-size: medium;
+        color: white;
+        text-decoration: none;
+        &:visited {
             color: white;
-            text-decoration: none;
-            &:visited {
-                color: white;
-            }
         }
     }
 }
