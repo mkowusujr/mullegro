@@ -11,7 +11,11 @@ import { Component, Input, OnInit } from '@angular/core';
         <h3>Bio</h3>
         <p>{{ bio }}</p>
       </div>
-      <a [routerLink]="['/user/settings']" routerLinkActive="active">
+      <a
+        [routerLink]="['/user/settings']"
+        routerLinkActive="active"
+        *ngIf="isCurrentUser"
+      >
         Edit Account Settings
       </a>
     </div>
@@ -22,6 +26,7 @@ export class UserProfilePageSummaryComponent implements OnInit {
   @Input() userUsername!: string | undefined;
   @Input() userName!: string | undefined;
   @Input() bio!: string | undefined;
+  @Input() isCurrentUser = false;
 
   constructor() {}
 
