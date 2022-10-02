@@ -13,7 +13,7 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
         routerLinkActive="active"
       >
         <p>
-          <b>Transaction on {{ transaction.dateString }}</b>
+          <b>Transaction on {{ transaction.createdAt | date }}</b>
         </p>
         <div>
           <p>Total Item Count: {{ transaction.itemCount }}</p>
