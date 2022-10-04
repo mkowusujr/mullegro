@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostListModule } from 'src/app/shared/components/post-list/post-list.module';
+import { PostListModule } from 'src/app/shared/components/posts/post-list/post-list.module';
 import { PostListPageComponent } from './post-list-page.component';
 
 @NgModule({

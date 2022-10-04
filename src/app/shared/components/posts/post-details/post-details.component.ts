@@ -36,7 +36,7 @@ import { Post } from 'src/app/core/interfaces/post';
       <p #createdDate>{{ post?.createdAt | date }}</p>
     </div>
 
-    <post-add-to-cart [post]="post"></post-add-to-cart>
+    <ng-content></ng-content>
   `,
   styles: []
 })

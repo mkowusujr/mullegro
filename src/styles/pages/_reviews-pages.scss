@@ -1,0 +1,10 @@
+add-review {
+    @include DefaultSpacings();
+}
+
+add-review-form {
+    width: 40%;
+    form {
+        width: 90%;
+    }
+}

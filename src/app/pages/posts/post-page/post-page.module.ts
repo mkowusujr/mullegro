@@ -2,16 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { PostListModule } from 'src/app/shared/components/post-list/post-list.module';
+import { PostDetailsModule } from 'src/app/shared/components/posts/post-details/post-details.module';
+import { PostListModule } from 'src/app/shared/components/posts/post-list/post-list.module';
 import { LayoutsModule } from 'src/app/shared/layouts/layouts.module';
 
 import { PostPageComponent } from './post-page.component';
-import { PostDetailsComponent } from './post-details.component';
 import { AddToCartComponent } from './add-to-cart.component';
 
 @NgModule({
-  declarations: [PostPageComponent, PostDetailsComponent, AddToCartComponent],
-  imports: [CommonModule, PostListModule, LayoutsModule, RouterModule],
+  declarations: [PostPageComponent, AddToCartComponent],
+  imports: [
+    CommonModule,
+    PostDetailsModule,
+    PostListModule,
+    LayoutsModule,
+    RouterModule
+  ],
   exports: [PostPageComponent]
 })
 export class PostPageModule {}

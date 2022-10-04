@@ -1,8 +1,8 @@
 export interface Review {
-  id: number;
+  id?: number;
   rating: number;
   description: string;
-  createdAt: Date;
-  userId: number;
+  createdAt?: Date;
+  userId?: number;
   postId: number;
 }
