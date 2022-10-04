@@ -19,12 +19,16 @@ import { AddReviewFormService } from './add-review-form.service';
         [post]="post$ | async"
         [username]="username"
       ></post-details>
-      <add-review-form col3 [postId]="(post$ | async)?.id"></add-review-form>
+      <div col3 class="review-section">
+        <review [postId]="postId"></review>
+        <add-review-form [postId]="(post$ | async)?.id"></add-review-form>
+      </div>
     </three-column-display>
   `
 })
 export class AddReviewPageComponent implements OnInit {
   post$!: Observable<Post>;
+  postId = -1;
   username!: string;
 
   constructor(
@@ -33,7 +37,8 @@ export class AddReviewPageComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
-      this.post$ = this._postService.getPost(+params['postId']);
+      this.postId = +params['postId'];
+      this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
     });
   }

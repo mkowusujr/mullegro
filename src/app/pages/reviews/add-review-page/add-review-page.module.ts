@@ -5,11 +5,13 @@ import { PostDetailsModule } from 'src/app/shared/components/posts/post-details/
 import { LayoutsModule } from 'src/app/shared/layouts/layouts.module';
 import { AddReviewFormComponent } from './add-review-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReviewModule } from 'src/app/shared/components/reviews/review/review.module';
 
 
 
 @NgModule({
   declarations: [AddReviewPageComponent, AddReviewFormComponent],
-  imports: [CommonModule, PostDetailsModule, LayoutsModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, PostDetailsModule, LayoutsModule, FormsModule, ReactiveFormsModule,
+  ReviewModule]
 })
 export class AddReviewModule {}

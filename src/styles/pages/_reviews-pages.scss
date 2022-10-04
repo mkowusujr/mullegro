@@ -8,3 +8,14 @@ add-review-form {
         width: 90%;
     }
 }
+
+.review-section {
+    @include DefaultSpacings();
+    width: 40em;
+}
+
+review {
+    p {
+        width: 60%;
+    }
+}

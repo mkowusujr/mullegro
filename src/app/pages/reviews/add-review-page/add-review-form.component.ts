@@ -17,7 +17,7 @@ import { AddReviewFormService } from './add-review-form.service';
       ></textarea>
 
       <input
-        #postId
+        hidden
         type="number"
         formControlName="postId"
         [(ngModel)]="postId"
@@ -34,12 +34,10 @@ import { AddReviewFormService } from './add-review-form.service';
 })
 export class AddReviewFormComponent implements OnInit {
   @Input() postId!: number | undefined;
+
   constructor(public _addReviewFormService: AddReviewFormService) {}
 
-  ngOnInit(): void {
-    console.log("this.postId");
-    console.log(this.postId)
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this._addReviewFormService.submitForm();
