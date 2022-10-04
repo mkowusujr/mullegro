@@ -26,6 +26,11 @@ export class ReviewService {
     return this._apiService.getRequest(getReviewEndpoint);
   }
 
+  getReviewBelongingToPost(postId: number): Observable<Review> {
+    const getReviewBelongingToPostEndpoint = `${this.baseUrl}/post/${postId}/review`;
+    return this._apiService.getRequest(getReviewBelongingToPostEndpoint);
+  }
+
   getAllReviewsMadeByUser(username: string): Observable<Review> {
     const getAllReviewsMadeByUserEndpoint = `${this.baseUrl}/user/${username}/reviews`;
     return this._apiService.getRequest(getAllReviewsMadeByUserEndpoint);
