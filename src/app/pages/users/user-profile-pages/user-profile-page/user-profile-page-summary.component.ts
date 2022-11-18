@@ -13,17 +13,11 @@ import { Component, Input, OnInit } from '@angular/core';
         <p>{{ bio }}</p>
       </div>
       <ng-container *ngIf="isCurrentUser">
-        <a
-          [routerLink]="['/user/settings']"
-          routerLinkActive="active"
-        >
+        <a [routerLink]="['/user/settings']" routerLinkActive="active">
           Edit Account Settings
         </a>
-        <br>
-        <a
-          [routerLink]="['/user/transactions']"
-          routerLinkActive="active"
-        >
+        <br />
+        <a [routerLink]="['/user/transactions']" routerLinkActive="active">
           View Past Transactions
         </a>
       </ng-container>

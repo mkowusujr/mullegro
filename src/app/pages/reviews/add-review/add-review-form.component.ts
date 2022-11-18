@@ -34,7 +34,7 @@ import { AddReviewFormService } from './add-review-form.service';
 })
 export class AddReviewFormComponent implements OnInit {
   @Input() postId!: number | undefined;
-  @Output() reviewCreatedEvent = new EventEmitter<boolean>;
+  @Output() reviewCreatedEvent = new EventEmitter<boolean>();
 
   constructor(public _addReviewFormService: AddReviewFormService) {}
 
