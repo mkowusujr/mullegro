@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 import { ITransaction } from 'src/app/core/interfaces/transaction';
 
@@ -35,7 +35,8 @@ export class TransactionsListPageComponent implements OnInit {
   constructor(private _transactionService: TransactionService) {}
 
   ngOnInit(): void {
-    this.transactions$ = this._transactionService.getAllTransactions();
-    this.transactions$.subscribe(t => console.log(t));
+    this.transactions$ = this._transactionService
+      .getAllTransactions()
+      .pipe(map(transactions => transactions.reverse()));
   }
 }

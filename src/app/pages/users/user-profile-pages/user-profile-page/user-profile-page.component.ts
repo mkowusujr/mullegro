@@ -28,6 +28,8 @@ import { UserService } from 'src/app/core/services/api/user.service';
 
       <user-profile-details col2>
         <user-sales-stats [userStats]="userStats$ | async"></user-sales-stats>
+        <br>
+        <h3>Reviews on {{(currentUser$ | async)?.username}}'s Products</h3>
         <review-list [reviews]="reviews$ | async"></review-list>
       </user-profile-details>
 

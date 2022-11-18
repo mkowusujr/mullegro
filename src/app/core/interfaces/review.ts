@@ -3,6 +3,6 @@ export interface IReview {
   rating: number;
   description: string;
   createdAt?: Date;
-  userId?: number;
+  userId: number;
   postId: number;
 }

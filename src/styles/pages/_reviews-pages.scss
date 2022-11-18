@@ -29,7 +29,14 @@ add-review-form {
 }
 
 review {
-    p {
-        width: 60%;
+    display: block;
+    padding: 1em;
+    border-radius: 0.25em;
+    margin: 1em;
+    margin-bottom: 2em;
+    @include DropShadow();
+
+    .vertical-divider {
+        height: 1.5em;
     }
 }
