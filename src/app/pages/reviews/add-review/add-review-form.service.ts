@@ -19,7 +19,7 @@ export class AddReviewFormService extends AbstractFormService<IReview> {
 
   buildForm(): FormGroup<any> {
     return this.fb.group({
-      rating: ['', [Validators.required]],
+      rating: [0, [Validators.required]],
       description: ['', [Validators.required]],
       postId: []
     });

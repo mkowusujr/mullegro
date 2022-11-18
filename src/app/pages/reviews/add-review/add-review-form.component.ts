@@ -6,8 +6,25 @@ import { AddReviewFormService } from './add-review-form.service';
   providers: [AddReviewFormService],
   template: `
     <form [formGroup]="_addReviewFormService.form" (ngSubmit)="onSubmit()">
-      <label for="#rating">Rating</label>
-      <input #price type="number" formControlName="rating" />
+      <label for="#ratingFormField">Rating</label>
+      <div class="rating-section">
+        <star-rating-control
+          #ratingFormField
+          formControlName="rating"
+          [showHalfStars]="true"
+          [hoverEnabled]="true"
+          [rating]="rating"
+          (ratingChange)="onRatingChange($event)"
+        ></star-rating-control>
+        <input
+          type="number"
+          formControlName="rating"
+          [(ngModel)]="rating"
+          [step]="0.5"
+          [min]="0"
+          [max]="5"
+        />
+      </div>
 
       <label for="#description">Description</label>
       <textarea
@@ -35,10 +52,14 @@ import { AddReviewFormService } from './add-review-form.service';
 export class AddReviewFormComponent implements OnInit {
   @Input() postId!: number | undefined;
   @Output() reviewCreatedEvent = new EventEmitter<boolean>();
-
+  rating = 0;
   constructor(public _addReviewFormService: AddReviewFormService) {}
 
   ngOnInit(): void {}
+
+  onRatingChange(event: any) {
+    this.rating = event.rating;
+  }
 
   onSubmit() {
     this._addReviewFormService.submitForm();

@@ -9,7 +9,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   template: `
     <h1>Transaction on {{ (transaction$ | async)?.createdAt | date }}</h1>
     <p>Item Count: {{ (transaction$ | async)?.itemCount }}</p>
-    <p>Total Amount{{ (transaction$ | async)?.totalAmount | currency }}</p>
+    <p>Total Amount: {{ (transaction$ | async)?.totalAmount | currency }}</p>
     <h2>Transaction Items:</h2>
     <div class="transact-post-items-list">
       <div

@@ -6,7 +6,15 @@ import { IReview } from 'src/app/core/interfaces/review';
   template: `
     <ng-container *ngIf="review">
       <h1>Created on {{ review.createdAt | date }}</h1>
-      <p>Rating {{ review.rating }}</p>
+      <star-rating
+        [labelText]="'Rating: ' + review.rating.toString()"
+        [starType]="'svg'"
+        [rating]="review.rating"
+        [showHalfStars]="true"
+        [readOnly]="true"
+        [disabled]="true"
+      >
+      </star-rating>
       <p>{{ review.description }}</p>
     </ng-container>
   `

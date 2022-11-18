@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReviewComponent } from './review.component';
+import { StarRatingModule } from 'angular-star-rating';
 
+import { ReviewComponent } from './review.component';
 @NgModule({
   declarations: [ReviewComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, StarRatingModule.forRoot()],
   exports: [ReviewComponent]
 })
 export class ReviewModule {}

@@ -5,6 +5,7 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { IPost } from 'src/app/core/interfaces/post';
 import { IReview } from 'src/app/core/interfaces/review';
 import { IUser } from 'src/app/core/interfaces/user';
+import { IUserStats } from 'src/app/core/interfaces/user-stats';
 import { PostService } from 'src/app/core/services/api/post.service';
 import { ReviewService } from 'src/app/core/services/api/review.service';
 import { UserService } from 'src/app/core/services/api/user.service';
@@ -26,7 +27,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
       ></user-profile-summary>
 
       <user-profile-details col2>
-        <user-sales-stats [username]="username"></user-sales-stats>
+        <user-sales-stats [userStats]="userStats$ | async"></user-sales-stats>
         <review-list [reviews]="reviews$ | async"></review-list>
       </user-profile-details>
 
@@ -41,6 +42,7 @@ export class UserProfilePageComponent implements OnInit {
   header!: string;
   username!: string;
   reviews$!: Observable<IReview[]>;
+  userStats$!: Observable<IUserStats>;
 
   constructor(
     private _userService: UserService,
@@ -52,6 +54,7 @@ export class UserProfilePageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.username = params['username'];
       this.setUserProfilePageUserDetails(this.username);
+      this.userStats$ = this._reviewService.getStatsForUser(this.username);
       this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(
         this.username
       );

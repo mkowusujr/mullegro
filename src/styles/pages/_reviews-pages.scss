@@ -14,6 +14,20 @@ add-review-form {
     width: 40em;
 }
 
+.rating-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+
+    input {
+        margin-top: 10px;
+        width: 3.5em;
+        padding-right: 0.25em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+    }
+}
+
 review {
     p {
         width: 60%;
