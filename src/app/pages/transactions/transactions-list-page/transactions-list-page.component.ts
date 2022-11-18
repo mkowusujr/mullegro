@@ -9,7 +9,7 @@ import { ITransaction } from 'src/app/core/interfaces/transaction';
     <ng-container *ngFor="let transaction of transactions$ | async">
       <div
         class="card-g transaction-item"
-        [routerLink]="['/transactions/transaction/' + transaction.id]"
+        [routerLink]="['/user/transactions/transaction/' + transaction.id]"
         routerLinkActive="active"
       >
         <p>

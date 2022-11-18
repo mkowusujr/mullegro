@@ -12,13 +12,21 @@ import { Component, Input, OnInit } from '@angular/core';
         <h3>Bio</h3>
         <p>{{ bio }}</p>
       </div>
-      <a
-        [routerLink]="['/user/settings']"
-        routerLinkActive="active"
-        *ngIf="isCurrentUser"
-      >
-        Edit Account Settings
-      </a>
+      <ng-container *ngIf="isCurrentUser">
+        <a
+          [routerLink]="['/user/settings']"
+          routerLinkActive="active"
+        >
+          Edit Account Settings
+        </a>
+        <br>
+        <a
+          [routerLink]="['/user/transactions']"
+          routerLinkActive="active"
+        >
+          View Past Transactions
+        </a>
+      </ng-container>
     </div>
   `
 })

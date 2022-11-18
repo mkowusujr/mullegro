@@ -15,7 +15,6 @@ import { ReviewsPagesModule } from './reviews/reviews-pages.module';
 const routes: Routes = [
   { path: '', loadChildren: () => HomePageModule },
   { path: '', loadChildren: () => AuthPagesModule },
-  { path: '', loadChildren: () => UserPagesModule },
   { path: '', loadChildren: () => PostPagesModule },
   { path: '', loadChildren: () => CartModule, canActivate: [AuthGuard] },
   { path: '', loadChildren: () => CategoryModule },
@@ -24,6 +23,7 @@ const routes: Routes = [
     loadChildren: () => TransactionsModule,
     canActivate: [AuthGuard]
   },
+  { path: '', loadChildren: () => UserPagesModule },
   { path: '', loadChildren: () => ReviewsPagesModule, canActivate: [AuthGuard] }
 ];
 

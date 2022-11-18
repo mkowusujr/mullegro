@@ -8,8 +8,8 @@ import { TransactionPageComponent } from './transaction-page/transaction-page.co
 import { TransactionsListPageComponent } from './transactions-list-page/transactions-list-page.component';
 
 const routes: Routes = [
-  { path: 'transactions', component: TransactionsListPageComponent },
-  { path: 'transactions/transaction/:id', component: TransactionPageComponent }
+  { path: 'user/transactions', component: TransactionsListPageComponent },
+  { path: 'user/transactions/transaction/:id', component: TransactionPageComponent }
 ];
 
 @NgModule({

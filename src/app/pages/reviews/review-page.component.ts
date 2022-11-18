@@ -22,8 +22,12 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
         [username]="username"
       ></post-details>
       <div col3 class="review-section">
-        <review [review]="review$ | async"></review>
-        <add-review-form [postId]="(post$ | async)?.id"></add-review-form>
+        <ng-container *ngIf="review$ | async;else noExistingReviewTemplate">
+          <review [review]="review$ | async"></review>
+        </ng-container>
+        <ng-template #noExistingReviewTemplate>
+          <add-review-form [postId]="(post$ | async)?.id"></add-review-form>
+        </ng-template>
       </div>
     </three-column-display>
   `

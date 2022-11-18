@@ -7,7 +7,7 @@ import { ReviewPageComponent } from './review-page.component';
 
 const routes: Routes = [
   {
-    path: 'transactions/transaction/:transactionId/posts/post/:postId',
+    path: 'user/transactions/transaction/:transactionId/posts/post/:postId',
     component: ReviewPageComponent
   }
 ];

@@ -64,7 +64,7 @@ export class CartComponent implements OnInit {
       .addTransaction({})
       .pipe(take(1))
       .subscribe({
-        next: () => this._router.navigate(['/transactions'])
+        next: () => this._router.navigate(['/user/transactions'])
       });
   }
 }
