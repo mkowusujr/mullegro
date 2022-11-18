@@ -11,7 +11,11 @@ import { EditPasswordFormService } from './edit-password-form.service';
       <input type="password" formControlName="password" #password />
 
       <label for="#confirmPassword">Enter new password</label>
-      <input type="password" formControlName="confirmPassword" #confirmPassword />
+      <input
+        type="password"
+        formControlName="confirmPassword"
+        #confirmPassword
+      />
 
       <input
         type="submit"

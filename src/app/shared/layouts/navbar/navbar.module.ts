@@ -7,9 +7,7 @@ import { NavUserUtilsMenuComponent } from './nav-user-utils-menu/nav-user-utils-
 
 @NgModule({
   declarations: [NavbarComponent, NavUserUtilsMenuComponent],
-  imports: [
-    CommonModule, RouterModule, ClickOutsideModule
-  ],
+  imports: [CommonModule, RouterModule, ClickOutsideModule],
   exports: [NavbarComponent]
 })
-export class NavbarModule { }
+export class NavbarModule {}

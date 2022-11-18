@@ -6,7 +6,7 @@ import { IUser } from 'src/app/core/interfaces/user';
 @Component({
   selector: 'nav-user-utils-menu',
   template: `
-    <ul [style.display]="showUserUtilsMenu? 'block':'none'">
+    <ul [style.display]="showUserUtilsMenu ? 'block' : 'none'">
       <li [routerLink]="['/posts/create-post']" routerLinkActive="active">
         <a> Create a Post </a>
       </li>
@@ -30,7 +30,7 @@ import { IUser } from 'src/app/core/interfaces/user';
 export class NavUserUtilsMenuComponent implements OnInit {
   currentUser$!: Observable<IUser | undefined>;
   @Input() showUserUtilsMenu = false;
-  @Output() showUserUtilsMenuChange = new EventEmitter<boolean>;
+  @Output() showUserUtilsMenuChange = new EventEmitter<boolean>();
 
   constructor(private _authState: AuthStateService) {}
 

@@ -7,7 +7,11 @@ import { FilterPostService } from './filter-post.service';
 @Component({
   selector: 'post-list-page',
   template: `
-    <input type="text" placeholder="Search through filtered Posts" (keyup)="onKey($event)" />
+    <input
+      type="text"
+      placeholder="Search through filtered Posts"
+      (keyup)="onKey($event)"
+    />
     <ng-container *ngIf="(posts$ | async)?.length != 0; else notFound">
       <ng-container *ngFor="let post of posts$ | async">
         <post-list-card [post]="post"></post-list-card>
@@ -35,7 +39,7 @@ export class PostListPageComponent implements OnInit {
 
   applyFiltersFromUrlParams() {
     this.route.queryParams.subscribe(params => {
-      this.applySearchQueryFromUrlParams(params['searchQuery'])
+      this.applySearchQueryFromUrlParams(params['searchQuery']);
       this.applyCategoryFilterFromUrlParams(params['category']);
       this.applyConditionFilterFromUrlParams(params['condition']);
     });
@@ -44,13 +48,10 @@ export class PostListPageComponent implements OnInit {
   applyCategoryFilterFromUrlParams(categoryParam: any) {
     if (categoryParam) {
       let categories =
-      categoryParam instanceof Object
-          ? categoryParam
-          : [categoryParam];
+        categoryParam instanceof Object ? categoryParam : [categoryParam];
       this._filterPostsService.setCategoryFilters(categories);
       this.filter = categories;
-    }
-    else {
+    } else {
       this._filterPostsService.resetCategoryFilters();
     }
   }
@@ -58,13 +59,10 @@ export class PostListPageComponent implements OnInit {
   applyConditionFilterFromUrlParams(conditionParam: any) {
     if (conditionParam) {
       let conditions =
-      conditionParam instanceof Object
-          ?conditionParam
-          : [conditionParam];
+        conditionParam instanceof Object ? conditionParam : [conditionParam];
       this._filterPostsService.setConditionFilters(conditions);
       this.filter = conditions;
-    }
-    else {
+    } else {
       this._filterPostsService.resetConditionFilters();
     }
   }
@@ -72,8 +70,7 @@ export class PostListPageComponent implements OnInit {
   applySearchQueryFromUrlParams(searchQueryParam: any) {
     if (searchQueryParam) {
       this._filterPostsService.setSearchQuery(searchQueryParam);
-    }
-    else {
+    } else {
       this._filterPostsService.setSearchQuery('');
     }
   }

@@ -19,7 +19,11 @@ const routes: Routes = [
   { path: '', loadChildren: () => PostPagesModule },
   { path: '', loadChildren: () => CartModule, canActivate: [AuthGuard] },
   { path: '', loadChildren: () => CategoryModule },
-  { path: '', loadChildren: () => TransactionsModule, canActivate: [AuthGuard] },
+  {
+    path: '',
+    loadChildren: () => TransactionsModule,
+    canActivate: [AuthGuard]
+  },
   { path: '', loadChildren: () => ReviewsPagesModule, canActivate: [AuthGuard] }
 ];
 

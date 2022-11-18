@@ -24,7 +24,11 @@ import { SignUpFormService } from './sign-up-form.service';
       <input #password type="password" formControlName="password" />
 
       <label for="#confirmPassword">Confirm Pasword</label>
-      <input #confirmPassword type="password" formControlName="confirmPassword" />
+      <input
+        #confirmPassword
+        type="password"
+        formControlName="confirmPassword"
+      />
 
       <input
         type="submit"

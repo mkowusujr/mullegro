@@ -8,10 +8,10 @@ import { UserService } from '../services/api/user.service';
   providedIn: 'root'
 })
 export class AuthStateService {
-  private _currentUser: BehaviorSubject<IUser | undefined> = new BehaviorSubject<
-    IUser | undefined
-  >(undefined);
-  currentUser$: Observable<IUser | undefined> = this._currentUser.asObservable();
+  private _currentUser: BehaviorSubject<IUser | undefined> =
+    new BehaviorSubject<IUser | undefined>(undefined);
+  currentUser$: Observable<IUser | undefined> =
+    this._currentUser.asObservable();
 
   constructor(private _router: Router, private _userService: UserService) {
     this._userService

@@ -4,7 +4,7 @@ import { IReview } from 'src/app/core/interfaces/review';
 @Component({
   selector: 'review-list',
   template: `
-    <ng-container *ngIf="reviews;else noReviewsTemplate">
+    <ng-container *ngIf="reviews; else noReviewsTemplate">
       <ng-container *ngFor="let review of reviews">
         <review [review]="review"></review>
       </ng-container>
@@ -13,8 +13,7 @@ import { IReview } from 'src/app/core/interfaces/review';
       <span>No reviews have been made on this user's posts.</span>
     </ng-template>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class ReviewsListComponent {
   @Input() reviews!: IReview[] | null;

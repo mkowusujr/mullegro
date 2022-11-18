@@ -31,9 +31,9 @@ export class EditEmailFormService extends AbstractFormService<emailForm> {
 
   rebuildForm() {
     this.form = this.fb.group({
-        currentEmail: [],
-        newEmail: []
-      });
+      currentEmail: [],
+      newEmail: []
+    });
   }
 
   get newEmail() {

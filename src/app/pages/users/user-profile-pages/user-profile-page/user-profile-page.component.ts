@@ -25,7 +25,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
         "
       ></user-profile-summary>
 
-      <user-profile-details col2> 
+      <user-profile-details col2>
         <user-sales-stats [username]="username"></user-sales-stats>
         <review-list [reviews]="reviews$ | async"></review-list>
       </user-profile-details>
@@ -52,7 +52,9 @@ export class UserProfilePageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.username = params['username'];
       this.setUserProfilePageUserDetails(this.username);
-      this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(this.username);
+      this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(
+        this.username
+      );
     });
   }
   ngOnInit(): void {

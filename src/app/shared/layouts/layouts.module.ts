@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ThreeColumnDisplayComponent } from './three-column-display/three-column-display.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NavbarModule, ],
+  imports: [CommonModule, RouterModule, NavbarModule],
   declarations: [FooterComponent, ThreeColumnDisplayComponent],
   exports: [NavbarComponent, FooterComponent, ThreeColumnDisplayComponent]
 })

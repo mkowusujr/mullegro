@@ -9,17 +9,18 @@ import { ReviewService } from 'src/app/core/services/api/review.service';
     <p>Average Rating: {{ (userStats | async)?.averageRating }}</p>
     <p>Amount Of Posts Sold: {{ (userStats | async)?.totalPostsSold }}</p>
     <p>Amount Of Posts Created: {{ (userStats | async)?.totalPostsMade }}</p>
-    <p>Amount Of Posts Avaialbe For Sale: {{ (userStats | async)?.totalPostsAvailable }}</p>
+    <p>
+      Amount Of Posts Avaialbe For Sale:
+      {{ (userStats | async)?.totalPostsAvailable }}
+    </p>
   `
 })
 export class UserSalesStatsComponent implements OnInit {
   @Input() username!: string | undefined;
   userStats!: Observable<IUserStats>;
 
-  constructor(private _reviewService: ReviewService) {
+  constructor(private _reviewService: ReviewService) {}
 
-  }
-  
   ngOnInit(): void {
     this.userStats = this._reviewService.getStatsForUser(this.username ?? '');
   }

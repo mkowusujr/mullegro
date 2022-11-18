@@ -31,8 +31,8 @@ export class EditBioFormService extends AbstractFormService<bioForm> {
 
   rebuildForm() {
     this.form = this.fb.group({
-        bio: [this.currentUser?.bio]
-      });
+      bio: [this.currentUser?.bio]
+    });
   }
 
   get bio(): string | null {

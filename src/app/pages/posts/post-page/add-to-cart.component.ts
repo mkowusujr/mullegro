@@ -18,9 +18,13 @@ export class AddToCartComponent {
     this._cartService
       .addToCart(this.post)
       .pipe(take(1))
-      .subscribe({ 
-        next: _ => {this._router.navigate(['/cart'])},
-        error: _ => {this._router.navigate(['/login'])} 
+      .subscribe({
+        next: _ => {
+          this._router.navigate(['/cart']);
+        },
+        error: _ => {
+          this._router.navigate(['/login']);
+        }
       });
   }
 }

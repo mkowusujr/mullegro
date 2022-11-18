@@ -25,7 +25,7 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
     super(fb);
     _authState.currentUser$.subscribe(currentUser => {
       this.currentUser = currentUser;
-      this.rebuildForm()
+      this.rebuildForm();
     });
   }
 
@@ -35,24 +35,24 @@ export class EditPasswordFormService extends AbstractFormService<passwordForm> {
 
   rebuildForm() {
     this.form = this.fb.group({
-        password: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(8),
-            this.PasswordValidation.passwordStrength()
-          ]
-        ],
-        confirmPassword: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(8),
-            this.PasswordValidation.passwordStrength(),
-            this.PasswordValidation.newPasswordMatches()
-          ]
+      password: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(8),
+          this.PasswordValidation.passwordStrength()
         ]
-      });
+      ],
+      confirmPassword: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(8),
+          this.PasswordValidation.passwordStrength(),
+          this.PasswordValidation.newPasswordMatches()
+        ]
+      ]
+    });
   }
 
   get confirmPassword() {

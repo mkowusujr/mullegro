@@ -10,7 +10,11 @@ import { CreatePostPageComponent } from './create-post-page/create-post-page.com
 import { AuthGuard } from 'src/app/core/auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'posts/create-post', component: CreatePostPageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'posts/create-post',
+    component: CreatePostPageComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'post/:id', component: PostPageComponent },
   { path: 'posts', component: PostListPageComponent }
 ];

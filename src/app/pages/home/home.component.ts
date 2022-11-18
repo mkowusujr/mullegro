@@ -39,7 +39,7 @@ import { IUser } from 'src/app/core/interfaces/user';
       <h2>Users</h2>
       <p>View the members of the mullegro community</p>
     </a>
-  `,
+  `
 })
 export class HomeComponent implements OnInit {
   currentUser$!: Observable<IUser | undefined>;

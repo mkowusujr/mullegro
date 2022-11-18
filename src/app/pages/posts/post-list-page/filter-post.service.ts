@@ -11,9 +11,9 @@ export class FilterPostService {
   conditionFilters: string[] = [];
   searchQuery: string = '';
 
-  private _filteredPosts: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>(
-    []
-  );
+  private _filteredPosts: BehaviorSubject<IPost[]> = new BehaviorSubject<
+    IPost[]
+  >([]);
   filteredPosts$: Observable<IPost[]> = this._filteredPosts.asObservable();
 
   constructor(private _postService: PostService) {

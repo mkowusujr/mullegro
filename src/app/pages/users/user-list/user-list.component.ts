@@ -17,7 +17,6 @@ import { UserService } from 'src/app/core/services/api/user.service';
         ></user-list-card>
       </ng-container>
     </div>
-    
   `
 })
 export class UserListComponent implements OnInit {

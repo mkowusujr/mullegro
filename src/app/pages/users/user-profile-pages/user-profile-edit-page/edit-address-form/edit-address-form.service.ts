@@ -31,8 +31,8 @@ export class EditAddressFormService extends AbstractFormService<addressForm> {
 
   rebuildForm() {
     this.form = this.fb.group({
-        address: [this.currentUser?.address, [Validators.required]]
-      });
+      address: [this.currentUser?.address, [Validators.required]]
+    });
   }
 
   get address(): string | null {

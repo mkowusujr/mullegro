@@ -30,7 +30,7 @@ export class PasswordValidationService {
     };
   }
 
-   newPasswordMatches(): ValidatorFn {
+  newPasswordMatches(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const password = control.parent?.value.password;
       const retypedPassword = control.value;

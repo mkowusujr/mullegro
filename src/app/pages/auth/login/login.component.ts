@@ -23,9 +23,7 @@ import { LoginFormService } from './login-form.service';
   `
 })
 export class LoginComponent implements OnInit {
-  constructor(
-    public loginFormService: LoginFormService
-  ) {}
+  constructor(public loginFormService: LoginFormService) {}
 
   ngOnInit(): void {}
 

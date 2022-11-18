@@ -17,6 +17,13 @@ import { ReviewListModule } from 'src/app/shared/components/reviews/reviews-list
     UserProfilePageDetailsComponent,
     UserProfilePageSummaryComponent
   ],
-  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule, UserSalesStatsModule, ReviewListModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    PostListModule,
+    LayoutsModule,
+    UserSalesStatsModule,
+    ReviewListModule
+  ]
 })
 export class UserProfilePageModule {}
