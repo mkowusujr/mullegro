@@ -18,7 +18,7 @@ import { IUser } from 'src/app/core/interfaces/user';
         routerLinkActive="active"
       >
         <a>
-          {{ (currentUser$ | async)?.name }}
+          {{ (currentUser$ | async)?.name }}'s Profile Page
         </a>
       </li>
       <li (click)="signOut()">

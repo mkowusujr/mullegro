@@ -9,7 +9,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    // vertical-align: middle;
 
     a {
         font-size: medium;
@@ -36,7 +35,6 @@ nav {
     }
 
     .user-utils{
-        flex-grow: 0.4;
         ul {
             display: flex;
             flex-direction: row;
@@ -44,6 +42,9 @@ nav {
             height: 2.4em;
             overflow-y: hidden;
         }
+    }
+    .no-logged-in-user-user-utils {
+        flex-grow: 0.4;
     }
     .user-img {
         position:relative;

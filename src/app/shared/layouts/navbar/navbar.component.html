@@ -19,7 +19,7 @@
     (keyup.enter)="searchForPosts(searchInput.value)"
   />
 
-  <div class="user-utils">
+  <div class="user-utils" [ngClass]="{'no-logged-in-user-user-utils': !(currentUser$ | async)}">
     <ul>
       <ng-container
         *ngIf="currentUser$ | async; then thenBlock; else elseBlock"
