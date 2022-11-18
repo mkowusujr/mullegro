@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { User } from 'src/app/core/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'nav-user-utils-menu',
@@ -28,7 +28,7 @@ import { User } from 'src/app/core/interfaces/user';
   `
 })
 export class NavUserUtilsMenuComponent implements OnInit {
-  currentUser$!: Observable<User | undefined>;
+  currentUser$!: Observable<IUser | undefined>;
   @Input() showUserUtilsMenu = false;
   @Output() showUserUtilsMenuChange = new EventEmitter<boolean>;
 

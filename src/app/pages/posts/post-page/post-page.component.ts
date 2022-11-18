@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
-import { Post } from 'src/app/core/interfaces/post';
+import { IPost } from 'src/app/core/interfaces/post';
 import { PostService } from 'src/app/core/services/api/post.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 
@@ -20,8 +20,8 @@ import { UserService } from 'src/app/core/services/api/user.service';
   `
 })
 export class PostPageComponent {
-  post$!: Observable<Post>;
-  posts!: Post[];
+  post$!: Observable<IPost>;
+  posts!: IPost[];
   header!: string;
   username!: string;
 

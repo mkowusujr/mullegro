@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, take } from 'rxjs';
-import { Post } from '../../../core/interfaces/post';
+import { IPost } from '../../../core/interfaces/post';
 import { PostService } from '../../../core/services/api/post.service';
 
 @Injectable({
@@ -11,10 +11,10 @@ export class FilterPostService {
   conditionFilters: string[] = [];
   searchQuery: string = '';
 
-  private _filteredPosts: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>(
+  private _filteredPosts: BehaviorSubject<IPost[]> = new BehaviorSubject<IPost[]>(
     []
   );
-  filteredPosts$: Observable<Post[]> = this._filteredPosts.asObservable();
+  filteredPosts$: Observable<IPost[]> = this._filteredPosts.asObservable();
 
   constructor(private _postService: PostService) {
     this._postService

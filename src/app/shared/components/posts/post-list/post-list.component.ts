@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Post } from 'src/app/core/interfaces/post';
+import { IPost } from 'src/app/core/interfaces/post';
 
 @Component({
   selector: 'post-list',
@@ -14,6 +14,6 @@ import { Post } from 'src/app/core/interfaces/post';
   `
 })
 export class PostListComponent {
-  @Input() posts!: Post[] | null;
+  @Input() posts!: IPost[] | null;
   @Input() header?: string;
 }

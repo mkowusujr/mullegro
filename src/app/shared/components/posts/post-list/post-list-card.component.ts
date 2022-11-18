@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from 'src/app/core/interfaces/post';
+import { IPost } from 'src/app/core/interfaces/post';
 
 @Component({
   selector: 'post-list-card',
@@ -21,7 +21,7 @@ import { Post } from 'src/app/core/interfaces/post';
   `
 })
 export class PostListCardComponent implements OnInit {
-  @Input() post!: Post;
+  @Input() post!: IPost;
   postRoute = '';
 
   ngOnInit(): void {

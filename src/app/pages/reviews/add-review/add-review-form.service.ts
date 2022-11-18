@@ -4,12 +4,12 @@ import { take } from 'rxjs';
 
 import { AbstractFormService } from 'src/app/core/services/abstract-form.service';
 import { ReviewService } from 'src/app/core/services/api/review.service';
-import { Review } from 'src/app/core/interfaces/review';
+import { IReview } from 'src/app/core/interfaces/review';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AddReviewFormService extends AbstractFormService<Review> {
+export class AddReviewFormService extends AbstractFormService<IReview> {
   constructor(
     protected override fb: FormBuilder,
     private _reviewService: ReviewService

@@ -7,12 +7,12 @@ import { UserService } from 'src/app/core/services/api/user.service';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { PasswordValidationService } from 'src/app/core/services/password-validation.service';
 
-import { User } from 'src/app/core/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SignUpFormService extends AbstractFormService<User> {
+export class SignUpFormService extends AbstractFormService<IUser> {
   constructor(
     protected override fb: FormBuilder,
     private _userService: UserService,

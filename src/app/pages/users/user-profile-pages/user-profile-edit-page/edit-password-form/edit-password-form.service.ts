@@ -7,14 +7,14 @@ import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 import { PasswordValidationService } from 'src/app/core/services/password-validation.service';
 
-import { User } from 'src/app/core/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 import { passwordForm } from '../edit-forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EditPasswordFormService extends AbstractFormService<passwordForm> {
-  currentUser!: User | undefined;
+  currentUser!: IUser | undefined;
 
   constructor(
     protected override fb: FormBuilder,

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Review } from 'src/app/core/interfaces/review';
+import { IReview } from 'src/app/core/interfaces/review';
 
 @Component({
   selector: 'review',
@@ -12,6 +12,6 @@ import { Review } from 'src/app/core/interfaces/review';
   `
 })
 export class ReviewComponent {
-  @Input() review!: Review | null;
+  @Input() review!: IReview | null;
   @Input() postId!: number;
 }

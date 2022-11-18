@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Review } from 'src/app/core/interfaces/review';
+import { IReview } from 'src/app/core/interfaces/review';
 
 @Component({
   selector: 'review-list',
@@ -17,5 +17,5 @@ import { Review } from 'src/app/core/interfaces/review';
   ]
 })
 export class ReviewsListComponent {
-  @Input() reviews!: Review[] | null;
+  @Input() reviews!: IReview[] | null;
 }

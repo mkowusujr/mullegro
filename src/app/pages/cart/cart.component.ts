@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
-import { Cart } from 'src/app/core/interfaces/cart';
+import { ICart } from 'src/app/core/interfaces/cart';
 import { CartService } from 'src/app/core/services/api/cart.service';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 
@@ -38,7 +38,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   `
 })
 export class CartComponent implements OnInit {
-  cart$!: Observable<Cart>;
+  cart$!: Observable<ICart>;
   constructor(
     private _cartService: CartService,
     private _transactionService: TransactionService,

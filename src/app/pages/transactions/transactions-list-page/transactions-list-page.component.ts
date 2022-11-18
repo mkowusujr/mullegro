@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
-import { Transaction } from 'src/app/core/interfaces/transaction';
+import { ITransaction } from 'src/app/core/interfaces/transaction';
 
 @Component({
   selector: 'transactions-list-page',
@@ -31,7 +31,7 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
   styles: []
 })
 export class TransactionsListPageComponent implements OnInit {
-  transactions$!: Observable<Transaction[]>;
+  transactions$!: Observable<ITransaction[]>;
   constructor(private _transactionService: TransactionService) {}
 
   ngOnInit(): void {

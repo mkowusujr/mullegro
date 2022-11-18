@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { Post } from 'src/app/core/interfaces/post';
-import { Review } from 'src/app/core/interfaces/review';
-import { User } from 'src/app/core/interfaces/user';
+import { IPost } from 'src/app/core/interfaces/post';
+import { IReview } from 'src/app/core/interfaces/review';
+import { IUser } from 'src/app/core/interfaces/user';
 import { PostService } from 'src/app/core/services/api/post.service';
 import { ReviewService } from 'src/app/core/services/api/review.service';
 import { UserService } from 'src/app/core/services/api/user.service';
@@ -35,12 +35,12 @@ import { UserService } from 'src/app/core/services/api/user.service';
   `
 })
 export class UserProfilePageComponent implements OnInit {
-  loggedInUser$!: Observable<User | undefined>;
-  currentUser$!: Observable<User>;
-  posts$!: Observable<Post[]>;
+  loggedInUser$!: Observable<IUser | undefined>;
+  currentUser$!: Observable<IUser>;
+  posts$!: Observable<IPost[]>;
   header!: string;
   username!: string;
-  reviews$!: Observable<Review[]>;
+  reviews$!: Observable<IReview[]>;
 
   constructor(
     private _userService: UserService,

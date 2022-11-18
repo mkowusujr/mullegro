@@ -1,9 +1,9 @@
-import { Post } from './post';
+import { IPost } from './post';
 
-export interface Transaction {
+export interface ITransaction {
   id: number;
   totalAmount: number;
   itemCount: number;
-  posts: Post[];
+  posts: IPost[];
   createdAt: Date;
 }

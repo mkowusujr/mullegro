@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Transaction } from 'src/app/core/interfaces/transaction';
+import { ITransaction } from 'src/app/core/interfaces/transaction';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 
 @Component({
@@ -33,7 +33,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   styles: []
 })
 export class TransactionPageComponent implements OnInit {
-  transaction$!: Observable<Transaction>;
+  transaction$!: Observable<ITransaction>;
 
   constructor(
     private route: ActivatedRoute,

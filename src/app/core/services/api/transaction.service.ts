@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 
-import { Transaction } from '../../interfaces/transaction';
+import { ITransaction } from '../../interfaces/transaction';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,12 +11,12 @@ export class TransactionService {
   private baseUrl = '/transactions';
   constructor(private _apiService: ApiService) {}
 
-  getAllTransactions(): Observable<Transaction[]> {
+  getAllTransactions(): Observable<ITransaction[]> {
     let getAllTransactionsEndpoint = `${this.baseUrl}`;
     return this._apiService.getRequest(getAllTransactionsEndpoint);
   }
 
-  getTransaction(transactionId: number): Observable<Transaction> {
+  getTransaction(transactionId: number): Observable<ITransaction> {
     let getTransactionEndpoint = `${this.baseUrl}/transaction/${transactionId}`;
     return this._apiService.getRequest(getTransactionEndpoint);
   }

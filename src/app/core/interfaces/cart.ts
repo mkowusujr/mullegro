@@ -1,7 +1,7 @@
-import { Post } from './post';
+import { IPost } from './post';
 
-export interface Cart {
+export interface ICart {
   itemCount: number;
   totalAmount: number;
-  posts: Post[];
+  posts: IPost[];
 }

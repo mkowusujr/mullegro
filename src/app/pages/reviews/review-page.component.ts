@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
-import { Post } from 'src/app/core/interfaces/post';
-import { Review } from 'src/app/core/interfaces/review';
+import { IPost } from 'src/app/core/interfaces/post';
+import { IReview } from 'src/app/core/interfaces/review';
 import { PostService } from 'src/app/core/services/api/post.service';
 import { ReviewService } from 'src/app/core/services/api/review.service';
 import { UserService } from 'src/app/core/services/api/user.service';
@@ -29,8 +29,8 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
   `
 })
 export class ReviewPageComponent implements OnInit {
-  review$!: Observable<Review>;
-  post$!: Observable<Post>;
+  review$!: Observable<IReview>;
+  post$!: Observable<IPost>;
   postId = -1;
   username!: string;
 

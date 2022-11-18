@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Post } from 'src/app/core/interfaces/post';
+import { IPost } from 'src/app/core/interfaces/post';
 
 @Component({
   selector: 'post-details',
@@ -41,6 +41,6 @@ import { Post } from 'src/app/core/interfaces/post';
   styles: []
 })
 export class PostDetailsComponent {
-  @Input() post!: Post | null;
+  @Input() post!: IPost | null;
   @Input() username!: string | null;
 }

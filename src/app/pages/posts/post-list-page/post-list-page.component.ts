@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Post } from 'src/app/core/interfaces/post';
+import { IPost } from 'src/app/core/interfaces/post';
 import { FilterPostService } from './filter-post.service';
 
 @Component({
@@ -19,7 +19,7 @@ import { FilterPostService } from './filter-post.service';
   `
 })
 export class PostListPageComponent implements OnInit {
-  posts$!: Observable<Post[]>;
+  posts$!: Observable<IPost[]>;
   filter!: string | undefined;
 
   constructor(

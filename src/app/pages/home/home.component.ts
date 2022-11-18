@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { User } from 'src/app/core/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'home',
@@ -42,7 +42,7 @@ import { User } from 'src/app/core/interfaces/user';
   `,
 })
 export class HomeComponent implements OnInit {
-  currentUser$!: Observable<User | undefined>;
+  currentUser$!: Observable<IUser | undefined>;
   constructor(private _authState: AuthStateService) {}
 
   ngOnInit(): void {

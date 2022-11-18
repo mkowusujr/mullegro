@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
-import { User } from 'src/app/core/interfaces/user';
+import { IUser } from 'src/app/core/interfaces/user';
 import { AbstractFormService } from 'src/app/core/services/abstract-form.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 import { addressForm } from '../edit-forms';
@@ -11,7 +11,7 @@ import { addressForm } from '../edit-forms';
   providedIn: 'root'
 })
 export class EditAddressFormService extends AbstractFormService<addressForm> {
-  currentUser!: User | undefined;
+  currentUser!: IUser | undefined;
 
   constructor(
     protected override fb: FormBuilder,

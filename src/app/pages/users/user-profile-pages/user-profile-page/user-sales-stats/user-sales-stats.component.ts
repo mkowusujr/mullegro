@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserStats } from 'src/app/core/interfaces/user-stats';
+import { IUserStats } from 'src/app/core/interfaces/user-stats';
 import { ReviewService } from 'src/app/core/services/api/review.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { ReviewService } from 'src/app/core/services/api/review.service';
 })
 export class UserSalesStatsComponent implements OnInit {
   @Input() username!: string | undefined;
-  userStats!: Observable<UserStats>;
+  userStats!: Observable<IUserStats>;
 
   constructor(private _reviewService: ReviewService) {
 

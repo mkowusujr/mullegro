@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, take } from 'rxjs';
-import { User } from '../interfaces/user';
+import { IUser } from '../interfaces/user';
 import { UserService } from '../services/api/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthStateService {
-  private _currentUser: BehaviorSubject<User | undefined> = new BehaviorSubject<
-    User | undefined
+  private _currentUser: BehaviorSubject<IUser | undefined> = new BehaviorSubject<
+    IUser | undefined
   >(undefined);
-  currentUser$: Observable<User | undefined> = this._currentUser.asObservable();
+  currentUser$: Observable<IUser | undefined> = this._currentUser.asObservable();
 
   constructor(private _router: Router, private _userService: UserService) {
     this._userService

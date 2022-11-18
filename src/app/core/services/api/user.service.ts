@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../../interfaces/user';
+import { IUser } from '../../interfaces/user';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -21,12 +21,12 @@ export class UserService {
     return this._api.postRequest(signupEndpoint, user);
   }
 
-  getCurrentUserDetails(): Observable<User> {
+  getCurrentUserDetails(): Observable<IUser> {
     const userDetailsEndpoint = `${this.baseUrl}/user/details`;
     return this._api.getRequest(userDetailsEndpoint);
   }
 
-  updateCurrentUserDetails(updatedCurrentUserDetails: User): Observable<User> {
+  updateCurrentUserDetails(updatedCurrentUserDetails: IUser): Observable<IUser> {
     const updateCurrentUserDetailsEndpoint = `${this.baseUrl}/user`;
     return this._api.putRequest(
       updateCurrentUserDetailsEndpoint,
@@ -34,17 +34,17 @@ export class UserService {
     );
   }
 
-  getAllUsers(): Observable<User[]> {
+  getAllUsers(): Observable<IUser[]> {
     const getAllUsersEndpoint = `${this.baseUrl}`;
     return this._api.getRequest(getAllUsersEndpoint);
   }
 
-  getUser(username: string): Observable<User> {
+  getUser(username: string): Observable<IUser> {
     const getUserEndpoint = `${this.baseUrl}/user/${username}`;
     return this._api.getRequest(getUserEndpoint);
   }
 
-  getUserById(id: number): Observable<User> {
+  getUserById(id: number): Observable<IUser> {
     const getUserEndpoint = `${this.baseUrl}/user/byId/${id}`;
     return this._api.getRequest(getUserEndpoint);
   }
@@ -54,7 +54,7 @@ export class UserService {
     return this._api.deleteRequest(deleteAccountEndpoint);
   }
 
-  findUsersWithSearchQuery(filter: string): Observable<User[]> {
+  findUsersWithSearchQuery(filter: string): Observable<IUser[]> {
     const findUsersWithSearchQueryEndpoint = `${this.baseUrl}/search?query=${filter}`;
     return this._api.getRequest(findUsersWithSearchQueryEndpoint);
   }

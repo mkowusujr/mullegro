@@ -1,4 +1,4 @@
-export interface UserStats {
+export interface IUserStats {
   averageRating: number;
   totalPostsMade: number;
   totalPostsSold: number;
