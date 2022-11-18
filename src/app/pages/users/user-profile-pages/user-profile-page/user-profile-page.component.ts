@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { Post } from 'src/app/core/interfaces/post';
+import { Review } from 'src/app/core/interfaces/review';
 import { User } from 'src/app/core/interfaces/user';
 import { PostService } from 'src/app/core/services/api/post.service';
+import { ReviewService } from 'src/app/core/services/api/review.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 
 @Component({
@@ -25,6 +27,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
 
       <user-profile-details col2> 
         <user-sales-stats [username]="username"></user-sales-stats>
+        <review-list [reviews]="reviews$ | async"></review-list>
       </user-profile-details>
 
       <post-list col3 [posts]="posts$ | async" [header]="header"></post-list>
@@ -37,16 +40,19 @@ export class UserProfilePageComponent implements OnInit {
   posts$!: Observable<Post[]>;
   header!: string;
   username!: string;
+  reviews$!: Observable<Review[]>;
 
   constructor(
     private _userService: UserService,
     private _postService: PostService,
+    private _reviewService: ReviewService,
     private _authState: AuthStateService,
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
       this.username = params['username'];
-      this.setUserProfilePageUserDetails(params['username']);
+      this.setUserProfilePageUserDetails(this.username);
+      this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(this.username);
     });
   }
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from 'src/app/core/interfaces/post';
 
 @Component({
@@ -40,10 +40,7 @@ import { Post } from 'src/app/core/interfaces/post';
   `,
   styles: []
 })
-export class PostDetailsComponent implements OnInit {
+export class PostDetailsComponent {
   @Input() post!: Post | null;
   @Input() username!: string | null;
-  constructor() {}
-
-  ngOnInit(): void {}
 }

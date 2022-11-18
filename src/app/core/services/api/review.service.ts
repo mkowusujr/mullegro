@@ -37,7 +37,7 @@ export class ReviewService {
     return this._apiService.getRequest(getAllReviewsMadeByUserEndpoint);
   }
 
-  getAllReviewsFromPostsMadeByUser(username: string): Observable<Review> {
+  getAllReviewsFromPostsMadeByUser(username: string): Observable<Review[]> {
     const getAllReviewsFromPostsMadeByUserEndpoint = `${this.baseUrl}/user/${username}/posts/reviews`;
     return this._apiService.getRequest(
       getAllReviewsFromPostsMadeByUserEndpoint

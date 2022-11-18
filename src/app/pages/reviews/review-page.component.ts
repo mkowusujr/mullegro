@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { Post } from 'src/app/core/interfaces/post';
+import { Review } from 'src/app/core/interfaces/review';
 import { PostService } from 'src/app/core/services/api/post.service';
+import { ReviewService } from 'src/app/core/services/api/review.service';
 import { UserService } from 'src/app/core/services/api/user.service';
 import { AddReviewFormService } from './add-review/add-review-form.service';
 
@@ -20,13 +22,14 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
         [username]="username"
       ></post-details>
       <div col3 class="review-section">
-        <review [postId]="postId"></review>
+        <review [review]="review$ | async"></review>
         <add-review-form [postId]="(post$ | async)?.id"></add-review-form>
       </div>
     </three-column-display>
   `
 })
 export class ReviewPageComponent implements OnInit {
+  review$!: Observable<Review>;
   post$!: Observable<Post>;
   postId = -1;
   username!: string;
@@ -34,12 +37,14 @@ export class ReviewPageComponent implements OnInit {
   constructor(
     private _postService: PostService,
     private _userService: UserService,
+    private _reviewService: ReviewService,
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
       this.postId = +params['postId'];
       this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
+      this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
     });
   }
 

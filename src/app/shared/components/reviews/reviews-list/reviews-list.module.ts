@@ -11,6 +11,7 @@ import { ReviewsListComponent } from './reviews-list.component';
   ],
   imports: [
     CommonModule, ReviewModule
-  ]
+  ],
+  exports: [ReviewsListComponent]
 })
 export class ReviewListModule { }

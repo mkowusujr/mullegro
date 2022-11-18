@@ -9,6 +9,7 @@ import { UserProfilePageDetailsComponent } from './user-profile-page-details.com
 import { UserProfilePageSummaryComponent } from './user-profile-page-summary.component';
 import { RouterModule } from '@angular/router';
 import { UserSalesStatsModule } from './user-sales-stats/user-sales-stats.module';
+import { ReviewListModule } from 'src/app/shared/components/reviews/reviews-list/reviews-list.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { UserSalesStatsModule } from './user-sales-stats/user-sales-stats.module
     UserProfilePageDetailsComponent,
     UserProfilePageSummaryComponent
   ],
-  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule, UserSalesStatsModule]
+  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule, UserSalesStatsModule, ReviewListModule]
 })
 export class UserProfilePageModule {}

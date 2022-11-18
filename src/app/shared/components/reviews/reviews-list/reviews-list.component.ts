@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Review } from 'src/app/core/interfaces/review';
 
 @Component({
-  selector: 'app-reviews-list',
+  selector: 'review-list',
   template: `
-    <p>
-      reviews-list works!
-    </p>
+    <ng-container *ngIf="reviews;else noReviewsTemplate">
+      <ng-container *ngFor="let review of reviews">
+        <review [review]="review"></review>
+      </ng-container>
+    </ng-container>
+    <ng-template #noReviewsTemplate>
+      <span>No reviews have been made on this user's posts.</span>
+    </ng-template>
   `,
   styles: [
   ]
 })
-export class ReviewsListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ReviewsListComponent {
+  @Input() reviews!: Review[] | null;
 }
