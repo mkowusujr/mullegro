@@ -22,11 +22,19 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
         [username]="username"
       ></post-details>
       <div col3 class="review-section">
-        <ng-container *ngIf="review$ | async;else noExistingReviewTemplate">
+        <ng-container
+          *ngIf="
+            (review$ | async) || wasReviewCreated;
+            else noExistingReviewTemplate
+          "
+        >
           <review [review]="review$ | async"></review>
         </ng-container>
         <ng-template #noExistingReviewTemplate>
-          <add-review-form [postId]="(post$ | async)?.id"></add-review-form>
+          <add-review-form
+            [postId]="(post$ | async)?.id"
+            (reviewCreatedEvent)="setReviewCreatedFlag($event)"
+          ></add-review-form>
         </ng-template>
       </div>
     </three-column-display>
@@ -37,6 +45,7 @@ export class ReviewPageComponent implements OnInit {
   post$!: Observable<IPost>;
   postId = -1;
   username!: string;
+  wasReviewCreated = false;
 
   constructor(
     private _postService: PostService,
@@ -66,5 +75,9 @@ export class ReviewPageComponent implements OnInit {
             }
           })
     });
+  }
+
+  setReviewCreatedFlag(isCreated: boolean) {
+    this.wasReviewCreated = isCreated;
   }
 }

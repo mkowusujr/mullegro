@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AddReviewFormService } from './add-review-form.service';
 
 @Component({
@@ -34,6 +34,7 @@ import { AddReviewFormService } from './add-review-form.service';
 })
 export class AddReviewFormComponent implements OnInit {
   @Input() postId!: number | undefined;
+  @Output() reviewCreatedEvent = new EventEmitter<boolean>;
 
   constructor(public _addReviewFormService: AddReviewFormService) {}
 
@@ -41,5 +42,6 @@ export class AddReviewFormComponent implements OnInit {
 
   onSubmit() {
     this._addReviewFormService.submitForm();
+    this.reviewCreatedEvent.emit(true);
   }
 }
