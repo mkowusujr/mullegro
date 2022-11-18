@@ -8,9 +8,20 @@ import { Component, Input, OnInit } from '@angular/core';
       <h2>{{ userUsername }}</h2>
       <p>{{ userName }}</p>
       <p>Joined on {{ joinedDate | date }}</p>
-      <div class="bio">
+      <div
+        class="bio"
+        [ngStyle]="{
+          'font-style': isCurrentUser && !bio ? 'italic' : 'normal'
+        }"
+      >
         <h3>Bio</h3>
-        <p>{{ bio }}</p>
+        <p>
+          {{
+            isCurrentUser && !bio
+              ? 'Edit your account to add updated your empty bio'
+              : bio
+          }}
+        </p>
       </div>
       <ng-container *ngIf="isCurrentUser">
         <a [routerLink]="['/user/settings']" routerLinkActive="active">
