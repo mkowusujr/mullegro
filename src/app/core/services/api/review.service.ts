@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Review } from '../../interfaces/review';
+import { UserStats } from '../../interfaces/user-stats';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -43,7 +44,7 @@ export class ReviewService {
     );
   }
 
-  getStatsForUser(username: string): Observable<Review> {
+  getStatsForUser(username: string): Observable<UserStats> {
     const getStatsForUserEndpoint = `${this.baseUrl}/user/${username}/stats`;
     return this._apiService.getRequest(getStatsForUserEndpoint);
   }

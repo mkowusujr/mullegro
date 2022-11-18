@@ -43,11 +43,12 @@ transaction-page {
     flex-wrap: wrap
 }
 
-.transact-post-item {
+.transact-post-item a{
     @extend .transaction-item;
     display: flex;
     flex-direction: row;
     border-radius: 0.25em;
+    color: white;
 
     img {
         height: 10em;

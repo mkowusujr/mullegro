@@ -16,16 +16,17 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
         class="transact-post-item"
         *ngFor="let post of (transaction$ | async)?.posts"
       >
-        <img [src]="post.display_picture" />
-        <div>
-          <p>
-            <b>{{ post.title }}</b>
-          </p>
-          <p>{{ post.category }}</p>
-          <p>{{ post.price | currency }}</p>
-          <p>{{ post.condition }}</p>
-          <!-- <p>{{ post.condition }}</p> -->
-        </div>
+        <a [routerLink]="['posts/post', post.id]" routerLinkActive="active">
+          <img [src]="post.display_picture" />
+          <div>
+            <p>
+              <b>{{ post.title }}</b>
+            </p>
+            <p>{{ post.category }}</p>
+            <p>{{ post.price | currency }}</p>
+            <p>{{ post.condition }}</p>
+          </div>
+        </a>
       </div>
     </div>
   `,

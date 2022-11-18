@@ -16,10 +16,10 @@ user-profile-summary {
 
 user-profile-details {
     width: 25vw;
-
-    p {
-        @include DefaultSpacings();
-    }
+    line-height: 2em;
+    // p {
+    //     @include DefaultSpacings();
+    // }
 }
 
 user-list-page {

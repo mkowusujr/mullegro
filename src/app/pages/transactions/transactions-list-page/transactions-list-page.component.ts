@@ -17,7 +17,7 @@ import { Transaction } from 'src/app/core/interfaces/transaction';
         </p>
         <div>
           <p>Total Item Count: {{ transaction.itemCount }}</p>
-          <p>total Amount: {{ transaction.totalAmount | currency }}</p>
+          <p>Total Amount: {{ transaction.totalAmount | currency }}</p>
         </div>
         <p>Item Names:</p>
         <ul>

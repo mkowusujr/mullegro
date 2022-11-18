@@ -8,6 +8,7 @@ import { UserProfilePageComponent } from './user-profile-page.component';
 import { UserProfilePageDetailsComponent } from './user-profile-page-details.component';
 import { UserProfilePageSummaryComponent } from './user-profile-page-summary.component';
 import { RouterModule } from '@angular/router';
+import { UserSalesStatsModule } from './user-sales-stats/user-sales-stats.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { RouterModule } from '@angular/router';
     UserProfilePageDetailsComponent,
     UserProfilePageSummaryComponent
   ],
-  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule]
+  imports: [CommonModule, RouterModule, PostListModule, LayoutsModule, UserSalesStatsModule]
 })
 export class UserProfilePageModule {}

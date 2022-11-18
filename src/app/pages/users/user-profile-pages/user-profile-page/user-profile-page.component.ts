@@ -23,7 +23,9 @@ import { UserService } from 'src/app/core/services/api/user.service';
         "
       ></user-profile-summary>
 
-      <user-profile-details col2> User Stats... </user-profile-details>
+      <user-profile-details col2> 
+        <user-sales-stats [username]="username"></user-sales-stats>
+      </user-profile-details>
 
       <post-list col3 [posts]="posts$ | async" [header]="header"></post-list>
     </three-column-display>
@@ -34,6 +36,7 @@ export class UserProfilePageComponent implements OnInit {
   currentUser$!: Observable<User>;
   posts$!: Observable<Post[]>;
   header!: string;
+  username!: string;
 
   constructor(
     private _userService: UserService,
@@ -42,6 +45,7 @@ export class UserProfilePageComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => {
+      this.username = params['username'];
       this.setUserProfilePageUserDetails(params['username']);
     });
   }
