@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'user-profile-summary',
@@ -35,15 +35,11 @@ import { Component, Input, OnInit } from '@angular/core';
     </div>
   `
 })
-export class UserProfilePageSummaryComponent implements OnInit {
+export class UserProfilePageSummaryComponent {
   @Input() avatarImg!: string | undefined;
   @Input() userUsername!: string | undefined;
   @Input() userName!: string | undefined;
   @Input() joinedDate!: Date | undefined;
   @Input() bio!: string | undefined;
   @Input() isCurrentUser = false;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

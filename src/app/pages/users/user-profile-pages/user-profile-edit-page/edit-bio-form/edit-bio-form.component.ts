@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EditBioFormService } from './edit-bio-form.service';
 
 @Component({
@@ -24,10 +24,8 @@ import { EditBioFormService } from './edit-bio-form.service';
     </form>
   `
 })
-export class EditBioFormComponent implements OnInit {
+export class EditBioFormComponent {
   constructor(public _editBioFormService: EditBioFormService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this._editBioFormService.submitForm();

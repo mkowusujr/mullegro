@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthStateService } from 'src/app/core/auth/auth-state.service';
+import { Component } from '@angular/core';
 import { LoginFormService } from './login-form.service';
 
 @Component({
@@ -22,10 +21,8 @@ import { LoginFormService } from './login-form.service';
     </div>
   `
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   constructor(public loginFormService: LoginFormService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this.loginFormService.submitForm();

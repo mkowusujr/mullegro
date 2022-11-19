@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EditAddressFormService } from './edit-address-form.service';
 
 @Component({
@@ -18,10 +18,8 @@ import { EditAddressFormService } from './edit-address-form.service';
     </form>
   `
 })
-export class EditAddressFormComponent implements OnInit {
+export class EditAddressFormComponent {
   constructor(public _editAddressFormService: EditAddressFormService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this._editAddressFormService.submitForm();

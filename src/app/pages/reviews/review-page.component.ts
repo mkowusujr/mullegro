@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { IPost } from 'src/app/core/interfaces/post';
@@ -40,7 +40,7 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
     </three-column-display>
   `
 })
-export class ReviewPageComponent implements OnInit {
+export class ReviewPageComponent {
   review$!: Observable<IReview>;
   post$!: Observable<IPost>;
   postId = -1;
@@ -60,8 +60,6 @@ export class ReviewPageComponent implements OnInit {
       this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
     });
   }
-
-  ngOnInit(): void {}
 
   getPostOwnerInfo() {
     this.post$.pipe(take(1)).subscribe({

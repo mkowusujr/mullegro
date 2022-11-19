@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthStateService } from 'src/app/core/auth/auth-state.service';
+import { Component } from '@angular/core';
 import { SignUpFormService } from './sign-up-form.service';
 
 @Component({
@@ -42,13 +41,8 @@ import { SignUpFormService } from './sign-up-form.service';
     </div>
   `
 })
-export class SignUpComponent implements OnInit {
-  constructor(
-    public signUpFormService: SignUpFormService,
-    private _authState: AuthStateService
-  ) {}
-
-  ngOnInit(): void {}
+export class SignUpComponent {
+  constructor(public signUpFormService: SignUpFormService) {}
 
   onSubmit() {
     this.signUpFormService.submitForm();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ITransaction } from 'src/app/core/interfaces/transaction';
@@ -32,7 +32,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   `,
   styles: []
 })
-export class TransactionPageComponent implements OnInit {
+export class TransactionPageComponent {
   transaction$!: Observable<ITransaction>;
 
   constructor(
@@ -45,6 +45,4 @@ export class TransactionPageComponent implements OnInit {
       );
     });
   }
-
-  ngOnInit(): void {}
 }

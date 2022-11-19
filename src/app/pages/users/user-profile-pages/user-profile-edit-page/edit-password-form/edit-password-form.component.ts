@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EditPasswordFormService } from './edit-password-form.service';
 
 @Component({
@@ -25,10 +25,8 @@ import { EditPasswordFormService } from './edit-password-form.service';
     </form>
   `
 })
-export class EditPasswordFormComponent implements OnInit {
+export class EditPasswordFormComponent {
   constructor(public _editPasswordFormService: EditPasswordFormService) {}
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this._editPasswordFormService.submitForm();
