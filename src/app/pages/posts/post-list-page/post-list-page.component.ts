@@ -12,10 +12,11 @@ import { FilterPostService } from './filter-post.service';
       placeholder="Search through filtered Posts"
       (keyup)="onKey($event)"
     />
-    <ng-container *ngIf="(posts$ | async)?.length != 0; else notFound">
-      <ng-container *ngFor="let post of posts$ | async">
-        <post-list-card [post]="post"></post-list-card>
-      </ng-container>
+    <ng-container
+      class="post-list-container"
+      *ngIf="(posts$ | async)?.length != 0; else notFound"
+    >
+      <post-list [posts]="posts$ | async"></post-list>
     </ng-container>
     <ng-template #notFound>
       <h1>No {{ filter }} Posts Found At The Moment</h1>

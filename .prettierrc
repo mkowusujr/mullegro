@@ -9,5 +9,6 @@
     "useTabs": false,
     "trailingComma": "none",
     
-    "bracketSameLine": false
+    "bracketSameLine": false,
+    "parser": "typescript"
 }

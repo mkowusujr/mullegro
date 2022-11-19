@@ -1,21 +1,32 @@
 post {
-    @include DefaultSpacings();
-    label {
-        font-weight: bold;
-    }
+  @include DefaultSpacings();
+  label {
+    font-weight: bold;
+  }
 }
 
 post-details {
-    width: 25vw;
-    div {
-        margin-bottom: 1em;
-    }
+  width: 25vw;
+  div {
+    margin-bottom: 1em;
+  }
 }
 
 create-post-page,
 post-list-page {
-    @include DefaultSpacings();
-    input {
-        margin-bottom: 2em;
+  @include DefaultSpacings();
+  input {
+    margin-bottom: 1em;
+    width: 30em;
+  }
+
+  .post-list-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+		flex-direction: row !important;
+		justify-content: space-evenly;
+    .post-list-card {
+      width: 20em !important;
     }
+  }
 }

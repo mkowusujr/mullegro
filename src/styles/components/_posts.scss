@@ -6,7 +6,7 @@ post-list {
     display: flex;
     flex-direction: row;
 
-    background-color: $card-g;
+    background-color: white;
     margin: 1em;
     margin-bottom: 2em;
     padding: 1em;
@@ -17,9 +17,6 @@ post-list {
 
     @include DropShadow();
     @include DropShadowHover();
-    &:hover {
-        background-color: $card-g-hover;
-    }
     
     .post-image {
         height: 7em;
