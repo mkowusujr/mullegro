@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ITransaction } from 'src/app/core/interfaces/transaction';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 
@@ -32,17 +32,22 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   `,
   styles: []
 })
-export class TransactionPageComponent {
+export class TransactionPageComponent implements OnDestroy {
   transaction$!: Observable<ITransaction>;
+  routeParamsSubscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private _transactionService: TransactionService
   ) {
-    route.params.subscribe(params => {
+    this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.transaction$ = this._transactionService.getTransaction(
         +params['id']
       );
     });
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription.unsubscribe();
   }
 }

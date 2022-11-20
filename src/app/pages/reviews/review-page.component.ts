@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, take } from 'rxjs';
+import { Observable, Subject, Subscription, take, takeUntil } from 'rxjs';
 import { IPost } from 'src/app/core/interfaces/post';
 import { IReview } from 'src/app/core/interfaces/review';
 import { PostService } from 'src/app/core/services/api/post.service';
@@ -40,12 +40,14 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
     </three-column-display>
   `
 })
-export class ReviewPageComponent {
+export class ReviewPageComponent implements OnDestroy {
   review$!: Observable<IReview>;
   post$!: Observable<IPost>;
   postId = -1;
   username!: string;
   wasReviewCreated = false;
+  routeParamsSubscription: Subscription;
+  componentIsBeingDestroyedNotifier = new Subject<void>();
 
   constructor(
     private _postService: PostService,
@@ -53,7 +55,7 @@ export class ReviewPageComponent {
     private _reviewService: ReviewService,
     private route: ActivatedRoute
   ) {
-    this.route.params.subscribe(params => {
+    this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.postId = +params['postId'];
       this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
@@ -62,20 +64,28 @@ export class ReviewPageComponent {
   }
 
   getPostOwnerInfo() {
-    this.post$.pipe(take(1)).subscribe({
-      next: post =>
-        this._userService
-          .getUserById(post.userId ?? -1)
-          .pipe(take(1))
-          .subscribe({
-            next: user => {
-              this.username = user.username;
-            }
-          })
-    });
+    this.post$
+      .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+      .subscribe({
+        next: post =>
+          this._userService
+            .getUserById(post.userId ?? -1)
+            .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+            .subscribe({
+              next: user => {
+                this.username = user.username;
+              }
+            })
+      });
   }
 
   setReviewCreatedFlag(isCreated: boolean) {
     this.wasReviewCreated = isCreated;
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription.unsubscribe();
+    this.componentIsBeingDestroyedNotifier.next();
+    this.componentIsBeingDestroyedNotifier.complete();
   }
 }

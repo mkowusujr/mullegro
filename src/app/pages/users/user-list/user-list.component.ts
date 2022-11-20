@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, take } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { map, Observable, Subject, takeUntil } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { IUser } from 'src/app/core/interfaces/user';
 import { UserService } from 'src/app/core/services/api/user.service';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
   template: `
     <input type="text" placeholder="Search for Users" (keyup)="onKey($event)" />
     <div class="user-list">
-      <ng-container *ngFor="let user of users">
+      <ng-container *ngFor="let user of users$ | async">
         <user-list-card
           [avatarImg]="user?.profile_picture"
           [userUsername]="user?.username"
@@ -19,10 +19,11 @@ import { UserService } from 'src/app/core/services/api/user.service';
     </div>
   `
 })
-export class UserListComponent implements OnInit {
-  users!: IUser[];
+export class UserListComponent implements OnInit, OnDestroy {
+  users$!: Observable<IUser[]>;
   currentUser$!: Observable<IUser | undefined>;
   searchQuery = '';
+  componentIsBeingDestroyedNotifier = new Subject<void>();
 
   constructor(
     private _userService: UserService,
@@ -35,23 +36,28 @@ export class UserListComponent implements OnInit {
   }
 
   initalFetchUsers() {
-    this._userService
-      .getAllUsers()
-      .pipe(take(1))
-      .subscribe(users => {
+    this.users$ = this._userService.getAllUsers().pipe(
+      map(users => {
         let username: string | undefined;
-        this.currentUser$.pipe(take(1)).subscribe(usr => {
-          username = usr?.username;
-        });
-        this.users = users.filter(u => u.username != username);
-      });
+
+        this.currentUser$
+          .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+          .subscribe(usr => {
+            username = usr?.username;
+          });
+
+        return users.filter(u => u.username != username);
+      })
+    );
   }
 
   onKey(event: any) {
     this.searchQuery = event.target.value;
-    this._userService
-      .findUsersWithSearchQuery(this.searchQuery)
-      .pipe(take(1))
-      .subscribe(users => (this.users = users));
+    this.users$ = this._userService.findUsersWithSearchQuery(this.searchQuery);
+  }
+
+  ngOnDestroy(): void {
+    this.componentIsBeingDestroyedNotifier.next();
+    this.componentIsBeingDestroyedNotifier.complete();
   }
 }

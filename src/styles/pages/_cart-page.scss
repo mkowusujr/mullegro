@@ -1,19 +1,29 @@
 cart {
+    @include DefaultSpacings();
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart-container {
     display: flex;
     flex-direction: column;
-
+    width: 60vw;
+    margin: 1em;
     border-radius: 0.25em;
-
-    @include DefaultSpacings();
     @include DropShadow();
-
-    width: 60%;
 }
 
 cart table {
     th, td {
         padding: 1em;
         text-align: left;
+
+        &:first-child {
+            border-top-left-radius: 0.25em;
+        }
+        &:last-child {
+            border-top-right-radius: 0.25em;
+        }
     }
 
     th {

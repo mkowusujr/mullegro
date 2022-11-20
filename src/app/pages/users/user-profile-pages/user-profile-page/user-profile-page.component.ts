@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
 import { IPost } from 'src/app/core/interfaces/post';
 import { IReview } from 'src/app/core/interfaces/review';
@@ -37,7 +37,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
     </three-column-display>
   `
 })
-export class UserProfilePageComponent implements OnInit {
+export class UserProfilePageComponent implements OnInit, OnDestroy {
   loggedInUser$!: Observable<IUser | undefined>;
   currentUser$!: Observable<IUser>;
   posts$!: Observable<IPost[]>;
@@ -45,6 +45,7 @@ export class UserProfilePageComponent implements OnInit {
   username!: string;
   reviews$!: Observable<IReview[]>;
   userStats$!: Observable<IUserStats>;
+  routeParamsSubscription: Subscription;
 
   constructor(
     private _userService: UserService,
@@ -53,7 +54,7 @@ export class UserProfilePageComponent implements OnInit {
     private _authState: AuthStateService,
     private route: ActivatedRoute
   ) {
-    this.route.params.subscribe(params => {
+    this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.username = params['username'];
       this.setUserProfilePageUserDetails(this.username);
       this.userStats$ = this._reviewService.getStatsForUser(this.username);
@@ -62,6 +63,7 @@ export class UserProfilePageComponent implements OnInit {
       );
     });
   }
+
   ngOnInit(): void {
     this.loggedInUser$ = this._authState.currentUser$;
   }
@@ -74,5 +76,9 @@ export class UserProfilePageComponent implements OnInit {
     this.currentUser$ = this._userService.getUser(username);
     this.setUsersPosts(username);
     this.header = `Posts by ${username}`;
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription.unsubscribe();
   }
 }

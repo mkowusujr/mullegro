@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { IPost } from 'src/app/core/interfaces/post';
 import { FilterPostService } from './filter-post.service';
 
@@ -23,9 +23,10 @@ import { FilterPostService } from './filter-post.service';
     </ng-template>
   `
 })
-export class PostListPageComponent implements OnInit {
+export class PostListPageComponent implements OnInit, OnDestroy {
   posts$!: Observable<IPost[]>;
   filter!: string | undefined;
+  routeParamsSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +40,7 @@ export class PostListPageComponent implements OnInit {
   }
 
   applyFiltersFromUrlParams() {
-    this.route.queryParams.subscribe(params => {
+    this.routeParamsSubscription = this.route.queryParams.subscribe(params => {
       this.applySearchQueryFromUrlParams(params['searchQuery']);
       this.applyCategoryFilterFromUrlParams(params['category']);
       this.applyConditionFilterFromUrlParams(params['condition']);
@@ -78,5 +79,9 @@ export class PostListPageComponent implements OnInit {
 
   onKey(event: any) {
     this._filterPostsService.setSearchQuery(event.target.value);
+  }
+
+  ngOnDestroy(): void {
+    this.routeParamsSubscription.unsubscribe();
   }
 }
