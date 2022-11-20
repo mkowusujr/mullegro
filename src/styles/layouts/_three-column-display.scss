@@ -1,5 +1,5 @@
 three-column-display {
   display: grid;
   gap: 1.5em;
-  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
 }
