@@ -26,12 +26,22 @@ import { AddReviewFormService } from './add-review-form.service';
           [max]="5"
         />
       </div>
+      <p
+        class="error-message"
+        *ngIf="
+          _addReviewFormService.form.controls['rating'].invalid &&
+          _addReviewFormService.form.controls['rating'].value.length != 0
+        "
+      >
+        Can't enter a number larger than 5
+      </p>
 
       <label for="#description">Description</label>
       <textarea
         #description
         type="text"
         formControlName="description"
+        placeholder="Enter your thoughts on the product..."
       ></textarea>
 
       <input
