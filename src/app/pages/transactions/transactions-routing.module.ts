@@ -8,7 +8,11 @@ import { TransactionPageComponent } from './transaction-page/transaction-page.co
 import { TransactionsListPageComponent } from './transactions-list-page/transactions-list-page.component';
 
 const routes: Routes = [
-  { path: 'user/transactions', title: 'Mullegro - User Transactions', component: TransactionsListPageComponent },
+  {
+    path: 'user/transactions',
+    title: 'Mullegro - User Transactions',
+    component: TransactionsListPageComponent
+  },
   {
     path: 'user/transactions/transaction/:id',
     component: TransactionPageComponent

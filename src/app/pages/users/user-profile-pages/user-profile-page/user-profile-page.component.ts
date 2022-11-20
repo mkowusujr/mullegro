@@ -65,9 +65,13 @@ export class UserProfilePageComponent implements OnInit, OnDestroy {
       this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(
         this.username
       );
-      this.currentUser$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(user => {
-        this._titleService.setTitle(`${user.name} (@${user.username}) | Mullegro - Users`)
-      })
+      this.currentUser$
+        .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+        .subscribe(user => {
+          this._titleService.setTitle(
+            `${user.name} (@${user.username}) | Mullegro - Users`
+          );
+        });
     });
   }
 

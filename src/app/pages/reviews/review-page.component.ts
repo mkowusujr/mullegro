@@ -63,8 +63,13 @@ export class ReviewPageComponent implements OnDestroy {
       this.getPostOwnerInfo();
       this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
 
-      this.post$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(post => 
-        this._titleService.setTitle(`Review for ${post.title} | Mullegro - Posts`))
+      this.post$
+        .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+        .subscribe(post =>
+          this._titleService.setTitle(
+            `Review for ${post.title} | Mullegro - Posts`
+          )
+        );
     });
   }
 

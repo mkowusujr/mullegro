@@ -48,8 +48,12 @@ export class TransactionPageComponent implements OnDestroy {
         +params['id']
       );
 
-      this.transaction$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(transaction => 
-        this._titleService.setTitle(` Transaction ${transaction.id} | Mullegro - User Transaction`)
+      this.transaction$
+        .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+        .subscribe(transaction =>
+          this._titleService.setTitle(
+            ` Transaction ${transaction.id} | Mullegro - User Transaction`
+          )
         );
     });
   }
