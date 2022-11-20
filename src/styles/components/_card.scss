@@ -1,36 +1,36 @@
 .card {
-    color: white;
-    display: block;
-    padding: 1em;
-    border-radius: 0.25em;
-    height: 10em;
-    margin-left: 1em;
-    margin-right: 1em;
-    @include DropShadow();
+  color: white;
+  display: block;
+  padding: 1em;
+  border-radius: 0.25em;
+  height: 10em;
+  margin-left: 1em;
+  margin-right: 1em;
+  @include DropShadow();
 }
 
 .hover-card {
-    @include DropShadowHover();
+  @include DropShadowHover();
 }
 
 .card-r {
-    background-color: $card-r;
-    @extend .card;
-    &:hover {
-        background-color: $card-r-hover;
-    }
+  background-color: $card-r;
+  @extend .card;
+  &:hover {
+    background-color: $card-r-hover;
+  }
 }
 .card-y {
-    background-color: $card-y;
-    @extend .card;
-    &:hover {
-        background-color: $card-y-hover;
-    }
+  background-color: $card-y;
+  @extend .card;
+  &:hover {
+    background-color: $card-y-hover;
+  }
 }
 .card-g {
-    background-color: $card-g;
-    @extend .card;
-    &:hover {
-        background-color: $card-g-hover;
-    }
+  background-color: $card-g;
+  @extend .card;
+  &:hover {
+    background-color: $card-g-hover;
+  }
 }

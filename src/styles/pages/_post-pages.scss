@@ -15,7 +15,7 @@ post-details {
 create-post-page,
 post-list-page {
   @include DefaultSpacings();
-  
+
   input {
     margin-bottom: 1em;
     width: 30em;
@@ -26,11 +26,11 @@ post-list-page {
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  
+
     .post-list-card {
       width: auto !important;
       line-height: 1.5em;
-      
+
       img {
         padding-right: 0 !important;
       }

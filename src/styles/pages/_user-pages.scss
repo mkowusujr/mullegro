@@ -39,26 +39,26 @@ user-list-page {
 
 .user-list-card {
   display: flex;
-    flex-direction: row;
+  flex-direction: row;
 
-    background-color: white;
-    margin: 1em;
-    margin-bottom: 2em;
-    padding: 1em;
-    border-radius: 0.25em;
-    
-    text-decoration: none;
-    color: black;
+  background-color: white;
+  margin: 1em;
+  margin-bottom: 2em;
+  padding: 1em;
+  border-radius: 0.25em;
+
+  text-decoration: none;
+  color: black;
   @include DropShadow();
   @include DropShadowHover();
 
   img {
     height: 3em;
-        width: 3em;
-        margin-right: 30px;
-        border-radius: 5em;
-        align-self: center;
-  @include DropShadow();
+    width: 3em;
+    margin-right: 30px;
+    border-radius: 5em;
+    align-self: center;
+    @include DropShadow();
   }
   .user-list-card-details {
     align-self: center;

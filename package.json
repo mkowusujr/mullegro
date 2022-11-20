@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "pretty": "prettier --config .prettierrc --write \"./src/**/**.{ts,tsx,json}\""
+    "pretty": "prettier --config .prettierrc --write \"./src/**/**.{ts,tsx,json,scss}\""
   },
   "private": true,
   "dependencies": {

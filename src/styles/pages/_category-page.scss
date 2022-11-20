@@ -1,14 +1,14 @@
 category {
-    @include DefaultSpacings();
-    .card-y {
-        height: 2em;
-        color: black;
-        margin: 1em;
-    }
+  @include DefaultSpacings();
+  .card-y {
+    height: 2em;
+    color: black;
+    margin: 1em;
+  }
 }
 
 .category-grid {
-    @include DefaultSpacings();
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
+  @include DefaultSpacings();
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }

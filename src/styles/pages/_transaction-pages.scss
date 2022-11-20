@@ -1,59 +1,59 @@
 transactions-list-page {
-    @include DefaultSpacings();
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  @include DefaultSpacings();
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .transaction-item {
-    @include DropShadow();
-    @include DropShadowHover();
-    display: block;
-    background-color: $welcome-banner;
-    padding: 1em;
-    height: 12em;
-    width: 25em;
-    margin: 2em;
+  @include DropShadow();
+  @include DropShadowHover();
+  display: block;
+  background-color: $welcome-banner;
+  padding: 1em;
+  height: 12em;
+  width: 25em;
+  margin: 2em;
 
-    p {
-        line-height: 2;
-    }
-    &:hover {
-        background-color: $wel-ban-hover;
-    }
+  p {
+    line-height: 2;
+  }
+  &:hover {
+    background-color: $wel-ban-hover;
+  }
 }
 
 .transact-post-title {
-    color: rgb(255, 255, 255);
-    font-style: italic;
-    text-indent: 1.5em;
+  color: rgb(255, 255, 255);
+  font-style: italic;
+  text-indent: 1.5em;
 }
 
 transaction-page {
-    @include DefaultSpacings();
+  @include DefaultSpacings();
 
-    h2 {
-        margin-top: 1em;
-    }
+  h2 {
+    margin-top: 1em;
+  }
 }
 
 .transact-post-items-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.transact-post-item a{
-    @extend .transaction-item;
-    display: flex;
-    flex-direction: row;
-    border-radius: 0.25em;
-    color: white;
+.transact-post-item a {
+  @extend .transaction-item;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.25em;
+  color: white;
 
-    img {
-        height: 10em;
-        width: 10em;
-        min-width: 10em;
-        margin-right: 2em;
-    }
+  img {
+    height: 10em;
+    width: 10em;
+    min-width: 10em;
+    margin-right: 2em;
+  }
 }

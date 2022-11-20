@@ -1,29 +1,29 @@
 home {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 1em;
-    grid-row-gap: 1.5em;
-    padding-bottom: 2em;
-    @include DefaultSpacings();
-    @media screen and (max-width: $mobile-width-smaller) {
-        grid-template-columns: auto;
-    }
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1em;
+  grid-row-gap: 1.5em;
+  padding-bottom: 2em;
+  @include DefaultSpacings();
+  @media screen and (max-width: $mobile-width-smaller) {
+    grid-template-columns: auto;
+  }
 }
 
-.welcome-banner{
-    background-color: $welcome-banner;
-    color: white;
+.welcome-banner {
+  background-color: $welcome-banner;
+  color: white;
 
-    grid-column: 1 / span 3;
+  grid-column: 1 / span 3;
 
-    display: block;
-    padding: 1em;
-    border-radius: 0.25em;
-    height: 25vh;
+  display: block;
+  padding: 1em;
+  border-radius: 0.25em;
+  height: 25vh;
 
-    @include DropShadow();
-    @media screen and (max-width: $mobile-width-smaller) {
-        grid-template-columns: auto;
-        grid-column: 1;
-    }
+  @include DropShadow();
+  @media screen and (max-width: $mobile-width-smaller) {
+    grid-template-columns: auto;
+    grid-column: 1;
+  }
 }

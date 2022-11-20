@@ -1,55 +1,60 @@
 cart {
-    @include DefaultSpacings();
-    margin-left: auto;
-    margin-right: auto;
+  @include DefaultSpacings();
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cart-container {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    margin: 1em;
-    border-radius: 0.25em;
-    @include DropShadow();
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  margin: 1em;
+  border-radius: 0.25em;
+  @include DropShadow();
 }
 
 cart table {
-    th, td {
-        padding: 1em;
-        text-align: left;
+  th,
+  td {
+    padding: 1em;
+    text-align: left;
 
-        &:first-child {
-            border-top-left-radius: 0.25em;
-        }
-        &:last-child {
-            border-top-right-radius: 0.25em;
-        }
+    &:first-child {
+      border-top-left-radius: 0.25em;
     }
-
-    th {
-        background-color: $welcome-banner;
-        color: white;
+    &:last-child {
+      border-top-right-radius: 0.25em;
     }
+  }
 
-    tr:nth-child(even) {background-color: $table-2nd-color;}
-    .cart-items:hover {background-color: $tr-hover;}
+  th {
+    background-color: $welcome-banner;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: $table-2nd-color;
+  }
+  .cart-items:hover {
+    background-color: $tr-hover;
+  }
 }
 
-
 cart .cart-info {
-    display: flex;
-    flex-direction: column;
-    background-color: $card-y;
-    align-items: flex-end;
-    p, button {
-        margin-top: 0.5em;
-        margin-right: 1em;
-        margin-bottom: 0.5em;
-    }
+  display: flex;
+  flex-direction: column;
+  background-color: $card-y;
+  align-items: flex-end;
+  p,
+  button {
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+  }
 }
 
 cart .cart-count {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }

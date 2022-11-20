@@ -1,42 +1,42 @@
 add-review {
-    @include DefaultSpacings();
+  @include DefaultSpacings();
 }
 
 add-review-form {
-    width: 40%;
-    form {
-        width: 90%;
-    }
+  width: 40%;
+  form {
+    width: 90%;
+  }
 }
 
 .review-section {
-    @include DefaultSpacings();
-    width: 40em;
+  @include DefaultSpacings();
+  width: 40em;
 }
 
 .rating-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
 
-    input {
-        margin-top: 10px;
-        width: 3.5em;
-        padding-right: 0.25em;
-        padding-top: 0.25em;
-        padding-bottom: 0.25em;
-    }
+  input {
+    margin-top: 10px;
+    width: 3.5em;
+    padding-right: 0.25em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+  }
 }
 
 review {
-    display: block;
-    padding: 1em;
-    border-radius: 0.25em;
-    margin: 1em;
-    margin-bottom: 2em;
-    @include DropShadow();
+  display: block;
+  padding: 1em;
+  border-radius: 0.25em;
+  margin: 1em;
+  margin-bottom: 2em;
+  @include DropShadow();
 
-    .vertical-divider {
-        height: 1.5em;
-    }
+  .vertical-divider {
+    height: 1.5em;
+  }
 }

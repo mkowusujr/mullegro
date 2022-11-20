@@ -1,17 +1,17 @@
 app-footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 footer {
-    background-color: $footer;
-    color: white;
-    text-align: center;
-    font-size: medium;
-    
-    height: 25px;
-    width: 100%;
-    display: block;
-    padding: 1em;
-    
-    @include DropShadow();
+  background-color: $footer;
+  color: white;
+  text-align: center;
+  font-size: medium;
+
+  height: 25px;
+  width: 100%;
+  display: block;
+  padding: 1em;
+
+  @include DropShadow();
 }
