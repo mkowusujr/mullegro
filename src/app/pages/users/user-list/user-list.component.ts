@@ -14,6 +14,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
           [avatarImg]="user?.profile_picture"
           [userUsername]="user?.username"
           [userName]="user?.name"
+          [userJoinOnDate]="user?.createdAt"
         ></user-list-card>
       </ng-container>
     </div>

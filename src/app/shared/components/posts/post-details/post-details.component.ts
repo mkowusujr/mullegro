@@ -6,7 +6,7 @@ import { IPost } from 'src/app/core/interfaces/post';
   template: `
     <div>
       <h2>{{ post?.title }}</h2>
-      <p>{{ post?.price | currency }}</p>
+      <p [style.color]="'green'">{{ post?.price | currency }}</p>
     </div>
 
     <div>
