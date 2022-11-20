@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { ITransaction } from 'src/app/core/interfaces/transaction';
 import { TransactionService } from 'src/app/core/services/api/transaction.service';
 
@@ -35,19 +36,27 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
 export class TransactionPageComponent implements OnDestroy {
   transaction$!: Observable<ITransaction>;
   routeParamsSubscription: Subscription;
+  componentIsBeingDestroyedNotifier = new Subject<void>();
 
   constructor(
     private route: ActivatedRoute,
-    private _transactionService: TransactionService
+    private _transactionService: TransactionService,
+    private _titleService: Title
   ) {
     this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.transaction$ = this._transactionService.getTransaction(
         +params['id']
       );
+
+      this.transaction$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(transaction => 
+        this._titleService.setTitle(` Transaction ${transaction.id} | Mullegro - User Transaction`)
+        );
     });
   }
 
   ngOnDestroy(): void {
     this.routeParamsSubscription.unsubscribe();
+    this.componentIsBeingDestroyedNotifier.next();
+    this.componentIsBeingDestroyedNotifier.complete();
   }
 }

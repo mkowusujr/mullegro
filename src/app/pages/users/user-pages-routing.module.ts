@@ -8,7 +8,7 @@ import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => UserProfilePagesModule },
-  { path: 'users', component: UserListComponent }
+  { path: 'users', title: 'Mullegro - Users', component: UserListComponent }
 ];
 
 @NgModule({

@@ -12,11 +12,12 @@ import { AuthGuard } from 'src/app/core/auth/auth.guard';
 const routes: Routes = [
   {
     path: 'posts/create-post',
+    title: 'Create Post | Mullegro',
     component: CreatePostPageComponent,
     canActivate: [AuthGuard]
   },
   { path: 'post/:id', component: PostPageComponent },
-  { path: 'posts', component: PostListPageComponent }
+  { path: 'posts', title: 'Mullegro - Posts', component: PostListPageComponent }
 ];
 
 @NgModule({

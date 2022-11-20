@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { IPost } from 'src/app/core/interfaces/post';
 import { PostService } from 'src/app/core/services/api/post.service';
@@ -30,11 +31,18 @@ export class PostPageComponent implements OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private _postService: PostService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _titleService: Title
   ) {
     this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.post$ = this._postService.getPost(+params['id']);
       this.getPostOwnerInfo();
+
+      this.post$
+        .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+        .subscribe(post =>
+          this._titleService.setTitle(` ${post.title} | Mullegro - Posts`)
+        );
     });
   }
 

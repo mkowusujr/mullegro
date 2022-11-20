@@ -12,6 +12,7 @@ import { UserProfileEditPageComponent } from './user-profile-edit-page/user-prof
 const routes: Routes = [
   {
     path: 'user/settings',
+    title: 'Edit Account Details | Mullegro',
     component: UserProfileEditPageComponent,
     canActivate: [AuthGuard]
   },

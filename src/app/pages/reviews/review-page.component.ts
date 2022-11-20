@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject, Subscription, take, takeUntil } from 'rxjs';
 import { IPost } from 'src/app/core/interfaces/post';
@@ -53,13 +54,17 @@ export class ReviewPageComponent implements OnDestroy {
     private _postService: PostService,
     private _userService: UserService,
     private _reviewService: ReviewService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _titleService: Title
   ) {
     this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.postId = +params['postId'];
       this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
       this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
+
+      this.post$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(post => 
+        this._titleService.setTitle(`Review for ${post.title} | Mullegro - Posts`))
     });
   }
 

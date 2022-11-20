@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { AuthStateService } from 'src/app/core/auth/auth-state.service';
+import { Title } from '@angular/platform-browser';
 import { IPost } from 'src/app/core/interfaces/post';
 import { IReview } from 'src/app/core/interfaces/review';
 import { IUser } from 'src/app/core/interfaces/user';
@@ -46,21 +47,27 @@ export class UserProfilePageComponent implements OnInit, OnDestroy {
   reviews$!: Observable<IReview[]>;
   userStats$!: Observable<IUserStats>;
   routeParamsSubscription: Subscription;
+  componentIsBeingDestroyedNotifier = new Subject<void>();
 
   constructor(
     private _userService: UserService,
     private _postService: PostService,
     private _reviewService: ReviewService,
     private _authState: AuthStateService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _titleService: Title
   ) {
     this.routeParamsSubscription = this.route.params.subscribe(params => {
       this.username = params['username'];
+
       this.setUserProfilePageUserDetails(this.username);
       this.userStats$ = this._reviewService.getStatsForUser(this.username);
       this.reviews$ = this._reviewService.getAllReviewsFromPostsMadeByUser(
         this.username
       );
+      this.currentUser$.pipe(takeUntil(this.componentIsBeingDestroyedNotifier)).subscribe(user => {
+        this._titleService.setTitle(`${user.name} (@${user.username}) | Mullegro - Users`)
+      })
     });
   }
 
@@ -80,5 +87,7 @@ export class UserProfilePageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routeParamsSubscription.unsubscribe();
+    this.componentIsBeingDestroyedNotifier.next();
+    this.componentIsBeingDestroyedNotifier.complete();
   }
 }

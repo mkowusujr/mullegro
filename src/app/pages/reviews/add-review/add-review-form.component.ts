@@ -19,6 +19,7 @@ import { AddReviewFormService } from './add-review-form.service';
         <input
           type="number"
           formControlName="rating"
+          placeholder="#"
           [(ngModel)]="rating"
           [step]="0.5"
           [min]="0"

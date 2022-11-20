@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CartComponent } from './cart.component';
 
-const routes: Routes = [{ path: 'cart', component: CartComponent }];
+const routes: Routes = [{ path: 'cart', title: 'Mullegro - User Cart', component: CartComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
