@@ -66,7 +66,7 @@ export class ReviewPageComponent implements OnDestroy {
       this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
       this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
-      this.review$.subscribe(r => this.r = r);
+      this.review$.subscribe(r => (this.r = r));
 
       this.post$
         .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
@@ -97,7 +97,6 @@ export class ReviewPageComponent implements OnDestroy {
   handleReviewUpdate(isCreated: boolean) {
     this.wasReviewCreated = isCreated;
     this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
-    
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 transactions-list-page {
   @include DefaultSpacings();
   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
 }
 
 .transaction-item {
@@ -41,12 +41,12 @@ transaction-page {
 
 .transact-post-items-list {
   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
-    .transaction-item {
-      margin: 1em !important;
-      margin-bottom: 2em !important;
-      width: 22em !important
-    }
+  grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
+  .transaction-item {
+    margin: 1em !important;
+    margin-bottom: 2em !important;
+    width: 22em !important;
+  }
 }
 
 .transact-post-item a {

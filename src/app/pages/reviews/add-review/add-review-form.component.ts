@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { IReview } from 'src/app/core/interfaces/review';
 import { ReviewService } from 'src/app/core/services/api/review.service';
@@ -62,7 +69,7 @@ import { AddReviewFormService } from './add-review-form.service';
         value="Post Review"
         [disabled]="!_addReviewFormService.valid"
       />
-      <pre>{{_addReviewFormService.form.value | json}}</pre>
+      <pre>{{ _addReviewFormService.form.value | json }}</pre>
     </form>
   `,
   styles: []
@@ -72,7 +79,7 @@ export class AddReviewFormComponent implements OnInit, OnDestroy {
   existingReview!: IReview | null;
   @Output() reviewCreatedEvent = new EventEmitter<boolean>();
   rating = 0;
-  description = "";
+  description = '';
   componentIsBeingDestroyedNotifier = new Subject<void>();
 
   constructor(
