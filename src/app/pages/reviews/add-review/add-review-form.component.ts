@@ -47,9 +47,9 @@ import { AddReviewFormService } from './add-review-form.service';
         Can't enter a number larger than 5
       </p>
 
-      <label for="#description">Description</label>
+      <label for="description">Description</label>
       <textarea
-        #description
+        id="description"
         type="text"
         formControlName="description"
         placeholder="Enter your thoughts on the product..."
