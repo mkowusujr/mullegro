@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { IReview } from 'src/app/core/interfaces/review';
+import { ReviewService } from 'src/app/core/services/api/review.service';
 import { AddReviewFormService } from './add-review-form.service';
 
 @Component({
@@ -24,6 +27,7 @@ import { AddReviewFormService } from './add-review-form.service';
           [step]="0.5"
           [min]="0"
           [max]="5"
+          required
         />
       </div>
       <p
@@ -42,6 +46,8 @@ import { AddReviewFormService } from './add-review-form.service';
         type="text"
         formControlName="description"
         placeholder="Enter your thoughts on the product..."
+        [(ngModel)]="description"
+        required
       ></textarea>
 
       <input
@@ -56,15 +62,41 @@ import { AddReviewFormService } from './add-review-form.service';
         value="Post Review"
         [disabled]="!_addReviewFormService.valid"
       />
+      <pre>{{_addReviewFormService.form.value | json}}</pre>
     </form>
   `,
   styles: []
 })
-export class AddReviewFormComponent {
-  @Input() postId!: number | undefined;
+export class AddReviewFormComponent implements OnInit, OnDestroy {
+  @Input() postId!: number;
+  existingReview!: IReview | null;
   @Output() reviewCreatedEvent = new EventEmitter<boolean>();
   rating = 0;
-  constructor(public _addReviewFormService: AddReviewFormService) {}
+  description = "";
+  componentIsBeingDestroyedNotifier = new Subject<void>();
+
+  constructor(
+    public _addReviewFormService: AddReviewFormService,
+    private _reviewService: ReviewService
+  ) {}
+
+  ngOnInit(): void {
+    if (this.postId) {
+      console.log(this.postId);
+      this._reviewService
+        .getReviewBelongingToPost(this.postId)
+        .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
+        .subscribe(review => {
+          if (review) {
+            this._addReviewFormService.form.setValue({
+              rating: review.rating,
+              description: review.description,
+              postId: review.postId
+            });
+          }
+        });
+    }
+  }
 
   onRatingChange(event: any) {
     this.rating = event.rating;
@@ -73,5 +105,10 @@ export class AddReviewFormComponent {
   onSubmit() {
     this._addReviewFormService.submitForm();
     this.reviewCreatedEvent.emit(true);
+  }
+
+  ngOnDestroy(): void {
+    this.componentIsBeingDestroyedNotifier.next();
+    this.componentIsBeingDestroyedNotifier.complete();
   }
 }

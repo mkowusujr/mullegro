@@ -23,20 +23,23 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
         [username]="username"
       ></post-details>
       <div col3 class="review-section">
-        <ng-container
-          *ngIf="
-            (review$ | async) || wasReviewCreated;
-            else noExistingReviewTemplate
-          "
-        >
+        <ng-container *ngIf="(review$ | async) || wasReviewCreated">
+          <h1>Existing Review</h1>
           <review [review]="review$ | async"></review>
         </ng-container>
-        <ng-template #noExistingReviewTemplate>
-          <add-review-form
-            [postId]="(post$ | async)?.id"
-            (reviewCreatedEvent)="setReviewCreatedFlag($event)"
-          ></add-review-form>
-        </ng-template>
+        <!-- <ng-template #noExistingReviewTemplate> -->
+        <h1
+          [innerText]="
+            (review$ | async) || wasReviewCreated
+              ? 'Update Review'
+              : 'Add Review'
+          "
+        ></h1>
+        <add-review-form
+          [postId]="postId"
+          (reviewCreatedEvent)="handleReviewUpdate($event)"
+        ></add-review-form>
+        <!-- </ng-template> -->
       </div>
     </three-column-display>
   `
@@ -49,6 +52,7 @@ export class ReviewPageComponent implements OnDestroy {
   wasReviewCreated = false;
   routeParamsSubscription: Subscription;
   componentIsBeingDestroyedNotifier = new Subject<void>();
+  r!: IReview;
 
   constructor(
     private _postService: PostService,
@@ -62,6 +66,7 @@ export class ReviewPageComponent implements OnDestroy {
       this.post$ = this._postService.getPost(this.postId);
       this.getPostOwnerInfo();
       this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
+      this.review$.subscribe(r => this.r = r);
 
       this.post$
         .pipe(takeUntil(this.componentIsBeingDestroyedNotifier))
@@ -89,8 +94,10 @@ export class ReviewPageComponent implements OnDestroy {
       });
   }
 
-  setReviewCreatedFlag(isCreated: boolean) {
+  handleReviewUpdate(isCreated: boolean) {
     this.wasReviewCreated = isCreated;
+    this.review$ = this._reviewService.getReviewBelongingToPost(this.postId);
+    
   }
 
   ngOnDestroy(): void {

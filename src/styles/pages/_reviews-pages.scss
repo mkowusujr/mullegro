@@ -9,11 +9,6 @@ add-review-form {
   }
 }
 
-.review-section {
-  @include DefaultSpacings();
-  width: 40em;
-}
-
 .rating-section {
   display: flex;
   align-items: center;
@@ -21,7 +16,6 @@ add-review-form {
 
   input {
     margin-top: 10px;
-    width: 3.5em;
     padding-right: 0.25em;
     padding-top: 0.25em;
     padding-bottom: 0.25em;

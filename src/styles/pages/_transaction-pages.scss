@@ -1,30 +1,32 @@
 transactions-list-page {
   @include DefaultSpacings();
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
 }
 
 .transaction-item {
   @include DropShadow();
   @include DropShadowHover();
   display: block;
-  background-color: $welcome-banner;
+  background-color: white;
+  color: black;
   padding: 1em;
   height: 12em;
-  width: 25em;
-  margin: 2em;
+  width: 18em;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
 
   p {
     line-height: 2;
   }
   &:hover {
-    background-color: $wel-ban-hover;
+    background-color: white;
   }
 }
 
 .transact-post-title {
-  color: rgb(255, 255, 255);
+  color: black;
   font-style: italic;
   text-indent: 1.5em;
 }
@@ -38,9 +40,13 @@ transaction-page {
 }
 
 .transact-post-items-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23em, 1fr));
+    .transaction-item {
+      margin: 1em !important;
+      margin-bottom: 2em !important;
+      width: 22em !important
+    }
 }
 
 .transact-post-item a {
@@ -48,7 +54,7 @@ transaction-page {
   display: flex;
   flex-direction: row;
   border-radius: 0.25em;
-  color: white;
+  color: black;
 
   img {
     height: 10em;

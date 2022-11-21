@@ -17,7 +17,12 @@ import { ITransaction } from 'src/app/core/interfaces/transaction';
         </p>
         <div>
           <p>Total Item Count: {{ transaction.itemCount }}</p>
-          <p>Total Amount: {{ transaction.totalAmount | currency }}</p>
+          <p>
+            Total Amount:
+            <span class="currency">{{
+              transaction.totalAmount | currency
+            }}</span>
+          </p>
         </div>
         <p>Item Names:</p>
         <ul>

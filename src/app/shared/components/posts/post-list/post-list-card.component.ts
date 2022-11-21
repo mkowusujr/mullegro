@@ -14,7 +14,7 @@ import { IPost } from 'src/app/core/interfaces/post';
         <ul>
           <li>{{ post.title }}</li>
           <li>{{ post.condition }}</li>
-          <li [style.color]="'green'">{{ post.price | currency }}</li>
+          <li class="currency">{{ post.price | currency }}</li>
           <li [style.color]="'gray'" [style.font-size]="'small'">
             <i>{{ post.createdAt | date }}</i>
           </li>

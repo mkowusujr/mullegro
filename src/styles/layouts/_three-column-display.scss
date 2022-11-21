@@ -11,7 +11,7 @@ three-column-display {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto;
 
-    .col3{
+    .col3 {
       grid-column: 1 / span 2;
     }
   }

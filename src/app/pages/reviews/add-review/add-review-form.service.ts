@@ -27,8 +27,20 @@ export class AddReviewFormService extends AbstractFormService<IReview> {
 
   submitForm() {
     this._reviewService
-      .createReview(this.getFormValue())
+      .getReviewBelongingToPost(this.form.get('postId')?.value)
       .pipe(take(1))
-      .subscribe();
+      .subscribe(existingReview => {
+        if (existingReview) {
+          this._reviewService
+            .updateReview(existingReview.id ?? -1, this.getFormValue())
+            .pipe(take(1))
+            .subscribe();
+        } else {
+          this._reviewService
+            .createReview(this.getFormValue())
+            .pipe(take(1))
+            .subscribe();
+        }
+      });
   }
 }

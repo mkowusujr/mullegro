@@ -63,7 +63,7 @@ nav-user-utils-menu {
   position: fixed;
   right: 1em;
   top: 6em;
-
+  z-index: 1000;
   display: block;
   background-color: $wel-ban-hover;
   margin-left: 1em;

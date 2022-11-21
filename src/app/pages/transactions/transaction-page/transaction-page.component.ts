@@ -10,7 +10,12 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
   template: `
     <h1>Transaction on {{ (transaction$ | async)?.createdAt | date }}</h1>
     <p>Item Count: {{ (transaction$ | async)?.itemCount }}</p>
-    <p>Total Amount: {{ (transaction$ | async)?.totalAmount | currency }}</p>
+    <p>
+      Total Amount:
+      <span class="currency">{{
+        (transaction$ | async)?.totalAmount | currency
+      }}</span>
+    </p>
     <h2>Transaction Items:</h2>
     <div class="transact-post-items-list">
       <div
@@ -24,7 +29,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
               <b>{{ post.title }}</b>
             </p>
             <p>{{ post.category }}</p>
-            <p>{{ post.price | currency }}</p>
+            <p class="currency">{{ post.price | currency }}</p>
             <p>{{ post.condition }}</p>
           </div>
         </a>
