@@ -6,7 +6,6 @@ user-profile-summary {
   line-height: 2;
   .info {
     @include DefaultSpacings();
-    width: 25vw;
     .bio {
       margin-top: 1em;
       margin-bottom: 1em;
