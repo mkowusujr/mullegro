@@ -9,6 +9,5 @@ category {
 
 .category-grid {
   @include DefaultSpacings();
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  @include ResponsiveGrid();
 }

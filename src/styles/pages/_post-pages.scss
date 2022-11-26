@@ -20,9 +20,7 @@ post-list-page {
   }
 
   .post-list-items {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @include ResponsiveGrid();
 
     .post-list-card {
       width: auto !important;

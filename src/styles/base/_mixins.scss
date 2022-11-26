@@ -29,3 +29,9 @@
   margin-left: 1.5em;
   margin-right: 1.5em;
 }
+
+@mixin ResponsiveGrid() {
+  display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}

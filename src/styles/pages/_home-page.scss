@@ -5,9 +5,6 @@ home {
   grid-row-gap: 1.5em;
   padding-bottom: 2em;
   @include DefaultSpacings();
-  @media screen and (max-width: $mobile-width-smaller) {
-    grid-template-columns: auto;
-  }
 }
 
 .welcome-banner {
@@ -22,8 +19,11 @@ home {
   height: 25vh;
 
   @include DropShadow();
-  @media screen and (max-width: $mobile-width-smaller) {
-    grid-template-columns: auto;
-    grid-column: 1;
+}
+
+@media screen and (max-width: $mobile-width) {
+  home {
+    display: flex;
+    flex-direction: column;
   }
 }
