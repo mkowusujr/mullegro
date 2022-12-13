@@ -7,6 +7,6 @@ export interface IPost {
   category: string;
   status?: string;
   userId?: number;
-  display_picture?: string;
+  displayPicture?: string;
   createdAt?: Date;
 }

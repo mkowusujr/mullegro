@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreatePostPageComponent } from './create-post-page.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreatePostFormModule } from './create-post-form/create-post-form.module';
+
 
 @NgModule({
   declarations: [CreatePostPageComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, CreatePostFormModule]
 })
 export class CreatePostPageModule {}

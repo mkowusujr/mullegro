@@ -9,7 +9,7 @@ import { IPost } from 'src/app/core/interfaces/post';
       routerLinkActive="active"
       class="post-list-card"
     >
-      <img class="post-image" [src]="post.display_picture" />
+      <img class="post-image" [src]="post.displayPicture" />
       <div class="post-details">
         <ul>
           <li>{{ post.title }}</li>

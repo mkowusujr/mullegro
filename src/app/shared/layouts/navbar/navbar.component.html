@@ -31,7 +31,7 @@
           (click)="toggleUserUtilsMenu()"
           (clickOutside)="onClickedOutside($event)"
         >
-          <img [src]="(currentUser$ | async)?.profile_picture" />
+          <img [src]="(currentUser$ | async)?.profilePicture" />
         </li>
       </ng-template>
 

@@ -5,6 +5,6 @@ export interface IUser {
   address: string;
   password?: string;
   bio?: string;
-  profile_picture: string;
+  profilePicture: string;
   createdAt?: Date;
 }

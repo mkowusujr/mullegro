@@ -15,7 +15,7 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
   template: `
     <three-column-display>
       <div col1>
-        <img [src]="(post$ | async)?.display_picture" />
+        <img [src]="(post$ | async)?.displayPicture" />
       </div>
       <post-details
         col2

@@ -6,14 +6,14 @@ import { PostListPageModule } from './post-list-page/post-list-page.module';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostListPageComponent } from './post-list-page/post-list-page.component';
 import { CreatePostPageModule } from './create-post-page/create-post-page.module';
-import { CreatePostPageComponent } from './create-post-page/create-post-page.component';
+import { CreatePostFormComponent } from './create-post-page/create-post-form/create-post-form.component';
 import { AuthGuard } from 'src/app/core/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'posts/create-post',
     title: 'Create Post | Mullegro',
-    component: CreatePostPageComponent,
+    component: CreatePostFormComponent,
     canActivate: [AuthGuard]
   },
   { path: 'post/:id', component: PostPageComponent },

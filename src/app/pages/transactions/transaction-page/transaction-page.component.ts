@@ -23,7 +23,7 @@ import { TransactionService } from 'src/app/core/services/api/transaction.servic
         *ngFor="let post of (transaction$ | async)?.posts"
       >
         <a [routerLink]="['posts/post', post.id]" routerLinkActive="active">
-          <img [src]="post.display_picture" />
+          <img [src]="post.displayPicture" />
           <div>
             <p>
               <b>{{ post.title }}</b>

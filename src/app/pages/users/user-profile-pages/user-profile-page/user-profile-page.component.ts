@@ -17,7 +17,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
     <three-column-display>
       <user-profile-summary
         col1
-        [avatarImg]="(currentUser$ | async)?.profile_picture"
+        [avatarImg]="(currentUser$ | async)?.profilePicture"
         [userUsername]="(currentUser$ | async)?.username"
         [userName]="(currentUser$ | async)?.name"
         [joinedDate]="(currentUser$ | async)?.createdAt"

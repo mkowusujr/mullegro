@@ -11,7 +11,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
     <div class="user-list">
       <ng-container *ngFor="let user of users$ | async">
         <user-list-card
-          [avatarImg]="user?.profile_picture"
+          [avatarImg]="user?.profilePicture"
           [userUsername]="user?.username"
           [userName]="user?.name"
           [userJoinOnDate]="user?.createdAt"

@@ -11,7 +11,7 @@ import { UserService } from 'src/app/core/services/api/user.service';
   template: `
     <three-column-display>
       <div col1>
-        <img [src]="(post$ | async)?.display_picture" />
+        <img [src]="(post$ | async)?.displayPicture" />
       </div>
       <post-details col2 [post]="post$ | async" [username]="username">
         <post-add-to-cart [post]="post$ | async"></post-add-to-cart>
