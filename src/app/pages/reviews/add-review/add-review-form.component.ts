@@ -6,10 +6,11 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { IReview } from 'src/app/core/interfaces/review';
 import { ReviewService } from 'src/app/core/services/api/review.service';
 import { AddReviewFormService } from './add-review-form.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'add-review-form',
@@ -69,7 +70,6 @@ import { AddReviewFormService } from './add-review-form.service';
         value="Post Review"
         [disabled]="!_addReviewFormService.valid"
       />
-      <pre>{{ _addReviewFormService.form.value | json }}</pre>
     </form>
   `,
   styles: []
@@ -84,7 +84,8 @@ export class AddReviewFormComponent implements OnInit, OnDestroy {
 
   constructor(
     public _addReviewFormService: AddReviewFormService,
-    private _reviewService: ReviewService
+    private _reviewService: ReviewService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -112,6 +113,7 @@ export class AddReviewFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this._addReviewFormService.submitForm();
     this.reviewCreatedEvent.emit(true);
+    this._router.navigate(['/user/transactions']);
   }
 
   ngOnDestroy(): void {

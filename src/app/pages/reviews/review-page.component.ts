@@ -27,7 +27,6 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
           <h1>Existing Review</h1>
           <review [review]="review$ | async"></review>
         </ng-container>
-        <!-- <ng-template #noExistingReviewTemplate> -->
         <h1
           [innerText]="
             (review$ | async) || wasReviewCreated
@@ -39,7 +38,6 @@ import { AddReviewFormService } from './add-review/add-review-form.service';
           [postId]="postId"
           (reviewCreatedEvent)="handleReviewUpdate($event)"
         ></add-review-form>
-        <!-- </ng-template> -->
       </div>
     </three-column-display>
   `
